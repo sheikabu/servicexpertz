@@ -16,6 +16,7 @@ class User extends MY_Controller {
 
     function index() {
         //$this->load->view('home');
+		
     }
 
     public function create() {
