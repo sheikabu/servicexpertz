@@ -7,7 +7,7 @@
  *
  * @author https://www.roytuts.com
  */
-class Api extends MY_Controller {
+class User extends MY_Controller {
 
     function __construct() {
         parent::__construct();
@@ -17,8 +17,8 @@ class Api extends MY_Controller {
         //$this->load->view('home');
     }
 
-     function user() {
-     	echo 'user response';die;
+    public function create() {
+     	echo 'create user function';die;
         //$this->load->view('home');
     }
 
