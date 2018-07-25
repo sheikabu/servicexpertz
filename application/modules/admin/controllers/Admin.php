@@ -43,33 +43,9 @@ class Admin extends MY_Controller {
 		);
 		
 		$data=$this->valid_m->login_user($user_login['email'],$user_login['password']);
-		
 	
-/*if(!empty($this->input->post('email'))) {
-		$user_login=array(
-			'email' => $this->input->post('email'), 
-		'password' => md5($this->input->post('password')), 
-		);
-		$data=$this->valid_m->login_user($user_login['email'],$user_login['password']);
- 	if($data)
-      {
-      	$user_data=array(
-      		'email'=>$data,
-      		'logged_in'=>true
-      		);	
-      	$this->session->set_userdata($user_data);
-        $this->load_view('dashboard');
-      }
-      else{			       
-      	$this->session->set_flashdata('loginfailed','Please try again!');
-      	redirect(base_url().'Admin');      	
-      }
-		$info['message']="valid success";
-	 }
-	 else {
 	 	 $this->load_view('users');
-	 }*/
-	 $this->load_view('users');
+	
 	}
 	public function logout() //login_check
 	{
