@@ -1,7 +1,10 @@
+ 
+ 
  <div class="container container-login">
     <div class="row">
 	   <div class="col-md-6 bg-login"></div>
         <div class="login-form col-md-6">
+		
             <form method="post" action="<?php echo base_url(); ?>admin/dashboard">
                 <!-- <div class="col-md-12"><img src="<?php echo base_url(); ?>assets/images/logo-yanbytes.png" width="100%" /></div> -->
                 <h2 class="text-center mt-20">Log in</h2>       
