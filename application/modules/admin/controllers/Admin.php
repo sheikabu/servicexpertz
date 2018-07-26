@@ -11,7 +11,9 @@ class Admin extends MY_Controller {
 
     function __construct() {
         parent::__construct();
+		$this->load->library('session');
         $this->load->helper('url');
+		$this->load->model('valid_m');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -33,4 +35,24 @@ class Admin extends MY_Controller {
         $this->load_view('users',$data);    
     }
 
+	public function dashboard() //login_check
+	{
+		$user_login=array(
+			'email' => $this->input->post('email'), 
+		'password' => $this->input->post('password'), 
+		);
+		
+		$data=$this->valid_m->login_user($user_login['email'],$user_login['password']);
+	
+	 	 $this->load_view('users');
+	
+	}
+	public function logout() //login_check
+	{
+		$this->session->unset_userdata('logged_in');
+		$this->session->unset_userdata('email');
+	   	$this->session->set_flashdata('user_loggedout','you are now logged out');
+      	redirect('Admin');
+			
+	}
 }
