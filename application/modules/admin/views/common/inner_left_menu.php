@@ -1,3 +1,5 @@
+<div class="container-fluid">
+<div class="row content">
  <div class="col-sm-3 sidenav">
           <h4>Admin</h4>
           <ul class="nav nav-pills nav-stacked">
