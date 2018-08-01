@@ -42,7 +42,21 @@ class Admin extends MY_Controller {
 
 	public function dashboard() //login_check
 	{
-
+		 // Load the model
+		 $login=new LoginModel;
+         $result = $login->validate();
+        // Now we verify the result
+        if(! $result){
+            // If user did not validate, then show them login page again
+            $this->index();
+        }else{
+            // If user did validate, 
+            // Send them to members area
+            redirect('home');
+        }
+		
+		exit;
+		
 		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
