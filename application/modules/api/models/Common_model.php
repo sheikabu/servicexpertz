@@ -6,13 +6,17 @@ class Common_model extends CI_Model {
             return $this->db->insert($table, $data);
         }
 
-        public function update_entry()
+        public function updateRecords($table, $values, $condition )
         {
-                $this->title    = $_POST['title'];
-                $this->content  = $_POST['content'];
-                $this->date     = time();
-                $this->db->update('entries', $this, array('id' => $_POST['id']));
+               // $this->title    = $_POST['title'];
+               /// $this->content  = $_POST['content'];
+               // $this->date     = time();
+                return $this->db->update($table, $values, $condition);
         }
+		
+		public function getRecords($table, $condition, $limit = null, $offset = null){
+			return $this->db->get_where($table, $condition, $limit, $offset)->result();
+		}
 
 }
 

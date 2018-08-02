@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['api/user/create'] = 'api/user/create';
+$route['api/user/change_password'] = 'api/user/changePassword';
 
 
 
