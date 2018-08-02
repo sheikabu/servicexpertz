@@ -7,13 +7,9 @@ class User_model extends CI_Model {
         public $date;
 
         public function getUserList(){
-			$result = $this->db
-							->query("SELECT * FROM users;")
+			return $this->db
+							->query("SELECT * FROM users")
 							->result();
-			
-				echo "<pre>";
-				print_r($result);
-				die;
         }
 /*
         public function insert_entry()
