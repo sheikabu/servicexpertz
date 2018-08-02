@@ -49,7 +49,7 @@ class Admin extends MY_Controller {
             // If user did validate, 
             // Send them to members area
             $data['title'] = '';    	
-        	$this->load_view('users',$data);   
+        	redirect('admin/users');
         }	
 		
 	
