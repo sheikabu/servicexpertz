@@ -11,14 +11,10 @@ class Admin extends MY_Controller {
 
     function __construct() {
         parent::__construct();		
-        $this->load->helper('url');
-		$this->load->model('valid_m');
-		// Load form helper library
-		$this->load->helper('form');
-		// Load form validation library
-		$this->load->library('form_validation');
-		// Load session library
+        $this->load->helper('url');				
+		$this->load->helper('form');		
 		$this->load->library('session');
+		$this->load->model('LoginModel');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -46,29 +42,16 @@ class Admin extends MY_Controller {
 		 $login=new LoginModel;
          $result = $login->validate();
         // Now we verify the result
-        if(! $result){
+        if(!$result){
             // If user did not validate, then show them login page again
             $this->index();
-        }else{
+        }else{        	
             // If user did validate, 
             // Send them to members area
-            redirect('home');
-        }
+            $data['title'] = '';    	
+        	$this->load_view('users',$data);   
+        }	
 		
-		exit;
-		
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
-
-exit;
-		$user_login=array(
-			'email' => $this->input->post('email'), 
-		'password' => $this->input->post('password'), 
-		);
-		
-		$data=$this->valid_m->login_user($user_login['email'],$user_login['password']);
-	
-	 	 $this->load_view('users');
 	
 	}
 	public function logout() //login_check
@@ -76,7 +59,7 @@ exit;
 		$this->session->unset_userdata('logged_in');
 		$this->session->unset_userdata('email');
 	   	$this->session->set_flashdata('user_loggedout','you are now logged out');
-      	redirect('Admin');
+      	redirect('admin');
 			
 	}
 }

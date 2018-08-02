@@ -14,12 +14,14 @@
     <nav class="navbar navbar-inverse">
     <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>assets/images/logo-yanbytes.png" width="200" /></a>
+      <a class="navbar-brand" href="#"><img src="<?php echo base_url(); ?>assets/images/logo_servicexpertz _2.png" width="200" />
+      <span></span>
+      </a>
     </div>
   
     <div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>
       </div>
   </div>

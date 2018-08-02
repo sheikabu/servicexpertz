@@ -5,7 +5,12 @@
         <div class="col-md-12 text-center mt-50 mb-20"><img src="<?php echo base_url(); ?>assets/images/logo_servicexpertz.png" width="300" /></div>
     </div>
     <div class="row">
-	   <div class="col-md-6 bg-login"></div>
+	   <div class="col-md-6 bg-login">
+            <div class="col-md-12 text-center mt-50 mb-20"><img src="<?php echo base_url(); ?>assets/images/logo-servicexxpertz-white.png" width="300" /></div>
+            <ul>
+                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</li>
+            </ul>
+       </div>
         <div class="login-form col-md-6 ">
 		    <h2 class="text-center p-20">Log in</h2>  
             <form class="mt-50" method="post" action="<?php echo base_url(); ?>admin/dashboard">

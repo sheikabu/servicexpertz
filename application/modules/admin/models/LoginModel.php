@@ -10,8 +10,8 @@ class LoginModel extends CI_Model{
 
 	public function validate(){
         // grab user input
-        echo $username = $this->input->post('username');
-        echo $password = $this->input->post('password');
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
         
         // Prep the query
         $this->db->where('username', $username);
@@ -20,9 +20,9 @@ class LoginModel extends CI_Model{
         // Run the query
         $query = $this->db->get('users');
         // Let's check if there are any results
-		echo $this->db->last_query();
-		echo $query->num_rows;
-        if($query->num_rows == 1)
+		$this->db->last_query();
+		$num = $query->num_rows();
+        if($num == 1)
         {
             // If there is a user, then create session data
             $row = $query->row();
@@ -33,7 +33,7 @@ class LoginModel extends CI_Model{
                     'username' => $row->username,
                     'validated' => true
                     );
-            $this->session->set_userdata($data);
+            $this->session->set_userdata($data);            
             return true;
         }
         // If the previous process did not validate

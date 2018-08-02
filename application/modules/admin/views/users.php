@@ -1,9 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid col-md-9 col-sm-9">
 
       <div class="row content">
        
 
-<div class="col-sm-9">
+<div class="col-md-12 col-sm-12">
   <h4><small>RECENT POSTS</small></h4>
   <table class="table">
     <thead>
