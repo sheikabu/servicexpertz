@@ -4,6 +4,26 @@
       <h2 class="title">USERS LIST</h2>
 
         <div class="width-fluid">
+		<div>
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+											
+												<tbody>
+													<td>
+														Frist Name
+													</td>
+													<td>
+															<input type="text" name="location" value=""style="width:300px;">
+													</td>
+													
+													<td>
+													
+													<input type="hidden" name="id" value=""/>
+															<input type="submit" name="submit" value="Add Records">
+													</td>
+												</tbody>
+
+											</table>
+										</div>
           <div class="col-md-12 col-sm-12">
               <table id="userTable" class="table table-striped table-hover table-bordered" style="width: 100%;">
                 <thead>

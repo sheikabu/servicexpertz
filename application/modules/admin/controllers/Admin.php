@@ -15,6 +15,7 @@ class Admin extends MY_Controller {
 		$this->load->helper('form');		
 		$this->load->library('session');
 		$this->load->model('LoginModel');
+		$this->load->model('UserModel');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -36,7 +37,37 @@ class Admin extends MY_Controller {
     	$data['title'] = 'Title of the page';    	
         $this->load_view('users',$data);    
     }
+public function create()
+	{	      
+	    $this->load_view('user/create');	    
+	}
+	
+   public function store()
+   {
+       $user=new UserModel;
+       $user->insert_user();
+       redirect(base_url('admin/user'));
+    }
 
+	public function edit($id)
+   {
+       $vendor = $this->db->get_where('user', array('vid' => $id))->row();       
+       $this->load_view('user/edit',array('vendor'=>$vendor));
+   }
+
+      public function update($id)
+   {
+       $user=new UserModel;
+       $user->update_user($id);
+       redirect(base_url('admin/user'));
+   }
+
+      public function delete($id)
+   {
+       $this->db->where('vid', $id);
+       $this->db->delete('user');
+       redirect(base_url('admin/user'));
+   }
     function edit_user() {
     	$data['title'] = 'Title of the page';    	
         $this->load_view('edit_users',$data);    
