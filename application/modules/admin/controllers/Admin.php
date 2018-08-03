@@ -23,6 +23,12 @@ class Admin extends MY_Controller {
 	    $this->load->view($view, $vars);
 	    $this->load->view('common/inner_footer');
 	  }
+	  
+	  public function load_view_login($view, $vars = array()) {
+	    $this->load->view('common/header',$vars);       
+	    $this->load->view($view, $vars);
+	    $this->load->view('common/footer');
+	  }
 
     function index() {
     	$data['title'] = 'Title of the page'; 
@@ -35,7 +41,8 @@ class Admin extends MY_Controller {
     	$data['title'] = 'Title of the page';    	
         $this->load_view('users',$data);    
     }
-
+	
+	
 	public function dashboard() //login_check
 	{
 		 // Load the model
@@ -43,8 +50,10 @@ class Admin extends MY_Controller {
          $result = $login->validate();
         // Now we verify the result
         if(!$result){
-            // If user did not validate, then show them login page again
-            $this->index();
+            // If user did not validate, then show them login page again			
+			$data['error'] = 'Login Failed';  
+			$this->load_view_login('login',$data);
+            //$this->index();
         }else{        	
             // If user did validate, 
             // Send them to members area
@@ -52,8 +61,12 @@ class Admin extends MY_Controller {
         	redirect('admin/users');
         }	
 		
+		
 	
 	}
+	
+
+	
 	public function logout() //login_check
 	{
 		$this->session->unset_userdata('logged_in');
