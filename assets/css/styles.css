@@ -128,7 +128,7 @@ a:hover{
   float: none!important;
 }
 .border{
-  border:1px solid  #DDDDEB;
+  border:1px solid  #DDDDEB!important;
 }
 .bt{
   border-top:1px solid  #DDDDEB;
@@ -207,6 +207,31 @@ a:hover{
 .b{
   font-weight: bold;
 }
+.box-shadow{
+  box-shadow: -1px -1px 15px 0px  #DDDDE8;
+}
+table{
+  border:1px solid  #DDDDEB;
+}
+.table-hover tbody tr:hover{
+  background: #e0f7ff!important;
+}
+h2.title{
+  font-size: 18px;
+  color: #16A2D3;
+  margin: 10px;
+  font-weight: 700;
+}
+.w-100{
+  width: 100px;
+}
+.w-150{
+  width: 150px;
+}
+.w-200{
+  width: 200px;
+}
+
 /*-----------------------------------------------------Reset End -------------------------------------------------*/
 
 .container-login{
@@ -251,11 +276,29 @@ a:hover{
 .btn {        
     font-size: 15px;
     font-weight: bold;
+    cursor: pointer;
 }
 .sidenav .nav li{
     width: 100%;
     margin-top:10px;
 }
+.sidenav li:hover{
+  background-color: #16A2D3;
+  transition: 0.3s;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #fff;
+}
+
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
@@ -275,9 +318,31 @@ a:hover{
     display: inline-block;
 
 }
+.top-nav a{
+  text-decoration: none;
+
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+.navbar-nav .nav-item .nav-link .badge {
+    position: absolute;
+    margin-left: 0.75rem;
+    top: 0.3rem;
+    font-weight: 400;
+    font-size: 0.5rem;
+}
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
+/*.row.content {height: 450px}*/
 
 /* Set gray background color and 100% height */
 .sidenav {
@@ -285,7 +350,19 @@ a:hover{
   background-color: #f1f1f1;
   height: 100%;
 }
-
+.icon {
+  font-size: 18px;
+  margin: 0 5px;
+}
+.icon:hover{
+  color: #000;
+}
+.fa{
+  font-size: 18px !important;
+}
+.form-group .control-label{
+  font-weight: 700;
+}
 /* Set black background color, white text and some padding */
 footer {
   border-top:1px solid #999;
@@ -308,4 +385,15 @@ footer {
     border-radius: 10px;
     margin-top: 50px;
   }
+}
+@media screen and (max-width: 575px) {
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

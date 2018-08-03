@@ -22,16 +22,11 @@ class Admin extends MY_Controller {
 	    $this->load->view('common/inner_left_menu');    
 	    $this->load->view($view, $vars);
 	    $this->load->view('common/inner_footer');
-	  }
-	  
-	  public function load_view_login($view, $vars = array()) {
-	    $this->load->view('common/header',$vars);       
-	    $this->load->view($view, $vars);
-	    $this->load->view('common/footer');
-	  }
+	  }  
+	 
 
-    function index() {
-    	$data['title'] = 'Title of the page'; 
+    function index($data = NULL) {
+    	//$data['title'] = 'Title of the page'; 
     	$this->load->view('common/header',$data);     	        
         $this->load->view('login',$data);
         $this->load->view('common/footer');
@@ -41,6 +36,11 @@ class Admin extends MY_Controller {
     	$data['title'] = 'Title of the page';    	
         $this->load_view('users',$data);    
     }
+
+    function edit_user() {
+    	$data['title'] = 'Title of the page';    	
+        $this->load_view('edit_users',$data);    
+    }
 	
 	
 	public function dashboard() //login_check
@@ -49,23 +49,17 @@ class Admin extends MY_Controller {
 		 $login=new LoginModel;
          $result = $login->validate();
         // Now we verify the result
-        if(!$result){
-            // If user did not validate, then show them login page again			
-			$data['error'] = 'Login Failed';  
-			$this->load_view_login('login',$data);
-            //$this->index();
+        if(!$result){            
+			$data['error'] = 'Login Failed';			
+            $this->index($data);
         }else{        	
             // If user did validate, 
             // Send them to members area
             $data['title'] = '';    	
         	redirect('admin/users');
-        }	
-		
-		
-	
+        }		
 	}
 	
-
 	
 	public function logout() //login_check
 	{
