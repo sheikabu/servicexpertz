@@ -1,0 +1,399 @@
+
+html, body, .container{
+  height:100%;
+    letter-spacing: .02em;
+    font-size:13px;
+}
+h3{
+  color: #333;
+  font-size: 16px;
+  margin:0;
+}
+a{
+  color: #1E529F;
+  cursor: pointer;
+}
+ul, li{
+  list-style: none;
+  margin: 0;
+}
+a{
+  color:#1E529F;
+  text-decoration: underline;
+}
+a:hover{
+  color:  #333364
+; text-decoration: none;
+}
+/*label{
+  font-weight: 600;
+  font-size:13px;
+  margin-bottom:5px!important;
+}*/
+.mb-0{
+  margin-bottom:0px!important;
+}
+.mt-0{
+  margin-top:0px!important;
+}
+.mr-0{
+  margin-right:0px!important;
+}
+.ml-0{
+  margin-left:0px!important;
+}
+.m-5{
+  margin: 5px;
+}
+.m-10{
+  margin: 10px;
+}
+.m-2{
+  margin:2px;
+}
+.mb-5{
+  margin-bottom: 5px;
+}
+.mt-5{
+  margin-top: 5px;
+}
+.mr-5{
+  margin-right: 5px;
+}
+.ml-5{
+  margin-left:5px;
+}
+.mb-10{
+  margin-bottom: 10px;
+}
+.mt-10{
+  margin-top: 10px;
+}
+.mr-10{
+  margin-right: 10px;
+}
+.ml-10{
+  margin-left:10px;
+}
+.mb-15{
+  margin-bottom: 15px;
+}
+.mt-15{
+  margin-top: 15px;
+}
+.mr-15{
+  margin-right: 15px;
+}
+.ml-15{
+  margin-left:15px;
+}
+.mb-20{
+  margin-bottom: 20px;
+}
+.mt-20{
+  margin-top: 20px;
+}
+.mr-20{
+  margin-right: 20px;
+}
+.ml-20{
+  margin-left:20px;
+}
+.mb-30{
+  margin-bottom: 30px;
+}
+.mt-30{
+  margin-top: 30px;
+}
+.mr-30{
+  margin-right: 30px;
+}
+.ml-30{
+  margin-left:30px;
+}
+.mt-50{
+  margin-top: 50px;
+}
+.mt-100{
+  margin-top: 100px;
+}
+.mt-20per{
+  margin-top: 20%;
+}
+.mt-25per{
+  margin-top: 25%;
+}
+.m-auto{
+  margin: 0 auto;
+  float: none!important;
+}
+.border{
+  border:1px solid  #DDDDEB!important;
+}
+.bt{
+  border-top:1px solid  #DDDDEB;
+}
+.bb{
+  border-bottom:1px solid  #DDDDEB;
+}
+.bl{
+  border-left:1px solid  #DDDDEB;
+}
+.br{
+  border-right:1px solid  #DDDDEB;
+}
+.b-none, .b-0{
+  border:none!important;
+}
+.b-ra-5{
+  border-radius: 5px
+}
+.b-ra-10{
+  border-radius: 10px
+}
+.p-5{
+  padding: 5px!important;
+}
+.p-10{
+  padding: 10px;
+}
+.p-15{
+  padding: 15px;
+}
+.p-20{
+  padding: 20px;
+}
+.pl-0{
+  padding-left: 0!important;
+}
+.pr-0{
+  padding-right: 0!important;
+}
+.pl-5{
+  padding-left: 5px;
+}
+.pr-5{
+  padding-right: 5px;
+}
+.pt-7{
+  padding-top: 7px;
+}
+.width-fluid{
+  width:100%!important;
+}
+.width-70per{
+  width: 70%;
+}
+.width-60per{
+  width: 60%;
+}
+#message {
+  font-size:12px;
+  text-align:right
+  }
+.d-if{
+  display: inline-flex !important;
+}
+.d-ib{
+  display: inline-block;
+}
+.d-block{
+  display: block;
+}
+
+.hidden{
+  display: none;
+}
+.b{
+  font-weight: bold;
+}
+.box-shadow{
+  box-shadow: -1px -1px 15px 0px  #DDDDE8;
+}
+table{
+  border:1px solid  #DDDDEB;
+}
+.table-hover tbody tr:hover{
+  background: #e0f7ff!important;
+}
+h2.title{
+  font-size: 18px;
+  color: #16A2D3;
+  margin: 10px;
+  font-weight: 700;
+}
+.w-100{
+  width: 100px;
+}
+.w-150{
+  width: 150px;
+}
+.w-200{
+  width: 200px;
+}
+
+/*-----------------------------------------------------Reset End -------------------------------------------------*/
+
+.container-login{
+	height: 94%;
+}
+
+.bg{
+    /*background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);*/
+    background:url(../images/bg.png);
+    background-color: #0f425d;
+    color: #fff;
+    opacity: 0.95;
+}
+.bg-login{
+	/*background:url(../images/IMG-20180726-WA0003.jpg) center;*/
+	/*min-height: 600px;*/
+  background-color: #16A2D3;
+  min-height: 450px;
+  border-radius:10px 0 0 10px;
+}
+
+.login-form {
+  /*margin: 50px auto;*/
+  color: #232323;
+  /*background-color: #E5C49B;*/
+  background-color: #F5AC45;
+  border-radius:0 10px 10px 0;
+}
+.login-form form {
+   margin-bottom: 15px;
+  /* background: #f7f7f7;
+   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+   padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.sidenav .nav li{
+    width: 100%;
+    margin-top:10px;
+}
+.sidenav li:hover{
+  background-color: #16A2D3;
+  transition: 0.3s;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #fff;
+}
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px #ccc;
+  margin-bottom: 8px;
+}
+.navbar-nav{
+    display: inline-block;
+}
+.navbar-nav li{
+    display: inline-block;
+}
+.navbar-header{
+    display: inline-block;
+
+}
+.top-nav a{
+  text-decoration: none;
+
+}
+.badge {
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+.navbar-nav .nav-item .nav-link .badge {
+    position: absolute;
+    margin-left: 0.75rem;
+    top: 0.3rem;
+    font-weight: 400;
+    font-size: 0.5rem;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+/*.row.content {height: 450px}*/
+
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+.icon {
+  font-size: 18px;
+  margin: 0 5px;
+}
+.icon:hover{
+  color: #000;
+}
+.fa{
+  font-size: 18px !important;
+}
+.form-group .control-label{
+  font-weight: 700;
+}
+/* Set black background color, white text and some padding */
+footer {
+  border-top:1px solid #999;
+  padding: 5px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {
+    height:auto;
+  } 
+  .bg-login{
+    display: none;
+  }
+  .login-form{
+    border-radius: 10px;
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
