@@ -13,9 +13,6 @@ class User extends MY_Controller {
 
     function index() {
 		
-		echo "11111111111";die;
-        //$this->load->view('home');
-		
     }
 	
 	public function create(){

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2018 at 06:08 PM
+-- Generation Time: Aug 03, 2018 at 07:13 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -23,15 +23,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(150) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1'
+CREATE TABLE `category` (
+  `category_id` int(150) NOT NULL,
+  `category_name` varchar(250) NOT NULL,
+  `category_type` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,20 +40,20 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `users`
+-- Indexes for table `category`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(150) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `category`
+  MODIFY `category_id` int(150) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
