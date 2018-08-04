@@ -20,6 +20,7 @@ class User extends MY_Controller {
         $validation = $this->validateInput($data);
         if ($validation == 1001) {
             $data['password'] = md5($data['password']);
+			$data['password'] = "user";
             $res = $this->common_model->insert('users', $data);
             if ($res == 1) {
                 $response = array('code' => 1001, 'status' => 'success', 'message' => 'record added successfully.');
