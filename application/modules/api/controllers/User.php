@@ -94,7 +94,7 @@ class User extends MY_Controller {
             echo "Message could not be sent...";
          }
 		 */
-		 $result = array('code' => 1001, 'status' => 'success', 'message' => 'New Password has been sent to your mail!');
+		 $result = array('code' => 1001, 'status' => 'success', 'message' => 'New password has been sent to your mail!');
 
 		}
 		echo json_encode($result);
