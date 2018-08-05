@@ -10,12 +10,14 @@
 class Admin extends MY_Controller {
 
     function __construct() {
-        parent::__construct();		
+        parent::__construct();	
+        $this->load->library('session');		
         $this->load->helper('url');				
 		$this->load->helper('form');		
-		$this->load->library('session');
+		
 		$this->load->model('LoginModel');
 		$this->load->model('UserModel');
+		$this->load->helper('date');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -41,37 +43,80 @@ public function create()
 	{	      
 	    $this->load_view('user/create');	    
 	}
+	 
+ 
+
+	public function insert_user() { 
+			  $userid = $this->input->post('userid');
+			  $first_name = $this->input->post('first_name'); 
+$last_name = $this->input->post('last_name'); 
+$email = $this->input->post('email'); 			  
+			
+            $this->UserModel->insertuser($userid,$first_name,$last_name,$email); 
+             $data['user'] = $this->UserModel->getlDetails();
+			$data['message']='<div class="alert alert-block alert-success">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
+
+									<i class="ace-icon fa fa-check green"></i>
+
+									Add successfully
 	
-   public function store()
+								</div>';
+             $this->load_view('admin/users', $data);
+		}
+
+      public function update($userid)
    {
        $user=new UserModel;
-       $user->insert_user();
-       redirect(base_url('admin/user'));
-    }
-
-	public function edit($id)
-   {
-       $vendor = $this->db->get_where('user', array('vid' => $id))->row();       
-       $this->load_view('user/edit',array('vendor'=>$vendor));
+       $user->update_user($userid);
+       redirect(base_url('admin/users'));
    }
 
-      public function update($id)
-   {
-       $user=new UserModel;
-       $user->update_user($id);
-       redirect(base_url('admin/user'));
-   }
+     public function delete()
+{
+        $userid = $this->input->get('userid');
+        $delstatus = $this->UserModel->deleteuser($userid);
+		if($delstatus==1)
+		{
+			$data['user'] = $this->UserModel->getlDetails();
+			
+		     $this->load_view('users',$data);
+			
+			
+		}
+		
+} 
+   public function edit_users()
 
-      public function delete($id)
-   {
-       $this->db->where('vid', $id);
-       $this->db->delete('user');
-       redirect(base_url('admin/user'));
-   }
-    function edit_user() {
-    	$data['title'] = 'Title of the page';    	
-        $this->load_view('edit_users',$data);    
-    }
+         {
+			 $userid = $this->input->get('userid');
+             $row = $this->UserModel->geteuser($userid);
+             $data['user'] = $row;
+             $this->load_view('edit_users', $data);
+         }
+		
+		public function edit_user_success() { 
+			  $userid = $this->input->post('userid');
+			  $first_name = $this->input->post('first_name');  
+			   $last_name = $this->input->post('last_name'); 
+			    $email = $this->input->post('email'); 
+			  
+             $this->UserModel->updateuser($userid,$first_name,$last_name,$email);
+             $data['user'] = $this->UserModel->getlDetails();
+			$data['message1']='<div class="alert alert-block alert-success">
+									<button type="button" class="close" data-dismiss="alert">
+										<i class="ace-icon fa fa-times"></i>
+									</button>
+
+									<i class="ace-icon fa fa-check green"></i>
+
+									Edit successfully
+	
+								</div>';
+             $this->load_view('users', $data);
+		}
 	
 	
 	public function dashboard() //login_check
