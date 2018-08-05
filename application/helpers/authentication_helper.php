@@ -1,19 +1,32 @@
 <?php
 
-class Common_model extends CI_Model {
+	if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-        public function insert($table, $data){
-            return $this->db->insert($table, $data);
-        }
 
-        public function updateRecords($table, $values, $condition ){
-            return $this->db->update($table, $values, $condition);
-        }
-		
-		public function getRecords($table, $condition, $limit = null, $offset = null){
-			return $this->db->get_where($table, $condition, $limit, $offset)->result();
+        if (! function_exists('checkAuthentication')) {
+		 
+			function checkAuthentication($token){
+				$result = array();
+				if($token != ''){
+					$ci = get_instance();
+					$ci->load->model('api/common_model');
+					$token = explode(" ",$token);
+
+					$condition = array('token' => $token[1], 'active' => true);
+					$res = $ci->common_model->getRecords('users', $condition, 1);
+									
+					if(count($res) > 0){
+						$result['user_id'] = $res[0]->user_id;
+						$result['name'] = $res[0]->name;
+						$result['email'] = $res[0]->email;
+						$result['role'] = $res[0]->role;	
+					}
+				}
+				return $result;
+			}
 		}
+		
 
-}
+
 
 ?>

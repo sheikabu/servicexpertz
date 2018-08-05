@@ -85,21 +85,27 @@ class User extends MY_Controller {
     }
 	
 	public function changePassword(){
-		$data = json_decode(trim(file_get_contents('php://input')), true);
-        $validation = $this->validatePasswordInput($data);
-		if ($validation == 1001) {
-            $data['password'] = md5(trim($data['new_password']));
-			$condition = array('email' => trim($data['email']));
-			$values = array('password' => trim($data['password']));			
-            $res = $this->common_model->updateRecords('users', $values, $condition);
-            if ($res == 1) {
-                $response = array('code' => 1001, 'status' => 'success', 'message' => 'password changed successfully.');
-            } else {
-                $response = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
-            }	
-        } else {
-            $response = array('code' => 1002, 'status' => 'failed', 'message' => $validation);
-        }
+		$token = trim($this->input->get_request_header('Authorization'));		
+		$authentication = checkAuthentication($token);
+		if(count($authentication) > 0){
+			$data = json_decode(trim(file_get_contents('php://input')), true);
+			$validation = $this->validatePasswordInput($data);
+			if ($validation == 1001) {
+				$data['password'] = md5(trim($data['new_password']));
+				$condition = array('email' => trim($data['email']));
+				$values = array('password' => trim($data['password']));			
+				$res = $this->common_model->updateRecords('users', $values, $condition);
+				if ($res == 1) {
+					$response = array('code' => 1001, 'status' => 'success', 'message' => 'password changed successfully.');
+				} else {
+					$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
+				}	
+			} else {
+				$response = array('code' => 1002, 'status' => 'failed', 'message' => $validation);
+			}
+		}else{
+			$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Authentication failed!');
+		}
         echo json_encode($response);
 	}
 	
