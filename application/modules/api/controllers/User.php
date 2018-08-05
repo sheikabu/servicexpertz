@@ -124,16 +124,11 @@ class User extends MY_Controller {
 			$newpassword = $this->generateRandomString(15);
 			$values = array('password' => md5($newpassword));
 			$update_status = $this->common_model->updateRecords('users', $values, $condition );			
-			/* $mail_status = $this->sendNewPassword($email, $newpassword);
-         
-         if( $mail_status == true ) {
-            echo "Message sent successfully...";
-         }else {
-            echo "Message could not be sent...";
-         }
-		 */
-		 $result = array('code' => 1001, 'status' => 'success', 'message' => 'New password has been sent to your mail!');
-
+		    $mail_status = $this->sendNewPassword($email, $newpassword);
+			$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred!');
+			if( $mail_status == true ) {
+				$result = array('code' => 1001, 'status' => 'success', 'message' => 'New password has been sent to your mail!');
+			}
 		}
 		echo json_encode($result);
 		
