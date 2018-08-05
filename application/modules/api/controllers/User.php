@@ -15,12 +15,50 @@ class User extends MY_Controller {
 		
     }
 	
+	public function login(){
+		$data = json_decode(trim(file_get_contents('php://input')), true);
+		$email = trim($data['email']);
+		$password = md5(trim($data['password']));		
+		$condition = array('email' => $email, 'password' => $password, 'active' => true);
+		$res = $this->common_model->getRecords('users', $condition, 1);
+		$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Credential mismatch.');
+		if(count($res) == 1){
+			$result = array('code' => 1001, 'status' => 'success', 'message' => 'Successfully logged in.');
+			$token = $this->generateRandomString(1200);
+			$refresh_token = $this->generateRandomString(1200);	   
+			$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
+			$condition = array('user_id' => $res[0]->user_id);
+			$values = array('token' => $token, 'refresh_token' => $refresh_token);	
+
+			$res_update = $this->common_model->updateRecords('users', $values, $condition);
+				if($res_update == 1){
+					$result = array('code' => 1001, 'status' => 'success', 'message' => 'Successfully logged in.');
+					$result['token'] = $token;
+					$result['refresh_token'] = $refresh_token;
+				}
+			}
+		echo json_encode($result);
+	}
+	
+	public function logout(){
+		$res = trim($this->input->get_request_header('Authorization'));	
+		$token = explode(" ",$res);
+		$condition = array('token' => $token[1]);
+		$values = array('token' => '', 'refresh_token' => '');	
+		$res_update = $this->common_model->updateRecords('users', $values, $condition);
+		$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
+		if($res_update == 1){
+			$result = array('code' => 1001, 'status' => 'success', 'message' => 'Successfully logged out.');			
+		}	
+		echo json_encode($result);
+	}
+	
 	public function create(){
         $data = json_decode(trim(file_get_contents('php://input')), true);
         $validation = $this->validateInput($data);
         if ($validation == 1001) {
             $data['password'] = md5(trim($data['password']));
-			$data['password'] = "user";
+			$data['role'] = "user";
             $res = $this->common_model->insert('users', $data);
             if ($res == 1) {
                 $response = array('code' => 1001, 'status' => 'success', 'message' => 'record added successfully.');
@@ -83,7 +121,7 @@ class User extends MY_Controller {
 		$condition = array('email' => $email);	
 		$res = $this->common_model->getRecords('users', $condition);
 		if(count($res) > 0){
-			$newpassword = $this->generateRandomString();
+			$newpassword = $this->generateRandomString(15);
 			$values = array('password' => md5($newpassword));
 			$update_status = $this->common_model->updateRecords('users', $values, $condition );			
 			/* $mail_status = $this->sendNewPassword($email, $newpassword);
@@ -101,7 +139,7 @@ class User extends MY_Controller {
 		
 	}
 	
-	function generateRandomString($length = 15) {
+	function generateRandomString($length) {
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$charactersLength = strlen($characters);
 		$randomString = '';
