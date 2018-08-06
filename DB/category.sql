@@ -1,13 +1,11 @@
 -- phpMyAdmin SQL Dump
-
--- version 4.5.4.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Aug 02, 2018 at 05:38 PM
--- Server version: 5.7.22
--- PHP Version: 5.6.36-1+ubuntu14.04.1+deb.sury.org+1
-
+-- Host: 127.0.0.1
+-- Generation Time: Aug 03, 2018 at 07:13 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -18,46 +16,44 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-
+--
 -- Database: `servicexpertz`
-
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `users` (
-  `user_id` int(150) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
+CREATE TABLE `category` (
+  `category_id` int(150) NOT NULL,
+  `category_name` varchar(250) NOT NULL,
+  `category_type` int(11) NOT NULL,
+  `description` text NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `role` varchar(100) NOT NULL DEFAULT 'user',
-  `token` text NOT NULL,
-  `refresh_token` text NOT NULL
+  `image` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--
+--
+-- Indexes for dumped tables
+--
 
 --
--- Indexes for table `users`
+-- Indexes for table `category`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `users`
-
-  MODIFY `userid` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
+ALTER TABLE `category`
+  MODIFY `category_id` int(150) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

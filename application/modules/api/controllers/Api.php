@@ -18,7 +18,7 @@ class Api extends MY_Controller {
     }
 
      function user() {
-     	echo 'user response';
+     	echo 'user response';die;
         //$this->load->view('home');
     }
 
