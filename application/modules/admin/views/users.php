@@ -3,87 +3,120 @@
     <div class="col-md-12 col-sm-12">
       <h2 class="title">USERS LIST</h2>
 
+	
         <div class="width-fluid">
+		<form action="<?php echo base_url(); ?>/admin/insert_user" method="post">
+	
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+											
+												<tbody><tr>
+													<td>
+														Frist Name
+													</td>
+													<td>
+														last Name
+													</td>
+													<td>
+														email
+													</td>
+													<!-- <td>
+														phone no
+													</td> -->
+													</tr>
+													<tr>
+													<td>
+															<input type="text" name="first_name" value="" style="width:200px;">
+													</td>
+																										<td>
+															<input type="text" name="last_name" value="" style="width:200px;">
+													</td>
+																										<td>
+															<input type="text" name="email" value="" style="width:200px;">
+													</td>
+																									<!--	<td>
+															<input type="text" name="phone" value="" style="width:200px;">
+													</td>-->
+													</tr>
+													<tr>
+													<td>
+													
+												<input type="hidden" name="userid" value=""/>
+															<input type="submit" name="submit" value="Add Records">
+													</td>
+</tr>
+												</tbody>
+
+											</table>
+										
+										</form>
           <div class="col-md-12 col-sm-12">
               <table id="userTable" class="table table-striped table-hover table-bordered" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
+              
+              										
+												<thead>
+													<tr>
+														<th class="center">
+															<label class="pos-rel">
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+														</th>
+														  <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Edit</th>
                         <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>Nixon</td>
-                        <td>Edinburgh@gmail.com</td>
-                        <td>61</td>
-                        <td><a href="<?php echo base_url(); ?>admin/edit_user">link</a></td>
-                        <td>link</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Winters</td>
-                        <td>Tokyo@gmail.com</td>
-                        <td>63</td>
-                       <td><a href="<?php echo base_url(); ?>admin/edit_user">link</a></td>
-                        <td>link</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                        <td><a href="<?php echo base_url(); ?>admin/edit_user">link</a></td>
-                        <td>link</td>
-                    </tr>
-                   
-                </tbody>
-                
-            </table>
+													</tr>
+												</thead>
+
+												<tbody>
+												<?php 
+													//print_r($location);
+													foreach($user as $user) {
+													?>
+													<thead>
+													<tr>
+														<td class="center">
+															<label class="pos-rel">
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+														</td>
+
+														<td>
+															<a href="#"><?php echo $user->first_name; ?></a>
+														</td>
+														
+														<td>
+															<a href="#"><?php echo $user->last_name; ?></a>
+														</td>
+														
+														<td>
+															<a href="#"><?php echo $user->email; ?></a>
+														</td>
+														<td>
+															<a href="#">9994563904</a>
+														</td>
+														
+														<td><a href="<?php echo base_url(); ?>/admin/edit_users/?id=<?php echo $user->userid;?>" class='btnedit' title='edit'>edit</a>&nbsp;&nbsp;&nbsp;&nbsp;
+														<a href="<?php echo base_url(); ?>/admin/delete/?id=<?php echo $user->userid;?>" class='btndelete' title='delete'>Delete</a></td>    
+
+														
+														
+													</tr>
+													</thead>
+													<?php } ?>
+													
+												</tbody>
+											
+											</table>
+											
+			
+
           </div>
         </div>
-  <!-- <table class="table mt-10 table-striped table-hover">
-    <thead>
-        <tr>
-              <th scope="col" class="bb">#</th>
-              <th scope="col" class="bb">First</th>
-              <th scope="col" class="bb">Last</th>
-              <th scope="col" class="bb">Handle</th>
-              <th scope="col" class="bb">Action</th>
-        </tr>
-    </thead>
-        <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>
-                <a href="<?php echo base_url(); ?>admin/edit_user" class="icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                <a href="#" class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-              </td>
-          </tr>
-          <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td><a href="#"><i class="fa fa-rmove"></i></a></td>
-          </tr>
-          <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-              <td><a href="#"><i class="fa fa-rmove"></i></a></td>
-          </tr>
-        </tbody>
-    </table> -->
+
     </div>
   </div>
 </div>
