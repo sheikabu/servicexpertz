@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/* Author: Sheik
- * Description: Vendor class
+
+/* Author: Suganya
+ * Description: User class
  */
 class UserModel extends CI_Model{
     function __construct(){
@@ -10,9 +11,8 @@ class UserModel extends CI_Model{
 	public function getlDetails(){	
 	  $this->db->select('*');
 	  $this->db->from('users');
-	
-	  $query=$this->db->get();
-	  //echo $this->db->last_query(); exit;
+	   $this->db->where('role', 'user');
+	  $query=$this->db->get();	  
 	  $results = $query->result();
 	  return $results;
 	}
@@ -34,28 +34,17 @@ class UserModel extends CI_Model{
              return $query->row();
          }
    
- public function updateuser($userid,$first_name,$last_name,$email) {
-	  
-		
-		$this->db->set('first_name', ''.$first_name.'');  //Set the column name and which value to set..
-$this->db->set('last_name', ''.$last_name.'');
-$this->db->set('email', ''.$email.'');
-		$this->db->where('userid', $userid); //set column_name and value in which row need to update
+ public function updateuser($userid,$user_array) {
 
-		$this->db->update('users');
+ 		$this->db->where('userid', $userid);
+        $this->db->update('users', $user_array);
 
 		return true;
    }
-    public function insertuser($userid,$first_name,$last_name,$email)
-    {   
-        $data = array(
-            'first_name' => $first_name,
-			'last_name' => $last_name,
-			'email' => $email,
-            /* 'description'=> $this->input->post('description')  */     
-        );
-        return $this->db->insert('users', $data);
-		
+   
+    public function insertuser($user_array)
+    { 
+        $this->db->insert('users', $user_array);		
 		return true;
     }
 

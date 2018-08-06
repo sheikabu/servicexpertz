@@ -11,9 +11,8 @@ class Vendors extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-		$this->load->library('session');
-        $this->load->helper('url');
-		$this->load->model('VendorModel');
+		    $this->load->library('session');        
+		    $this->load->model('VendorModel');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -43,7 +42,7 @@ class Vendors extends MY_Controller {
        redirect(base_url('admin/vendors'));
     }
 
-	public function edit($id)
+	 public function edit($id)
    {
        $vendor = $this->db->get_where('vendors', array('vid' => $id))->row();       
        $this->load_view('vendors/edit',array('vendor'=>$vendor));

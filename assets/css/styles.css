@@ -216,6 +216,16 @@ table{
 .table-hover tbody tr:hover{
   background: #e0f7ff!important;
 }
+table.table-bordered.dataTable th, table.table-bordered.dataTable td{
+  padding:5px;
+}
+.dataTables_length{
+  display: inline-block;
+}
+.dataTables_filter, .dataTables_paginate {
+  display: inline-block;
+  float: right;
+}
 h2.title{
   font-size: 18px;
   color: #16A2D3;
@@ -278,19 +288,39 @@ h2.title{
     font-weight: bold;
     cursor: pointer;
 }
+.btn-primary{
+    background-color: #16A2D3;
+    border-color: #16A2D3;
+    text-decoration: none;
+}
+.btn-primary:hover{
+    background-color: #00749c;
+    border-color: #00749c;
+    text-decoration: none;
+}
+.sidenav {
+  padding-top: 20px;
+ /* background-color: #f1f1f1;*/
+ background: #273C51;
+  height: 100%;
+}
 .sidenav .nav li{
     width: 100%;
     margin-top:10px;
+    border-bottom: 1px solid #486684;
 }
 .sidenav li:hover{
   background-color: #16A2D3;
   transition: 0.3s;
 }
+.sidenav li.active{
+  background: #172330;
+}
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #fff;
     display: block;
     transition: 0.3s;
 }
@@ -298,7 +328,9 @@ h2.title{
 .sidenav a:hover {
     color: #fff;
 }
-
+.sidenav h4{
+  color: #16A2D3;
+}
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
@@ -345,11 +377,7 @@ h2.title{
 /*.row.content {height: 450px}*/
 
 /* Set gray background color and 100% height */
-.sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
-}
+
 .icon {
   font-size: 18px;
   margin: 0 5px;
@@ -363,6 +391,10 @@ h2.title{
 .form-group .control-label{
   font-weight: 700;
 }
+#userTable_wrapper div.row{
+  width: 100%!important;
+}
+
 /* Set black background color, white text and some padding */
 footer {
   border-top:1px solid #999;
