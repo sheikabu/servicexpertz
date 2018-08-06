@@ -11,8 +11,9 @@ class Vendors extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-		    $this->load->library('session');        
+		       
 		    $this->load->model('VendorModel');
+			$this->load->helper('date');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -21,44 +22,70 @@ class Vendors extends MY_Controller {
 	    $this->load->view($view, $vars);
 	    $this->load->view('common/inner_footer');
 	  }
-
-    function index() {
-       $vendors=new VendorModel;
-       $data['data']=$vendors->get_vendors();
-       print_r($data); exit;
-       $this->load_view('vendor/list',$data);    
-
+ function index($data = NULL) { 	
+    	$this->load->view('common/header',$data);     	        
+        $this->load->view('list',$data);
+        $this->load->view('common/footer');
+    }
+     function list_vendor() {
+    	$data['vendor_list'] = $this->VendorModel->getlDetails();   	
+        $this->load_view('vendors/list',$data);    
     }
 
-    public function create()
+
+  public function add()
 	{	      
 	    $this->load_view('vendors/create');	    
 	}
+
+	public function insert() { 			  
+		$vendors_array = array(
+            'first_name' => $this->input->post('first_name'),
+			'last_name' => $this->input->post('last_name'),
+			'email' => $this->input->post('email'),
+            'role'=> $this->input->post('role')
+        );					
+        $this->VendorModel->insertvendors($vendors_array);         
+        $this->session->set_flashdata('msg', 'Inserted successfully');
+        redirect('admin/vendors/list_vendor');
+
+	}
+
+
+     public function delete()
+	{	
+		$vid = $this->uri->segment(4);         
+        $delstatus = $this->VendorModel->deletevendors($vid);
+		if($delstatus==1)
+		{
+			$data['vendor'] = $this->VendorModel->getlDetails();			 
+			$this->session->set_flashdata('msg', 'Deleted successfully');
+		    redirect('admin/vendors/list_vendor');			
+		}
+		
+	} 
+   public function update()
+
+         {	
+         	 $vid = $this->uri->segment(4);			 
+             $row = $this->VendorModel->getevendors($vid);
+             $data['vendor'] = $row;
+             $this->load_view('admin/vendors/update', $data);
+         }
+		
+	public function updated() { 
+		  $vid = $this->input->post('vid');
+		  $vendors_array = array(
+	            'first_name' => $this->input->post('first_name'),
+				'last_name' => $this->input->post('last_name'),
+				'email' => $this->input->post('email'),
+	            'role'=> $this->input->post('role')
+	        );			
+		  
+         $this->VendorModel->updatevendors($vid,$vendors_array);
+         $this->session->set_flashdata('msg', 'updated successfully');
+	     redirect('admin/vendors/list_vendor');			
+	}
 	
-   public function store()
-   {
-       $vendors=new VendorModel;
-       $vendors->insert_vendor();
-       redirect(base_url('admin/vendors'));
-    }
-
-	 public function edit($id)
-   {
-       $vendor = $this->db->get_where('vendors', array('vid' => $id))->row();       
-       $this->load_view('vendors/edit',array('vendor'=>$vendor));
-   }
-
-      public function update($id)
-   {
-       $vendors=new VendorModel;
-       $vendors->update_vendor($id);
-       redirect(base_url('admin/vendors'));
-   }
-
-      public function delete($id)
-   {
-       $this->db->where('vid', $id);
-       $this->db->delete('vendors');
-       redirect(base_url('admin/vendors'));
-   }
 }
+
