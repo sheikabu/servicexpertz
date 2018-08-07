@@ -42,8 +42,7 @@ class Vendors extends MY_Controller {
 		$vendors_array = array(
             'first_name' => $this->input->post('first_name'),
 			'last_name' => $this->input->post('last_name'),
-			'email' => $this->input->post('email'),
-            'role'=> $this->input->post('role')
+			'email' => $this->input->post('email')            
         );					
         $this->VendorModel->insertvendors($vendors_array);         
         $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -78,8 +77,7 @@ class Vendors extends MY_Controller {
 		  $vendors_array = array(
 	            'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
-				'email' => $this->input->post('email'),
-	            'role'=> $this->input->post('role')
+				'email' => $this->input->post('email')	            
 	        );			
 		  
          $this->VendorModel->updatevendors($vid,$vendors_array);

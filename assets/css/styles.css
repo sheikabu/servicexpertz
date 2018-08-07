@@ -1,8 +1,12 @@
-
+/*html{
+  display:table;
+}*/
 html, body, .container{
-  height:100%;
+    width: 100%;
+    height:100%;
     letter-spacing: .02em;
     font-size:13px;
+    font-family: Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 h3{
   color: #333;
@@ -12,19 +16,18 @@ h3{
 a{
   color: #1E529F;
   cursor: pointer;
+  text-decoration: underline;
+}
+a:hover{
+  color:  #333364;
+  text-decoration: none;
 }
 ul, li{
   list-style: none;
   margin: 0;
 }
-a{
-  color:#1E529F;
-  text-decoration: underline;
-}
-a:hover{
-  color:  #333364
-; text-decoration: none;
-}
+
+
 /*label{
   font-weight: 600;
   font-size:13px;
@@ -219,12 +222,36 @@ table{
 table.table-bordered.dataTable th, table.table-bordered.dataTable td{
   padding:5px;
 }
-.dataTables_length{
-  display: inline-block;
+table.dataTable thead th{
+  border-bottom: 1px solid #486684!important;
 }
-.dataTables_filter, .dataTables_paginate {
-  display: inline-block;
-  float: right;
+.dataTables_wrapper .dataTables_paginate .paginate_button.active{
+    color: #333 !important;
+    border: 1px solid #979797;
+    background-color: #fff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #dcdcdc));
+    background: -webkit-linear-gradient(top, #fff 0%, #dcdcdc 100%);
+    background: -moz-linear-gradient(top, #fff 0%, #dcdcdc 100%);
+    background: -ms-linear-gradient(top, #fff 0%, #dcdcdc 100%);
+    background: -o-linear-gradient(top, #fff 0%, #dcdcdc 100%);
+    background: linear-gradient(to bottom, #fff 0%, #dcdcdc 100%);
+    
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.active a{
+    text-decoration: none;
+}
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{
+    color: #fff !important;
+    border: 1px solid #111;
+    background-color: #585858;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover a, .dataTables_wrapper .dataTables_paginate .paginate_button.next:hover a{
+  color: #222!important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover a{
+  color: #fff!important;
+  text-decoration: none;
 }
 h2.title{
   font-size: 18px;
@@ -243,7 +270,12 @@ h2.title{
 }
 
 /*-----------------------------------------------------Reset End -------------------------------------------------*/
-
+.container-fluid{
+  height: 86%;
+}
+.content{
+  height:100%;
+}
 .container-login{
 	height: 94%;
 }
@@ -306,7 +338,6 @@ h2.title{
 }
 .sidenav .nav li{
     width: 100%;
-    margin-top:10px;
     border-bottom: 1px solid #486684;
 }
 .sidenav li:hover{
@@ -319,7 +350,7 @@ h2.title{
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 13px;
     color: #fff;
     display: block;
     transition: 0.3s;
@@ -394,6 +425,10 @@ h2.title{
 #userTable_wrapper div.row{
   width: 100%!important;
 }
+table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting:after{
+  display: none !important;
+}
+
 
 /* Set black background color, white text and some padding */
 footer {
@@ -402,10 +437,21 @@ footer {
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 991px) {
+  .sidenav a{
+    padding-left: 0px;
+
+  }
+}
+
 @media screen and (max-width: 767px) {
   .sidenav {
     height: auto;
     padding: 15px;
+  }
+  .sidenav a{
+    padding-left: 0px;
+
   }
   .row.content {
     height:auto;
@@ -418,14 +464,71 @@ footer {
     margin-top: 50px;
   }
 }
-@media screen and (max-width: 575px) {
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+@media screen and (min-width: 576px){
+  .sidenav .closebtn, .sidenav .openbtn{
+    display: none;
   }
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+
+}
+@media screen and (max-width: 575px) {
+  html, body{
+    min-width: 376px;
+  }
+    #userDropdown span{
+      display: none;
+    }
+    .navbar-header{
+      margin-left: 36px;
+    }
+
+    .sidenav {
+        /*height: 100%;*/
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+       /* background-color: #fff;*/
+       background: none;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    .sidenav:after{
+
+    }
+    .sidenav a {
+        padding: 12px 8px 12px 32px;
+        text-decoration: none;
+        color: #16a2d3;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /*.sidenav a:hover {
+        color: #f1f1f1;
+    }*/
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 38px;
+        right: 36px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    .sidenav {
+      padding-top: 6px;
+      padding-right: 30px;
+    }
+     .sidenav h4{
+      display: none;
+    }
+    .sidenav .nav{
+    /*  width: 100%;
+      position: fixed;
+      background: #273C51;
+      top: 62px;
+      left: 0;*/
+      background: #273C51;
+    }
 }

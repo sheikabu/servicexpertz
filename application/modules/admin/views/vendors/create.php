@@ -1,8 +1,7 @@
 <div class="container-fluid col-md-9 col-sm-9">
 
   <div class="row content">
-    <div class="col-md-12 col-sm-12">
-      <h2 class="title">Add Vendor</h2>
+    <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
               <form class="form-horizontal" action="<?php echo base_url() ?>admin/vendors/insert" method="post">
@@ -28,11 +27,11 @@
               </div>
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="vendor">
               <div class="form-group">   
-                <div class="row">     
-                    <td>
-												<input type="submit" name="submit" value="Submit">
-										</td>
-                </div>
+                 
+                     <div class="col-sm-12"> 
+                        <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                   </div>
+                
               </div>
 			 
             </form>

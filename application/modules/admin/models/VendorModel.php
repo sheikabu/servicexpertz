@@ -9,8 +9,7 @@ class VendorModel extends CI_Model{
     
     public function getlDetails(){	
 	  $this->db->select('*');
-	  $this->db->from('vendors');
-	   $this->db->where('role', 'vendors');
+	  $this->db->from('vendors');	   
 	  $query=$this->db->get();	  
 	  $results = $query->result();
 	  return $results;

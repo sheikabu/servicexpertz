@@ -8,20 +8,20 @@
               <form class="form-horizontal" action="<?php echo base_url() ?>admin/vendors/updated" method="post">
 			 
               <div class="form-group">
-                <label class="control-label col-sm-2" for="firs
+                <label class="control-label col-sm-12" for="firs
 				tname">First Name</label>
                 <div class="col-sm-12">
                   <input type="text" class="form-control" placeholder="Enter First Name" name="first_name" value="<?php echo $vendor->first_name;?>">
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-2" for="lastname">Last Name</label>
+                <label class="control-label col-sm-12" for="lastname">Last Name</label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="l_name" placeholder="Enter Last Name" name="last_name" value="<?php echo $vendor->last_name;?>">
                 </div>
               </div>
 			  <div class="form-group">
-                <label class="control-label col-sm-2" for="lastname">Email</label>
+                <label class="control-label col-sm-12" for="lastname">Email</label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="l_name" placeholder="Enter email" name="email" value="<?php echo $vendor->email;?>">
                 </div>
@@ -29,11 +29,9 @@
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="vendor">
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="vid" value="<?php echo $vendor->vid; ?>">
               <div class="form-group">   
-                <div class="row">     
-                    <td>
-												<input type="submit" name="submit" value="Submit">
-										</td>
-                </div>
+                    <div class="col-sm-12"> 
+                       <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                    </div>
               </div>
 			 
             </form>
