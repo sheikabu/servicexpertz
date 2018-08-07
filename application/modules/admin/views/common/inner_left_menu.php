@@ -28,4 +28,5 @@ $(document).ready(function(){
         return this.href == current_url;
     }).last().parents('li').addClass('active');
 });
+
 </script>

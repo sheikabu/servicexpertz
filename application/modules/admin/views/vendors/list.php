@@ -1,7 +1,6 @@
 <div class="container-fluid col-md-9 col-sm-9">
   <div class="row content">
-    <div class="col-md-12 col-sm-12">
-      <h2 class="title">VENDORS LIST</h2>
+    <div class="col-md-12 col-sm-12">      
 	<div class="width-fluid"> 
 		<div class="row">
 			<div class="col-sm-12 mt-10 mb-10 text-right">

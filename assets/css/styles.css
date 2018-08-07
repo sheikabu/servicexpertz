@@ -222,8 +222,8 @@ table{
 table.table-bordered.dataTable th, table.table-bordered.dataTable td{
   padding:5px;
 }
-table.dataTable thead th{
-  border-bottom: 1px solid #486684!important;
+table.dataTable thead th, table.dataTable.no-footer{
+  border-bottom: 1px solid #789dc2!important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.active{
     color: #333 !important;

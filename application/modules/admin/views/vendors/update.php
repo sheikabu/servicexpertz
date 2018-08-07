@@ -1,8 +1,7 @@
 <div class="container-fluid col-md-9 col-sm-9">
 
   <div class="row content">
-    <div class="col-md-12 col-sm-12">
-      <h2 class="title">Add/Edit vendors</h2>
+    <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
               <form class="form-horizontal" action="<?php echo base_url() ?>admin/vendors/updated" method="post">
