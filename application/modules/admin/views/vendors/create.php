@@ -5,7 +5,7 @@
       <h2 class="title">Add Vendor</h2>
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" action="<?php echo base_url() ?>admin/vendors/store" method="post">
+              <form class="form-horizontal" action="<?php echo base_url() ?>admin/vendors/insert" method="post">
 			 
               <div class="form-group">
                 <label class="control-label col-sm-2" for="firs
@@ -26,7 +26,7 @@
                   <input type="text" class="form-control" id="l_name" placeholder="Enter email" name="email" value="">
                 </div>
               </div>
-                  <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="user">
+                  <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="vendor">
               <div class="form-group">   
                 <div class="row">     
                     <td>

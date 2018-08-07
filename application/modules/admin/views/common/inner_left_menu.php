@@ -4,7 +4,7 @@
           <h4>Site Administrator</h4>
           <ul class="nav nav-pills nav-stacked">            
             <li class="active"><a href="admin/user/list_user">Users</a></li>
-            <li><a href="admin/user/list_user">vendors</a></li>
+            <li><a href="admin/vendors/list_vendor">vendors</a></li>
             
         </ul><br>   
       </div>

@@ -7,39 +7,47 @@ class VendorModel extends CI_Model{
         parent::__construct();
     }
     
-    public function get_vendors()
-    {
-        if(!empty($this->input->get("search"))){
-          $this->db->like('title', $this->input->get("search"));
-          $this->db->or_like('description', $this->input->get("search")); 
-        }
+    public function getlDetails(){	
+	  $this->db->select('*');
+	  $this->db->from('vendors');
+	   $this->db->where('role', 'vendors');
+	  $query=$this->db->get();	  
+	  $results = $query->result();
+	  return $results;
+	}
+	
+ function deletevendors($vid)
+   {
 
-        $query = $this->db->get("vendors");       
-        return $query->result();
+  $this->load->database();
+ $this->db->delete('vendors', array('vid' => $vid));
+
+  
+   return true;
+   } 
+	public function getevendors($vid)
+
+         {
+             $this->db->where('vid', $vid);
+             $query = $this->db->get('vendors');
+             return $query->row();
+         }
+   
+ public function updatevendors($vid,$vendors_array) {
+
+ 		$this->db->where('vid', $vid);
+        $this->db->update('vendors', $vendors_array);
+
+		return true;
+   }
+   
+    public function insertvendors($vendors_array)
+    { 
+        $this->db->insert('vendors', $vendors_array);		
+		return true;
     }
 
-    public function insert_vendor()
-    {    
-        $data = array(
-            'name' => $this->input->post('name'),
-            'description'=> $this->input->post('description')      
-        );
-        return $this->db->insert('vendors', $data);
-    }
-
-    public function update_vendor($id) 
-    {
-        $data=array(
-            'name' => $this->input->post('name'),
-            'description'=> $this->input->post('description')
-        );
-        if($id==0){
-            return $this->db->insert('vendors',$data);
-        }else{
-            $this->db->where('vid',$id);
-            return $this->db->update('vendors',$data);
-        }        
-    }
+   
 
 }
 ?>
