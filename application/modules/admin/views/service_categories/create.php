@@ -9,11 +9,11 @@
              <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Main Service Categories</label>
 			        
-                    <select class="form-control" name="vendor_id"> 
+                    <select class="form-control" name="main_category_id"> 
                       <option>Select Main Service Categories</option>
-                      <?php foreach ($servicecategories as $key => $value) { ?>
-                      <option value="<?php echo $value->sc_id; ?>" <?php if($value->sc_id==$service_prosc_iders->vendor_id) { ?> selected <?php } ?>"><?php echo $value->main_category_id; ?></option>
-                      <?php } ?>                      
+                      <?php foreach ($service as $key => $value) { ?>
+                        <option value="<?php echo $value->main_category; ?>"><?php echo $value->main_category_id; ?></option>
+                      <?php } ?>                    
                     </select>
                 </div>
                 </div>

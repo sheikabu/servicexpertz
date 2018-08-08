@@ -14,6 +14,13 @@ class ServicecategoriesModel extends CI_Model{
 	  $results = $query->result();
 	  return $results;
 	}
+	 public function getmaincategories(){  
+    $this->db->select('*');
+    $this->db->from('service_main_categories');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
 	
  function deleteServicecategories($sc_id)
    {
