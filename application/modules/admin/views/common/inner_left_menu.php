@@ -9,6 +9,7 @@
             <li><a href="<?php echo base_url(); ?>admin/user/list_user"><i class="fa fa-users mr-3" aria-hidden="true"></i>Users</a></li>
             <li><a href="<?php echo base_url(); ?>admin/vendors/list_vendor"><i class="fa fa-user-circle-o mr-3" aria-hidden="true"></i>Vendors</a></li>
             <li><a href="<?php echo base_url(); ?>admin/serviceprovider/list_sp"><i class="fa fa-cogs mr-3" aria-hidden="true"></i>Service Providers</a></li>
+			<li><a href="<?php echo base_url(); ?>admin/servicecategories/list_servicecategories"><i class="fa fa-cogs mr-3" aria-hidden="true"></i>Service Categories</a></li>
         </ul><br>   
       </div>
 <script>

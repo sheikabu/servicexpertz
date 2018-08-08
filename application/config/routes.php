@@ -54,6 +54,7 @@ $route['api/user/create'] = 'api/user/create';
 $route['api/user/change_password'] = 'api/user/changePassword';
 $route['api/forgot_password'] = 'api/user/forgotPassword';
 $route['api/login'] = 'api/user/login';
+$route['api/refresh'] = 'api/user/refresh';
 $route['api/logout'] = 'api/user/logout';
 $route['api/category_list'] = 'api/category/getCategoryList';
 

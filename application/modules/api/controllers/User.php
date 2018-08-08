@@ -7,8 +7,12 @@ class User extends MY_Controller {
 
     function __construct() {
         parent::__construct();
+		header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
+        header('Access-Control-Max-Age: 1000');
 		$this->load->model("api/user_model");
 		$this->load->model('api/common_model');
+		
     }
 
     function index() {
@@ -23,21 +27,42 @@ class User extends MY_Controller {
 		$res = $this->common_model->getRecords('users', $condition, 1);
 		$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Credential mismatch.');
 		if(count($res) == 1){
-			$result = array('code' => 1001, 'status' => 'success', 'message' => 'Successfully logged in.');
-			$token = $this->generateRandomString(1200);
-			$refresh_token = $this->generateRandomString(1200);	   
-			$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
-			$condition = array('user_id' => $res[0]->user_id);
-			$values = array('token' => $token, 'refresh_token' => $refresh_token);	
-
-			$res_update = $this->common_model->updateRecords('users', $values, $condition);
-				if($res_update == 1){
-					$result = array('code' => 1001, 'status' => 'success', 'message' => 'Successfully logged in.');
-					$result['token'] = $token;
-					$result['refresh_token'] = $refresh_token;
-				}
-			}
+			$result = $this->updateToken($res[0]->user_id);
+		}
 		echo json_encode($result);
+	}
+	
+	public function refresh(){
+		$res = trim($this->input->get_request_header('Authorization'));	
+		$refresh_token = explode(" ",$res);
+		$current_time = date('Y-m-d H:i:s');
+		$condition = array('refresh_token' => $refresh_token[1]);
+		$valid_time = null;
+		$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Invalied token.');
+		$res = $this->common_model->getRecords('users', $condition, 1);
+		if($res){
+			$valid_time = date( "Y-m-d H:i:s", strtotime( $res[0]->last_login."+ 3 hours" ) );
+			$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Current token is valied.');	
+			if($valid_time < $current_time){	
+				$response = $this->updateToken($res[0]->user_id);			
+			}
+		}
+		echo json_encode($response);
+	}
+	
+	public function updateToken($user_id){
+		$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
+		$token = $this->generateRandomString(1200);
+		$refresh_token = $this->generateRandomString(1200);	   
+		$condition = array('user_id' => $user_id);
+		$values = array('token' => $token, 'refresh_token' => $refresh_token, 'last_login' => date('Y-m-d H:i:s'));	
+		$res_update = $this->common_model->updateRecords('users', $values, $condition);
+		if($res_update == 1){
+			$response = array('code' => 1001, 'status' => 'success', 'message' => 'Successfully logged in.');
+			$response['token'] = $token;
+			$response['refresh_token'] = $refresh_token;
+		}	
+		return $response;
 	}
 	
 	public function logout(){
