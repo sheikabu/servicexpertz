@@ -53,7 +53,13 @@ class ServicecategoriesModel extends CI_Model{
 		return true;
     }
 
-   
+   public function getMainServiceCategories(){  
+    $this->db->select('*');
+    $this->db->from('service_main_categories');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
 
 }
 ?>

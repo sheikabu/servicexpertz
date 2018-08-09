@@ -25,7 +25,7 @@
                     <input type="password" name="password" class="form-control" placeholder="Password" required>
                 </div>
                 <div class="form-group text-center">
-                    <button type="submit" class="width-135 pull-right btn btn-sm btn-primary">
+                    <button type="submit" class="w-200 pull-right btn btn-sm btn-primary">
                               <i class="ace-icon fa fa-key"></i>
                               <span class="bigger-110">Login</span>
                             </button>

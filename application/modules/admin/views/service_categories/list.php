@@ -4,7 +4,7 @@
 	<div class="width-fluid"> 
 		<div class="row">
 			<div class="col-sm-12 mt-10 mb-10 text-right">
-       		 	<a class="btn btn-primary" style="margin-right: 30px;" href="<?php echo base_url(); ?>admin/servicecategories/add">Add vendor </a>
+       		 	<a class="btn btn-primary" style="margin-right: 30px;" href="<?php echo base_url(); ?>admin/servicecategories/add">Add Service Category </a>
        		 </div>
        	</div>
        	<div class="row">
@@ -23,9 +23,8 @@
 			    <thead>
 			        <tr>
 			          
-						<th>main service categories</th>
-						<th>Sub Categories</th>
-						 <th>phone </th>
+						<th>Main Categories</th>
+						<th>Categories</th>						 
 						<th>Edit</th>
 						<th>Delete</th>
 				    </tr>
@@ -34,11 +33,9 @@
 			    <?php 
 				foreach($servicecategories_list as $service) {
 				?>
-			        <tr>
-			            
+			        <tr>			            
 			            <td><?php echo $service->main_category_id; ?></td>
-			             <td><?php echo $service->category; ?></td>
-			            <td>phone number</td>
+			             <td><?php echo $service->category; ?></td>			            
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/update/<?php echo $service->sc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/delete/<?php echo $service->sc_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 
