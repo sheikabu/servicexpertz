@@ -82,10 +82,10 @@
 							        <label class="control-label">Title/Designation</label>
 							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Title/Designation">
 						        </div>
-						        <div class="form-group">
+						        <!-- <div class="form-group">
 							        <label class="control-label">Telphone No.</label>
 							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Telphone No.">
-						        </div>
+						        </div> -->
 								<div class="form-group">
 							        <label class="control-label">Direct No.</label>
 							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Direct No.">

@@ -22,23 +22,57 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
-			           <th>First Name</th>
-						<th>Last Name</th>
+			           <th>Name of Company</th>
+						<th>Address</th>
+						<th>Pincode</th>
+						<th>Telephone No</th>
+						<th>Fax No.</th>
 						<th>Email</th>
-						<th>Phone</th>
-						<th>Edit</th>
-						<th>Delete</th>
+						<th>Web</th>
+						<th>Name of  Company Representative</th>
+						<th>Email of  Company Representative</th>
+						<th>Pan Card</th>
+						<th>Title/Designation</th>
+						<th>Direct No</th>
+						<th>Mobile No</th>
+						<th>Date Company was Established</th>
+						<th>Gross Annual ... for the ..year</th>
+						<th>Bank Name</th>
+						<th>Bank Address</th>
+						<th>Name of the Staff</th>
+						<th>Address</th>
+						<th>Skills</th>
+						<th>Experience</th>
+						
 				    </tr>
 			    </thead>
 			    <tbody>
-			    <?php 
+			   <?php 
 				foreach($vendor_list as $vendor) {
-				?>
+				?>  
 			        <tr>
-			            <td><?php echo $vendor->first_name; ?></td>
-			            <td><?php echo $vendor->last_name; ?></td>
-			             <td><?php echo $vendor->email; ?></td>
-			            <td>phone number</td>
+			            <td></td>
+			            <td></td>
+			             <td></td> 
+						 <td></td>
+			            <td></td>
+			             <td></td> 
+						 <td></td>
+			            <td></td>
+			             <td></td> 
+						 <td></td>
+			            <td></td>
+			             <td></td> 
+						 <td></td>
+			            <td></td>
+			             <td></td> 
+						 <td></td>
+			            <td></td>
+			             <td></td> 
+						 <td></td>
+			            <td></td>
+			             <td></td> 
+			           
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/vendors/update/<?php echo $vendor->vid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/vendors/delete/<?php echo $vendor->vid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 
@@ -61,12 +95,16 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function() {       
+  $(document).ready(function() { 
+  
   $('#userTable').dataTable( {
+	   
       "columnDefs": [
         { "width": "40%", "targets": 0 }
       ]
+	  
     } );
+	
   } );
 </script>
 <script>
