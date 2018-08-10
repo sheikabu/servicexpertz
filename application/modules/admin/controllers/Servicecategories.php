@@ -34,17 +34,7 @@ class Servicecategories extends MY_Controller {
 
 
   public function add()
-<<<<<<< HEAD
-	{	
-     $data['service'] = $this->ServicecategoriesModel->getmaincategories();
-	    $this->load_view('service_categories/create');	    
-	}
 
-	public function insert() { 			  
-		$Servicecategories_array = array(
-            /* 'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'), */
-=======
 	{	      
 		$data['servicecategories'] = $this->ServicecategoriesModel->getMainServiceCategories();		
 	    $this->load_view('service_categories/create',$data);      
@@ -52,7 +42,6 @@ class Servicecategories extends MY_Controller {
 
 	public function insert() { 			  
 		$Servicecategories_array = array(            
->>>>>>> f07c857e7380470b5d823c126240361a5e68fbc3
 			'main_category_id' => $this->input->post('main_category_id'),
 			'category' => $this->input->post('category')            
         );					

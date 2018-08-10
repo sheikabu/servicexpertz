@@ -22,7 +22,7 @@
 			    </div>
 			  </div>
 			  
-			  <form role="form" action="" method="post">
+			  <form role="form" action="<?php echo base_url() ?>admin/vendors/insert" method="post">
 			    <div class="row setup-content" id="step-1">
 			      	<div class="col-sm-12 col-md-offset-3">
 			      		<div class="row">
@@ -35,11 +35,11 @@
 						        
 						        <div class="form-group">
 							        <label class="control-label">Name of Company</label>
-							        <input maxlength="100" type="text" required="required" name="name_of_company" class="form-control" placeholder="Enter Company Name">
+							        <input maxlength="100" type="text" required="required" name="company_name" class="form-control" placeholder="Enter Company Name">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address</label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="address" rows="4"></textarea>
+							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="comany_address" rows="4"></textarea>
 						            
 						        </div>
 						        <div class="form-group">
@@ -48,19 +48,19 @@
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Telephone No.</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Telephone No.">
+							        <input maxlength="100" type="text"  class="form-control"  name="telephone_no" placeholder="Enter Telephone No.">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Fax No.</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Fax No.">
+							        <input maxlength="100" type="text"  class="form-control"  name="fax_no" placeholder="Enter Fax No.">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Email</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Email">
+							        <input maxlength="100" type="text"  class="form-control" name="email" placeholder="Enter Email">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Web</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Web">
+							        <input maxlength="100" type="text"  class="form-control"  name="web" placeholder="Enter Web">
 						        </div>
 								
 					        </div>
@@ -68,19 +68,19 @@
 
 						        <div class="form-group">
 							        <label class="control-label">Name of  Company Representative</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Name of  Company Representative">
+							        <input maxlength="100" type="text"  class="form-control" name="name_representative" placeholder="Enter Name of  Company Representative">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Email of  Company Representative</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Email of  Company Representative">
+							        <input maxlength="100" type="text"  class="form-control" name="email_crepresentative" placeholder="Enter Email of  Company Representative">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Pan Card</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Pan Card">
+							        <input maxlength="100" type="text"  class="form-control" name="pan_card" placeholder="Enter Pan Card">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Title/Designation</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Title/Designation">
+							        <input maxlength="100" type="text"  class="form-control" name="title_designation" placeholder="Enter Title/Designation">
 						        </div>
 						        <!-- <div class="form-group">
 							        <label class="control-label">Telphone No.</label>
@@ -88,19 +88,19 @@
 						        </div> -->
 								<div class="form-group">
 							        <label class="control-label">Direct No.</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Direct No.">
+							        <input maxlength="100" type="text"  class="form-control" name="direct_no" placeholder="Enter Direct No.">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Mobile No.</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Mobile No.">
+							        <input maxlength="100" type="text"  class="form-control" name="mobile_no" placeholder="Enter Mobile No.">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Date Company was Established</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Date Company was Established">
+							        <input maxlength="100" type="text"  class="form-control" name="date_cestablished" placeholder="Enter Date Company was Established">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Gross Annual ... for the ..year</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Gross Annual ... for the ..year">
+							        <input maxlength="100" type="text"  class="form-control" name="cross_annual" placeholder="Enter Gross Annual ... for the ..year">
 						        </div>
 					        </div>
 					    </div>
@@ -124,11 +124,11 @@
 			          		<div class="col-sm-6">
 						        <div class="form-group">
 						            <label class="control-label">Bank Name</label>
-						            <input maxlength="200" type="text"  required="required" class="form-control" placeholder="Enter Bank Name">
+						            <input maxlength="200" type="text"  required="required" class="form-control" name="bank_name" placeholder="Enter Bank Name">
 						        </div>
 						        <div class="form-group">
 						            <label class="control-label">Bank Address</label>
-						            <input maxlength="200" type="text" class="form-control" placeholder="Enter Bank Address">
+						            <input maxlength="200" type="text" class="form-control" name="bank_address" placeholder="Enter Bank Address">
 						        </div>
 						        
 					        </div>
@@ -154,20 +154,20 @@
 		          			<div class="col-sm-6">
 					          	<div class="form-group">
 							        <label class="control-label">Name of the Staff</label>
-							        <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Name of the Staff">
+							        <input maxlength="100" type="text" required="required" class="form-control" name="staff_name" placeholder="Enter Name of the Staff">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address</label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4"></textarea>
+							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="staff_address" rows="4"></textarea>
 						            
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Skills</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Skills">
+							        <input maxlength="100" type="text"  class="form-control" name="skills" placeholder="Enter Skills">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Experience</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Experience">
+							        <input maxlength="100" type="text"  class="form-control" name="experience" placeholder="Enter Experience">
 						        </div>
 					          
 					        </div>
@@ -175,7 +175,7 @@
 					    <div class="row">
 				       		<div class="col-sm-12">
 				       			<button class="btn btn-primary prevBtn btn-lg pull-left mb-10" type="button">Previous</button>
-					          	<button class="btn btn-success btn-lg pull-right mb-10" type="submit">Submit</button>
+					          	<button class="btn btn-success btn-lg pull-right mb-10" type="submit" name="submit" value="Submit">Submit</button>
 					        </div>
 					  	</div>
 					</div>

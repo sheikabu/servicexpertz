@@ -40,13 +40,29 @@ class Vendors extends MY_Controller {
 
 	public function insert() { 			  
 		$vendors_array = array(
-            'company_name' => $this->input->post('name_of_company'),
-			'comany_address' => $this->input->post('address'),
-			'address' => $this->input->post('address'),
+            'company_name' => $this->input->post('company_name'),
+			'comany_address' => $this->input->post('comany_address'),
 			'pincode' => $this->input->post('pincode'),
+			'telephone_no' => $this->input->post('telephone_no'),
+			'fax_no' => $this->input->post('fax_no'),
+			'email' => $this->input->post('email'), 
+			'web' => $this->input->post('web'),
+            'name_representative' => $this->input->post('name_representative'),
+			'email_crepresentative' => $this->input->post('email_crepresentative'),
+			'title_designation' => $this->input->post('title_designation'),
+			'direct_no' => $this->input->post('direct_no'),
+			'mobile_no' => $this->input->post('mobile_no'),
+			'date_cestablished' => $this->input->post('date_cestablished'),	
+			'cross_annual' => $this->input->post('cross_annual'), 
+			'bank_name' => $this->input->post('bank_name'), 
+			'bank_address' => $this->input->post('bank_address'), 
+			'staff_name' => $this->input->post('staff_name'), 
+			'staff_address' => $this->input->post('staff_address'), 
+			'skills' => $this->input->post('skills'),
+			'experience' => $this->input->post('experience') 		
 			
 
-			'email' => $this->input->post('email')            
+			           
         );					
         $this->VendorModel->insertvendors($vendors_array);         
         $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -79,9 +95,26 @@ class Vendors extends MY_Controller {
 	public function updated() { 
 		  $vid = $this->input->post('vid');
 		  $vendors_array = array(
-	            'first_name' => $this->input->post('first_name'),
-				'last_name' => $this->input->post('last_name'),
-				'email' => $this->input->post('email')	            
+	           'company_name' => $this->input->post('company_name'),
+			'comany_address' => $this->input->post('comany_address'),
+			'pincode' => $this->input->post('pincode'),
+			'telephone_no' => $this->input->post('telephone_no'),
+			'fax_no' => $this->input->post('fax_no'),
+			'email' => $this->input->post('email'), 
+			'web' => $this->input->post('web'),
+			'name_representative' => $this->input->post('name_representative'),
+			'email_crepresentative' => $this->input->post('email_crepresentative'),
+			'title_designation' => $this->input->post('title_designation'),
+			'direct_no' => $this->input->post('direct_no'),
+			'mobile_no' => $this->input->post('mobile_no'),
+			'date_cestablished' => $this->input->post('date_cestablished'),	
+			'cross_annual' => $this->input->post('cross_annual'), 
+			'bank_name' => $this->input->post('bank_name'), 
+			'bank_address' => $this->input->post('bank_address'), 
+			'staff_name' => $this->input->post('staff_name'), 
+			'staff_address' => $this->input->post('staff_address'), 
+			'skills' => $this->input->post('skills'),
+			'experience' => $this->input->post('experience') 	            
 	        );			
 		  
          $this->VendorModel->updatevendors($vid,$vendors_array);

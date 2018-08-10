@@ -11,7 +11,7 @@
                     <select name="vendor_id" class="form-control">
                       <option>SELECT VENDOR</option>
                       <?php foreach ($vendors as $key => $value) { ?>
-                        <option value="<?php echo $value->vid; ?>"><?php echo $value->first_name; ?></option>
+                        <option value="<?php echo $value->vid; ?>"><?php echo $value->company_name; ?></option>
                       <?php } ?>
                     </select>
                 </div>
