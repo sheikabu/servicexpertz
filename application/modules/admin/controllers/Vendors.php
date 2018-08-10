@@ -14,6 +14,7 @@ class Vendors extends MY_Controller {
 		       
 		    $this->load->model('VendorModel');
 			$this->load->helper('date');
+			$this->load->library('upload');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -38,7 +39,23 @@ class Vendors extends MY_Controller {
 	    $this->load_view('vendors/create');	    
 	}
 
-	public function insert() { 			  
+	public function insert() { 	
+/* if(!empty($_FILES["image_file"]["name"]))  
+			{   
+				$config['upload_path'] = 'upload/photos';
+				$config['overwrite'] = TRUE;
+				$config['allowed_types'] = 'jpg|jpeg|png|gif';  
+				$this->upload->initialize($config);
+				$this->load->library('upload', $config); //image upload
+
+				if(!$this->upload->do_upload('image_file'))  
+				{  
+				echo $this->upload->display_errors();  
+				}
+				$image = $_FILES["image_file"]["name"]; 
+			} else {
+				$image =  $this->input->post('old_image');
+			}	 */
 		$vendors_array = array(
             'company_name' => $this->input->post('company_name'),
 			'comany_address' => $this->input->post('comany_address'),
@@ -83,6 +100,14 @@ class Vendors extends MY_Controller {
 		}
 		
 	} 
+	public function view() // add user full details
+	{
+		 $vid = $this->uri->segment(4);			 
+             $row = $this->VendorModel->getevendors($vid);
+             $data['vendor'] = $row;
+             $this->load_view('admin/vendors/view', $data);
+		
+	}
    public function update()
 
          {	

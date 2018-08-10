@@ -31,6 +31,13 @@ class VendorModel extends CI_Model{
              $query = $this->db->get('vendors');
              return $query->row();
          }
+    public function viewvendors($vid,$vendors_array) {
+
+ 		$this->db->where('vid', $vid);
+        $this->db->update('vendors', $vendors_array);
+
+		return true;
+      }
    
  public function updatevendors($vid,$vendors_array) {
 
