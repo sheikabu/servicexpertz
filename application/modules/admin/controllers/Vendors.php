@@ -40,8 +40,12 @@ class Vendors extends MY_Controller {
 
 	public function insert() { 			  
 		$vendors_array = array(
-            'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'),
+            'company_name' => $this->input->post('name_of_company'),
+			'comany_address' => $this->input->post('address'),
+			'address' => $this->input->post('address'),
+			'pincode' => $this->input->post('pincode'),
+			
+
 			'email' => $this->input->post('email')            
         );					
         $this->VendorModel->insertvendors($vendors_array);         

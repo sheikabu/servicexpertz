@@ -35,16 +35,16 @@
 						        
 						        <div class="form-group">
 							        <label class="control-label">Name of Company</label>
-							        <input maxlength="100" type="text" required="required" class="form-control" placeholder="Enter Company Name">
+							        <input maxlength="100" type="text" required="required" name="name_of_company" class="form-control" placeholder="Enter Company Name">
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address</label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="4"></textarea>
+							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="address" rows="4"></textarea>
 						            
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Pincode</label>
-							        <input maxlength="100" type="text"  class="form-control" placeholder="Enter Pincode">
+							        <input maxlength="100" type="text"  class="form-control" name="pincode" placeholder="Enter Pincode">
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Telephone No.</label>
