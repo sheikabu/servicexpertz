@@ -54,9 +54,8 @@
 <script type="text/javascript">
   $(document).ready(function() {       
   $('#userTable').dataTable( {
-      "columnDefs": [
-        { "width": "40%", "targets": 0 }
-      ]
+      
+      "order": [[ 3, "desc" ]]
     } );
   } );
 </script>
