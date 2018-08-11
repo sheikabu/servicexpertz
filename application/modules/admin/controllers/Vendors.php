@@ -15,6 +15,7 @@ class Vendors extends MY_Controller {
 		    $this->load->model('VendorModel');
 			$this->load->helper('date');
 			$this->load->library('upload');
+			
     }
    
 	public function load_view($view, $vars = array()) {
@@ -40,22 +41,16 @@ class Vendors extends MY_Controller {
 	}
 
 	public function insert() { 	
-/* if(!empty($_FILES["image_file"]["name"]))  
-			{   
-				$config['upload_path'] = 'upload/photos';
-				$config['overwrite'] = TRUE;
-				$config['allowed_types'] = 'jpg|jpeg|png|gif';  
-				$this->upload->initialize($config);
-				$this->load->library('upload', $config); //image upload
-
-				if(!$this->upload->do_upload('image_file'))  
-				{  
-				echo $this->upload->display_errors();  
-				}
-				$image = $_FILES["image_file"]["name"]; 
-			} else {
-				$image =  $this->input->post('old_image');
-			}	 */
+	$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        $this->upload->display_errors();  
+        }
+        $image = $_FILES["userfile"]["name"]; 
 		$vendors_array = array(
             'company_name' => $this->input->post('company_name'),
 			'comany_address' => $this->input->post('comany_address'),
@@ -76,7 +71,8 @@ class Vendors extends MY_Controller {
 			'staff_name' => $this->input->post('staff_name'), 
 			'staff_address' => $this->input->post('staff_address'), 
 			'skills' => $this->input->post('skills'),
-			'experience' => $this->input->post('experience') 		
+			'experience' => $this->input->post('experience'),
+			'image' => $image
 			
 
 			           
@@ -118,6 +114,16 @@ class Vendors extends MY_Controller {
          }
 		
 	public function updated() { 
+	$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        $this->upload->display_errors();  
+        }
+        $image = $_FILES["userfile"]["name"]; 
 		  $vid = $this->input->post('vid');
 		  $vendors_array = array(
 	           'company_name' => $this->input->post('company_name'),
@@ -139,13 +145,40 @@ class Vendors extends MY_Controller {
 			'staff_name' => $this->input->post('staff_name'), 
 			'staff_address' => $this->input->post('staff_address'), 
 			'skills' => $this->input->post('skills'),
-			'experience' => $this->input->post('experience') 	            
+			'experience' => $this->input->post('experience'), 	
+            'image' => $image
 	        );			
 		  
          $this->VendorModel->updatevendors($vid,$vendors_array);
          $this->session->set_flashdata('msg', 'updated successfully');
 	     redirect('admin/vendors/list_vendor');			
 	}
+	
+	 public function do_upload()
+        {
+                $config['upload_path']          = './uploads/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+
+                        $this->load->view('upload_form', $error);
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+
+                       
+                }
+        }
+	
+	
 	
 }
 

@@ -169,7 +169,10 @@
 							        <label class="control-label">Experience</label>: <?php echo $vendor->experience;?>
 							      
 						        </div>
-					          
+								 <div class="form-group">
+								 
+								  <label class="control-label">image</label>: <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->image;?>" width="50" height="50">
+					        </div>
 					        </div>
 					    </div>
 						

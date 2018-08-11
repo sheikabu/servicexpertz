@@ -22,7 +22,7 @@
 			    </div>
 			  </div>
 			  
-			  <form role="form" action="<?php echo base_url() ?>admin/vendors/updated" method="post">
+			  <form role="form" action="<?php echo base_url() ?>admin/vendors/updated" method="post" enctype="multipart/form-data">
 			    <div class="row setup-content" id="step-1">
 			      	<div class="col-sm-12 col-md-offset-3">
 			      		<div class="row">
@@ -169,7 +169,12 @@
 							        <label class="control-label">Experience</label>
 							        <input maxlength="100" type="text"  class="form-control" name="experience" value="<?php echo $vendor->experience;?>" placeholder="Enter Experience">
 						        </div>
-					          
+					          <div class="form-group">
+							        <label class="control-label">Image</label>
+									<img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->image;?>" >
+									 <input type="hidden" value="<?php echo $vendor['image']; ?>" name="old_image">
+						        </div>
 					        </div>
 					    </div>
 						
