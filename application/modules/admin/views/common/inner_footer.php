@@ -3,5 +3,20 @@
 </footer>
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.min.css" />
  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.css" />
+<script>
+$('#vendor').selectize({
+sortField: 'text'
+});
+$('#maincate').selectize({
+sortField: 'text'
+});
+$('#category').selectize({
+sortField: 'text'
+});
+$('#services').selectize({
+sortField: 'text'
+});
+
+</script>
 </body>
 </html>
