@@ -41,6 +41,8 @@ class Vendors extends MY_Controller {
 	}
 
 	public function insert() { 	
+	if(!empty($_FILES["userfile"]["name"]))  
+			{
 	$config['upload_path'] = 'upload/vendor';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
@@ -48,9 +50,13 @@ class Vendors extends MY_Controller {
         $this->load->library('upload', $config); //image upload
         if(!$this->upload->do_upload('userfile'))  
         {  
-        $this->upload->display_errors();  
+        echo $this->upload->display_errors();  
         }
-        $image = $_FILES["userfile"]["name"]; 
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}
 		$vendors_array = array(
             'company_name' => $this->input->post('company_name'),
 			'comany_address' => $this->input->post('comany_address'),
@@ -114,6 +120,8 @@ class Vendors extends MY_Controller {
          }
 		
 	public function updated() { 
+	if(!empty($_FILES["userfile"]["name"]))  
+			{
 	$config['upload_path'] = 'upload/vendor';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
@@ -121,9 +129,13 @@ class Vendors extends MY_Controller {
         $this->load->library('upload', $config); //image upload
         if(!$this->upload->do_upload('userfile'))  
         {  
-        $this->upload->display_errors();  
+        echo $this->upload->display_errors();  
         }
-        $image = $_FILES["userfile"]["name"]; 
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}
 		  $vid = $this->input->post('vid');
 		  $vendors_array = array(
 	           'company_name' => $this->input->post('company_name'),

@@ -173,7 +173,7 @@
 							        <label class="control-label">Image</label>
 									<img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->image;?>" width="50" height="50">
 							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->image;?>" >
-									 <input type="hidden" value="<?php echo $vendor['image']; ?>" name="old_image">
+									 <input type="hidden" value="<?php echo $vendor->image;?>" name="old_image">
 						        </div>
 					        </div>
 					    </div>
