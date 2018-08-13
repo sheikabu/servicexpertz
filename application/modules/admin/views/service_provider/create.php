@@ -32,7 +32,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Category</label>
                 <div class="col-sm-12">
-                    <select id="category" name="cate_id" class="form-control demo-default" required placeholder="Select Category...">
+                    <select id="category" multiple name="cate_id[]" class="form-control demo-default" required placeholder="Select Category...">
                       <option>SELECT CATEGORY</option>
                       <?php foreach ($cate as $ckey => $cvalue) { ?>
                         <option value="<?php echo $cvalue->sc_id; ?>"><?php echo $cvalue->category; ?></option>

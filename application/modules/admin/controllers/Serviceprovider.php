@@ -41,6 +41,8 @@ public function add(){
 
 public function insert() { 		
 
+		$category = $this->input->post('cate_id');
+		$categories = json_encode($category, true);
 		
 		$config['upload_path'] = 'upload/sp';
 		$config['overwrite'] = TRUE;
@@ -57,7 +59,7 @@ public function insert() {
 	$sp_array = array(
 		'vendor_id' => $this->input->post('vendor_id'),
 		'main_category_id' => $this->input->post('main_id'),
-		'category_id' => $this->input->post('cate_id'),
+		'category_id' => $categories,
 		'services_id' => $this->input->post('service_id'),
 		'min_cost' => $this->input->post('mincost'),
         'first_name' => $this->input->post('first_name'),
