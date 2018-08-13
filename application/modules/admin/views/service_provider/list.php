@@ -22,11 +22,12 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
+			           <th>id</th>
 			           <th>First Name</th>
-						<th>Last Name</th>						
-						<th>Phone</th>
-						<th>Edit</th>
-						<th>Delete</th>
+					   <th>Last Name</th>						
+					   <th>Phone</th>
+					   <th>Edit</th>
+					   <th>Delete</th>
 				    </tr>
 			    </thead>
 			    <tbody>
@@ -34,6 +35,7 @@
 				foreach($sp_list as $user) {
 				?>
 			        <tr>
+			        	<td><?php echo $user->spid; ?></td>
 			            <td><?php echo $user->first_name; ?></td>
 			            <td><?php echo $user->last_name; ?></td>
 			             <td><?php echo $user->phone; ?></td>			            
@@ -53,10 +55,16 @@
 
 <script type="text/javascript">
   $(document).ready(function() {       
-  $('#userTable').dataTable( {
-      
-      "order": [[ 3, "desc" ]]
+  $('#userTable').dataTable( { 
+  	  "columnDefs": [
+  		{
+    		"targets": [ 0 ],
+    		"visible": false,
+  		}],
+
+      "order": [[ 0, "desc" ]]
     } );
+
   } );
 </script>
 <script>

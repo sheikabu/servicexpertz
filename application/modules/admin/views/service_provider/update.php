@@ -96,7 +96,24 @@
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="e_name" placeholder="Enter Email" name="email" value="<?php echo $service_providers->email;?>">
                 </div>
-              </div>               
+              </div> 
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="city">Select City</label>
+                <div class="col-sm-12">
+                    <select id="cities" name="city_id" class="form-control demo-default"  required placeholder="Select City...">
+                      <option>SELECT CITY</option>
+                      <?php foreach ($cities as $citkey => $citvalue) { ?>
+                        <option value="<?php echo $citvalue->city_id; ?>" <?php if($citvalue->city_id==$service_providers->city_id) { ?> selected <?php } ?>><?php echo $citvalue->city_name; ?></option>
+                      <?php } ?>
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="pincode">Pincode</label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="e_name" placeholder="Enter Pincode" name="pincode" value="<?php echo $service_providers->pincode; ?>" required>
+                </div>
+              </div>              
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="spid" value="<?php echo $service_providers->spid; ?>">
               <div class="form-group">   
                   <div class="col-sm-12"> 

@@ -22,8 +22,8 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
-			          
-						<th>Main Categories</th>
+			          	<th>id</th>	
+						<th>Main Categories</th>	
 						<th>Categories</th>						 
 						<th>Edit</th>
 						<th>Delete</th>
@@ -33,8 +33,9 @@
 			    <?php 
 				foreach($servicecategories_list as $service) {
 				?>
-			        <tr>			            
-			            <td><?php echo $service->main_category_id; ?></td>
+			        <tr>	
+			        	 <td><?php echo $service->sc_id; ?></td>		            
+			            <td><?php echo strtoupper($service->main_category); ?></td>
 			             <td><?php echo $service->category; ?></td>			            
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/update/<?php echo $service->sc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/delete/<?php echo $service->sc_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
@@ -59,11 +60,16 @@
 
 <script type="text/javascript">
   $(document).ready(function() {       
-  $('#userTable').dataTable( {
-      "columnDefs": [
-        { "width": "40%", "targets": 0 }
-      ]
+  $('#userTable').dataTable( { 
+  	  "columnDefs": [
+  		{
+    		"targets": [ 0 ],
+    		"visible": false,
+  		}],
+
+      "order": [[ 0, "desc" ]]
     } );
+
   } );
 </script>
 <script>

@@ -34,8 +34,8 @@ public function add(){
 	$data['vendors'] = $this->ServiceproviderModel->getVendors();	
 	$data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
 	$data['cate'] = $this->ServicecategoriesModel->getlDetails();
+	$data['cities'] = $this->ServiceproviderModel->getCities();
 	$data['services'] = $this->ServicesModel->getlDetails();
-
     $this->load_view('service_provider/create', $data);	    
 	}
 
@@ -43,7 +43,7 @@ public function insert() {
 
 		$category = $this->input->post('cate_id');
 		$categories = json_encode($category, true);
-		
+
 		$config['upload_path'] = 'upload/sp';
 		$config['overwrite'] = TRUE;
 		$config['allowed_types'] = 'jpg|jpeg|png|gif';  
@@ -66,6 +66,8 @@ public function insert() {
 		'last_name' => $this->input->post('last_name'),
 		'phone' => $this->input->post('phone'),
 		'email' => $this->input->post('email'),
+		'city_id' => $this->input->post('city_id'),
+		'pincode' => $this->input->post('pincode'),
 		'emp_id' => $this->input->post('emp_id'),
 		'image' => $image      
     );					
@@ -92,6 +94,7 @@ public function update() {
      $data['vendors'] = $this->ServiceproviderModel->getVendors();	
 	 $data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
 	 $data['cate'] = $this->ServicecategoriesModel->getlDetails();
+	 $data['cities'] = $this->ServiceproviderModel->getCities();
 	 $data['services'] = $this->ServicesModel->getlDetails();	
      $data['service_providers'] = $row;
      $this->load_view('admin/service_provider/update', $data);
@@ -123,6 +126,8 @@ public function updated() {
 		'last_name' => $this->input->post('last_name'),
 		'phone' => $this->input->post('phone'),
 		'email' => $this->input->post('email'),
+		'city_id' => $this->input->post('city_id'),
+		'pincode' => $this->input->post('pincode'),
 		'emp_id' => $this->input->post('emp_id'),
 		'image' => $image  
 

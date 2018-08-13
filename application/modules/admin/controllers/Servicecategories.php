@@ -57,8 +57,7 @@ class Servicecategories extends MY_Controller {
 		$sc_id = $this->uri->segment(4);         
         $delstatus = $this->ServicecategoriesModel->deleteServicecategories($sc_id);
 		if($delstatus==1)
-		{
-			$data['service'] = $this->ServicecategoriesModel->getlDetails();			 
+		{			
 			$this->session->set_flashdata('msg', 'Deleted successfully');
 		    redirect('admin/servicecategories/list_servicecategories');			
 		}

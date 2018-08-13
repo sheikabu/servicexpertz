@@ -9,7 +9,8 @@ class ServicecategoriesModel extends CI_Model{
     
     public function getlDetails(){	
 	  $this->db->select('*');
-	  $this->db->from('service_categories');	   
+	  $this->db->from('service_categories');	 
+    $this->db->join('service_main_categories','service_main_categories.smc_id=service_categories.main_category_id');  
 	  $query=$this->db->get();	  
 	  $results = $query->result();
 	  return $results;

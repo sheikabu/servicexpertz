@@ -16,6 +16,9 @@ sortField: 'text'
 $('#services').selectize({
 sortField: 'text'
 });
+$('#cities').selectize({
+sortField: 'text'
+});
 
 </script>
 </body>

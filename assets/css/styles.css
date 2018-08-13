@@ -247,12 +247,20 @@ table.dataTable thead th, table.dataTable.no-footer{
     background-color: #585858;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover a, .dataTables_wrapper .dataTables_paginate .paginate_button.next:hover a{
-  color: #222!important;
+   color: #fff!important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover a{
   color: #fff!important;
   text-decoration: none;
+  
 }
+.dataTables_wrapper .dataTables_paginate .paginate_button.active, .dataTables_wrapper .dataTables_paginate .paginate_button:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.active a{
+  background: #16A2D3!important;
+  border-color: #16A2D3!important;
+  color: #fff!important;
+}
+
+
 h2.title{
   font-size: 18px;
   color: #16A2D3;

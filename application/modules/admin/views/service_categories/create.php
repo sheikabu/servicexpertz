@@ -12,7 +12,7 @@
                      <select class="form-control" name="main_category_id"> 
                       <option>Select Main Service Categories</option>
                       <?php foreach ($servicecategories as $key => $value) { ?>
-                      <option value="<?php echo $value->main_category; ?>"><?php echo $value->main_category; ?></option>
+                      <option value="<?php echo $value->smc_id; ?>"><?php echo $value->main_category; ?></option>
                       <?php } ?>                      
 
                     </select>
