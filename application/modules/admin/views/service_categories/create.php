@@ -7,12 +7,12 @@
               <form class="form-horizontal" action="<?php echo base_url() ?>admin/servicecategories/insert" method="post">
 
                 <div class="form-group">
-                <label class="control-label col-sm-12">Select Main Service Categories</label>
+                <label class="control-label col-sm-12">Select Main Service Categories <span>*</span></label>
                 <div class="col-sm-12">
-                     <select class="form-control" name="main_category_id"> 
-                      <option>Select Main Service Categories</option>
+                     <select class="form-control" name="main_category_id"  required> 
+                      <option required>Select Main Service Categories</option>
                       <?php foreach ($servicecategories as $key => $value) { ?>
-                      <option value="<?php echo $value->smc_id; ?>"><?php echo $value->main_category; ?></option>
+                      <option value="<?php echo $value->smc_id; ?>"><?php echo $value->main_category; ?> </option>
                       <?php } ?>                      
 
                     </select>
@@ -20,9 +20,9 @@
               </div>
                
               <div class="form-group">
-                <label class="control-label col-sm-2" for="lastname">Sub Categories</label>
+                <label class="control-label col-sm-2" for="lastname">Sub Categories <span>*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Sub Categories" name="category" value="">
+                  <input type="text" class="form-control" id="l_name" placeholder="Enter Sub Categories" name="category" value="" required>
                 </div>
               </div>
               <div class="form-group">   

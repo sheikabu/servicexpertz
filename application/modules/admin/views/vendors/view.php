@@ -104,11 +104,7 @@
 						        </div>
 					        </div>
 					    </div>
-				       	<div class="row">
-				       		<div class="col-sm-12">
-				       			<button class="btn btn-primary nextBtn btn-lg pull-right mb-10" type="button">Next</button>
-				       		</div>
-				       	</div>
+				       
 					</div>
 				    
 				</div>
@@ -133,12 +129,7 @@
 						        
 					        </div>
 					    </div>
-					    <div class="row">
-				       		<div class="col-sm-12">
-				       			<button class="btn btn-primary prevBtn btn-lg pull-left mb-10" type="button">Previous</button>
-						        <button class="btn btn-primary nextBtn btn-lg pull-right mb-10" type="button">Next</button>
-				       		</div>
-				       	</div>
+					   
 			        </div>
 			      </div>
 			    </div>
@@ -176,12 +167,7 @@
 					        </div>
 					    </div>
 						
-					    <div class="row">
-				       		<div class="col-sm-12">
-				       			<button class="btn btn-primary prevBtn btn-lg pull-left mb-10" type="button">Previous</button>
-					          	
-					        </div>
-					  	</div>
+					   
 					</div>
 			      </div>
 			    </div>

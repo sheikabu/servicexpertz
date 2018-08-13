@@ -44,6 +44,7 @@ class User extends MY_Controller {
             'first_name' => $this->input->post('first_name'),
 			'last_name' => $this->input->post('last_name'),
 			'email' => $this->input->post('email'),
+			'phone' => $this->input->post('phone'),
             'role'=> $this->input->post('role')
         );					
         $this->UserModel->insertuser($user_array);         
@@ -80,6 +81,7 @@ class User extends MY_Controller {
 	            'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
 				'email' => $this->input->post('email'),
+				'phone' => $this->input->post('phone'),
 	            'role'=> $this->input->post('role')
 	        );			
 		  

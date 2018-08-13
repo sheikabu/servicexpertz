@@ -35,32 +35,32 @@
 						        
 						        <div class="form-group">
 							        <label class="control-label">Name of Company</label>
-							        <input maxlength="100" type="text" required="required" name="company_name"  value="<?php echo $vendor->company_name;?>" class="form-control" placeholder="Enter Company Name">
+							        <input maxlength="100" type="text" required="required" name="company_name"  value="<?php echo $vendor->company_name;?>" class="form-control" placeholder="Enter Company Name"required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address</label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="comany_address" value="<?php echo $vendor->comany_address;?>" rows="4"></textarea>
+							        <input class="form-control rounded-0" id="exampleFormControlTextarea1" name="comany_address" value="<?php echo $vendor->comany_address;?>" rows="4" required>
 						            
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Pincode</label>
-							        <input maxlength="100" type="text"  class="form-control" name="pincode" value="<?php echo $vendor->pincode;?>" placeholder="Enter Pincode">
+							        <input maxlength="100" type="text"  class="form-control" name="pincode" value="<?php echo $vendor->pincode;?>" placeholder="Enter Pincode" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Telephone No.</label>
-							        <input maxlength="100" type="text"  class="form-control"  name="telephone_no" value="<?php echo $vendor->telephone_no;?>" placeholder="Enter Telephone No.">
+							        <input maxlength="100" type="text"  class="form-control"  name="telephone_no" value="<?php echo $vendor->telephone_no;?>" placeholder="Enter Telephone No." required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Fax No.</label>
-							        <input maxlength="100" type="text"  class="form-control"  name="fax_no" value="<?php echo $vendor->fax_no;?>"  placeholder="Enter Fax No.">
+							        <input maxlength="100" type="text"  class="form-control"  name="fax_no" value="<?php echo $vendor->fax_no;?>"  placeholder="Enter Fax No."required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Email</label>
-							        <input maxlength="100" type="text"  class="form-control" name="email" value="<?php echo $vendor->email;?>" placeholder="Enter Email">
+							        <input maxlength="100" type="text"  class="form-control" name="email" value="<?php echo $vendor->email;?>" onblur="validateEmail(this);" placeholder="Enter Email" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Web</label>
-							        <input maxlength="100" type="text"  class="form-control"  name="web" value="<?php echo $vendor->web;?>" placeholder="Enter Web">
+							        <input maxlength="100" type="text"  class="form-control"  name="web" value="<?php echo $vendor->web;?>" placeholder="Enter Web" required>
 						        </div>
 								
 					        </div>
@@ -68,19 +68,19 @@
 
 						        <div class="form-group">
 							        <label class="control-label">Name of  Company Representative</label>
-							        <input maxlength="100" type="text"  class="form-control" name="name_representative" value="<?php echo $vendor->name_representative;?>" placeholder="Enter Name of  Company Representative">
+							        <input maxlength="100" type="text"  class="form-control" name="name_representative" value="<?php echo $vendor->name_representative;?>" placeholder="Enter Name of  Company Representative" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Email of  Company Representative</label>
-							        <input maxlength="100" type="text"  class="form-control" name="email_crepresentative" value="<?php echo $vendor->email_crepresentative;?>" placeholder="Enter Email of  Company Representative">
+							        <input maxlength="100" type="text"  class="form-control" name="email_crepresentative" onblur="validateEmail(this);" value="<?php echo $vendor->email_crepresentative;?>" placeholder="Enter Email of  Company Representative" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Pan Card</label>
-							        <input maxlength="100" type="text"  class="form-control" name="pan_card" value="<?php echo $vendor->pan_card;?>" placeholder="Enter Pan Card">
+							        <input maxlength="100" type="text"  class="form-control" name="pan_card" value="<?php echo $vendor->pan_card;?>" placeholder="Enter Pan Card" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Title/Designation</label>
-							        <input maxlength="100" type="text"  class="form-control" name="title_designation" value="<?php echo $vendor->title_designation;?>" placeholder="Enter Title/Designation">
+							        <input maxlength="100" type="text"  class="form-control" name="title_designation" value="<?php echo $vendor->title_designation;?>" placeholder="Enter Title/Designation" required>
 						        </div>
 						        <!-- <div class="form-group">
 							        <label class="control-label">Telphone No.</label>
@@ -88,19 +88,19 @@
 						        </div> -->
 								<div class="form-group">
 							        <label class="control-label">Direct No.</label>
-							        <input maxlength="100" type="text"  class="form-control" name="direct_no" value="<?php echo $vendor->direct_no;?>" placeholder="Enter Direct No.">
+							        <input maxlength="100" type="text"  class="form-control" name="direct_no" value="<?php echo $vendor->direct_no;?>" placeholder="Enter Direct No." required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Mobile No.</label>
-							        <input maxlength="100" type="text"  class="form-control" name="mobile_no" value="<?php echo $vendor->mobile_no;?>" placeholder="Enter Mobile No.">
+							        <input maxlength="100" type="text"  class="form-control" name="mobile_no" value="<?php echo $vendor->mobile_no;?>" placeholder="Enter Mobile No." required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Date Company was Established</label>
-							        <input maxlength="100" type="text"  class="form-control" name="date_cestablished" value="<?php echo $vendor->date_cestablished;?>" placeholder="Enter Date Company was Established">
+							        <input maxlength="100" type="text"  class="form-control" name="date_cestablished" value="<?php echo $vendor->date_cestablished;?>" placeholder="Enter Date Company was Established" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Gross Annual ... for the ..year</label>
-							        <input maxlength="100" type="text"  class="form-control" name="cross_annual" value="<?php echo $vendor->cross_annual;?>" placeholder="Enter Gross Annual ... for the ..year">
+							        <input maxlength="100" type="text"  class="form-control" name="cross_annual" value="<?php echo $vendor->cross_annual;?>" placeholder="Enter Gross Annual ... for the ..year" required>
 						        </div>
 					        </div>
 					    </div>
@@ -124,11 +124,11 @@
 			          		<div class="col-sm-6">
 						        <div class="form-group">
 						            <label class="control-label">Bank Name</label>
-						            <input maxlength="200" type="text"  required="required" class="form-control" name="bank_name" value="<?php echo $vendor->bank_name;?>"  placeholder="Enter Bank Name">
+						            <input maxlength="200" type="text"  required="required" class="form-control" name="bank_name" value="<?php echo $vendor->bank_name;?>"  placeholder="Enter Bank Name" required> 
 						        </div>
 						        <div class="form-group">
 						            <label class="control-label">Bank Address</label>
-						            <input maxlength="200" type="text" class="form-control" name="bank_address" value="<?php echo $vendor->bank_address;?>" placeholder="Enter Bank Address">
+						            <input maxlength="200" type="text" class="form-control" name="bank_address" value="<?php echo $vendor->bank_address;?>" placeholder="Enter Bank Address" required>
 						        </div>
 						        
 					        </div>
@@ -154,20 +154,20 @@
 		          			<div class="col-sm-6">
 					          	<div class="form-group">
 							        <label class="control-label">Name of the Staff</label>
-							        <input maxlength="100" type="text" required="required" class="form-control" name="staff_name" value="<?php echo $vendor->staff_name;?>"  placeholder="Enter Name of the Staff">
+							        <input maxlength="100" type="text"  class="form-control" name="staff_name" value="<?php echo $vendor->staff_name;?>"  placeholder="Enter Name of the Staff" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address</label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="staff_address" value="<?php echo $vendor->staff_address;?>" rows="4"></textarea>
+							        <input class="form-control rounded-0" id="exampleFormControlTextarea1" name="staff_address" value="<?php echo $vendor->staff_address;?>" rows="4" required>
 						            
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Skills</label>
-							        <input maxlength="100" type="text"  class="form-control" name="skills" value="<?php echo $vendor->skills;?>" placeholder="Enter Skills">
+							        <input maxlength="100" type="text"  class="form-control" name="skills" value="<?php echo $vendor->skills;?>" placeholder="Enter Skills" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Experience</label>
-							        <input maxlength="100" type="text"  class="form-control" name="experience" value="<?php echo $vendor->experience;?>" placeholder="Enter Experience">
+							        <input maxlength="100" type="text"  class="form-control" name="experience" value="<?php echo $vendor->experience;?>" placeholder="Enter Experience" required> 
 						        </div>
 					          <div class="form-group">
 							        <label class="control-label">Image</label>
@@ -251,5 +251,18 @@
 
 
 </script>
+<script>
+function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+</script>
 </div>

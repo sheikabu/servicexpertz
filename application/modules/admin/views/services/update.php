@@ -6,7 +6,7 @@
           <div class="col-md-6 col-md-offset-3 mt-20">
               <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/updated" method="post">
               <div class="form-group">
-                <label class="control-label col-sm-12" for="firstname">Select Main Category</label>
+                <label class="control-label col-sm-12" for="firstname">Select Main Category <span>*</span></label>
                 <div class="col-sm-12">
                     <select name="maincate_id" class="form-control">
                       <option>SELECT MAIN CATETORY</option>
@@ -17,7 +17,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="firstname">Select Main Category</label>
+                <label class="control-label col-sm-12" for="firstname">Select Main Category <span>*</span></label>
                 <div class="col-sm-12">
                     <select name="cate_id" class="form-control">
                       <option>SELECT CATEGORY</option>
@@ -28,9 +28,9 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Service</label>
+                <label class="control-label col-sm-12" for="lastname">Service <span>*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Service" name="service" value="<?php echo $service->services; ?>">
+                  <input type="text" class="form-control" id="l_name" placeholder="Enter Service" name="service" value="<?php echo $service->services; ?>" required>
                 </div>
               </div>
                <input type="hidden" class="form-control" id="l_name" placeholder="role" name="sid" value="<?php echo $service->sid; ?>">
