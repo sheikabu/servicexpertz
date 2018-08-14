@@ -22,6 +22,7 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
+			        	<th>id</th>
 			           <th>Name of Company</th>
 						<th>Address</th>						
 						<th>Telephone No</th>						
@@ -37,6 +38,7 @@
 				foreach($vendor_list as $vendor) {
 				?>  
 			        <tr>
+			        <td><?php echo $vendor->vid;?> </td>
 			            <td><?php echo $vendor->company_name;?> </td>
 			            <td><?php echo $vendor->comany_address;?> </td>			            
 			            <td><?php echo $vendor->telephone_no;?> </td>
@@ -65,16 +67,17 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function() { 
-  
-  $('#userTable').dataTable( {
-	   
-      "columnDefs": [
-        { "width": "40%", "targets": 0 }
-      ]
-	  
+  $(document).ready(function() {       
+  $('#userTable').dataTable( { 
+  	  "columnDefs": [
+  		{
+    		"targets": [ 0 ],
+    		"visible": false,
+  		}],
+
+      "order": [[ 0, "desc" ]]
     } );
-	
+
   } );
 </script>
 <script>

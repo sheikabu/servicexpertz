@@ -22,6 +22,7 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
+			        	<th>id</th>
 			           <th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
@@ -35,6 +36,7 @@
 				foreach($user_list as $user) {
 				?>
 			        <tr>
+			        	<td><?php echo $user->userid; ?></td>
 			            <td><?php echo $user->first_name; ?></td>
 			            <td><?php echo $user->last_name; ?></td>
 			             <td><?php echo $user->email; ?></td>
@@ -62,11 +64,16 @@
 
 <script type="text/javascript">
   $(document).ready(function() {       
-  $('#userTable').dataTable( {
-      "columnDefs": [
-        { "width": "40%", "targets": 0 }
-      ]
+  $('#userTable').dataTable( { 
+  	  "columnDefs": [
+  		{
+    		"targets": [ 0 ],
+    		"visible": false,
+  		}],
+
+      "order": [[ 0, "desc" ]]
     } );
+
   } );
 </script>
 <script>
