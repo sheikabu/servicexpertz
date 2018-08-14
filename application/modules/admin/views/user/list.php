@@ -38,7 +38,7 @@
 			            <td><?php echo $user->first_name; ?></td>
 			            <td><?php echo $user->last_name; ?></td>
 			             <td><?php echo $user->email; ?></td>
-			            <td>phone number</td>
+			            <td><?php echo $user->phone; ?></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/update/<?php echo $user->userid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/delete/<?php echo $user->userid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="15px" height="15px" title="Delete" onClick="return doconfirm();" ></a></td>
 
