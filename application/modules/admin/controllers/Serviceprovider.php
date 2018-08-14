@@ -35,6 +35,7 @@ public function add(){
 	$data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
 	$data['cate'] = $this->ServicecategoriesModel->getlDetails();
 	$data['cities'] = $this->ServiceproviderModel->getCities();
+	$data['time'] = $this->ServiceproviderModel->getTime();
 	$data['services'] = $this->ServicesModel->getlDetails();
     $this->load_view('service_provider/create', $data);	    
 	}
@@ -67,6 +68,7 @@ public function insert() {
 		'phone' => $this->input->post('phone'),
 		'email' => $this->input->post('email'),
 		'city_id' => $this->input->post('city_id'),
+		'ts_id' => $this->input->post('ts_id'),
 		'pincode' => $this->input->post('pincode'),
 		'emp_id' => $this->input->post('emp_id'),
 		'image' => $image      
@@ -95,6 +97,7 @@ public function update() {
 	 $data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
 	 $data['cate'] = $this->ServicecategoriesModel->getlDetails();
 	 $data['cities'] = $this->ServiceproviderModel->getCities();
+	 $data['time'] = $this->ServiceproviderModel->getTime();
 	 $data['services'] = $this->ServicesModel->getlDetails();	
      $data['service_providers'] = $row;
      $this->load_view('admin/service_provider/update', $data);
@@ -127,6 +130,7 @@ public function updated() {
 		'phone' => $this->input->post('phone'),
 		'email' => $this->input->post('email'),
 		'city_id' => $this->input->post('city_id'),
+		'ts_id' => $this->input->post('ts_id'),
 		'pincode' => $this->input->post('pincode'),
 		'emp_id' => $this->input->post('emp_id'),
 		'image' => $image  

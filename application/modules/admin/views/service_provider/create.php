@@ -113,13 +113,14 @@
                 </div>
               </div>
                <div class="form-group">
-                <label class="control-label col-sm-12" for="city">Available Time Slot</label>
+                <label class="control-label col-sm-12" for="time">Available Time Slot</label>
                 <div class="col-sm-12">
-                    <select id="cities" name="city_id" class="form-control demo-default"  required placeholder="Select City...">
-                      <option>SELECT TIME SLOT</option>
-                      <option>Morning</option>
-                      <option>Afternoon</option>
-                      <option>Evening</option>                     
+                    <select id="ts_name" name="ts_id" class="form-control demo-default"  required placeholder="Select time...">
+                      
+                     <option>SELECT TIME SLOT</option>
+                      <?php foreach ($time as $tkey => $tvalue) { ?>
+                        <option value="<?php echo $tvalue->ts_id; ?>"><?php echo $tvalue->ts_name; ?></option>
+                      <?php } ?>                    
                     </select>
                 </div>
               </div>  
