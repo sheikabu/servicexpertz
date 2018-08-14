@@ -112,6 +112,17 @@
                   <input type="text" class="form-control" id="e_name" placeholder="Enter Pincode" name="pincode" value="" required>
                 </div>
               </div>
+               <div class="form-group">
+                <label class="control-label col-sm-12" for="city">Available Time Slot</label>
+                <div class="col-sm-12">
+                    <select id="cities" name="city_id" class="form-control demo-default"  required placeholder="Select City...">
+                      <option>SELECT TIME SLOT</option>
+                      <option>Morning</option>
+                      <option>Afternoon</option>
+                      <option>Evening</option>                     
+                    </select>
+                </div>
+              </div>  
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="user">
               <div class="form-group">   
                      <div class="col-sm-12"> 

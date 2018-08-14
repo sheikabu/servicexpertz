@@ -279,7 +279,8 @@ h2.title{
 
 /*-----------------------------------------------------Reset End -------------------------------------------------*/
 .container-fluid{
-  height: 86%;
+ /* height: 86%;*/
+  height: auto;
 }
 .content{
   height:100%;
@@ -348,8 +349,9 @@ h2.title{
 .sidenav {
   padding-top: 20px;
  /* background-color: #f1f1f1;*/
- background: #273C51;
-  height: 100%;
+  background: #273C51;
+  /*height: 100%;*/
+  min-height: 600px;
 }
 .sidenav .nav li{
     width: 100%;
@@ -501,6 +503,46 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting_desc:aft
 }
 
 /*----------------------------------- /. Multi Form --------------------------------------*/
+/*----------------------------------- Dashboard --------------------------------------*/
+.card-body-icon {
+    position: absolute;
+    z-index: 0;
+    top: -1.25rem;
+    right: -1rem;
+    opacity: 0.4;
+    font-size: 5rem;
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);
+  }
+.card-body-icon i{
+  font-size: 6rem!important;
+}
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-bottom-color: transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+/*----------------------------------- /. Dashboard --------------------------------------*/
+
+
+.login-form .error{
+    text-align: center;
+    color: #a70000;
+    position: absolute;
+    font-size: 14px;
+    top: 100px;
+    left: 43%;
+}
+
+
 
 
 /* Set black background color, white text and some padding */
@@ -561,7 +603,7 @@ footer {
         /*height: 100%;*/
         width: 0;
         position: fixed;
-        z-index: 1;
+        z-index: 2;
         top: 0;
         left: 0;
        /* background-color: #fff;*/

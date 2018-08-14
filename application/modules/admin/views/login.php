@@ -12,7 +12,7 @@
             </ul>
        </div>
         <div class="login-form col-md-6 ">
-		 <?php if(isset($error)) { echo $error; } ?>
+		 <div class="error"><?php if(isset($error)) { echo $error; } ?></div>
 		    <h2 class="text-center p-20">Log in</h2>  
 			 
             <form class="mt-50" method="post" action="<?php echo base_url(); ?>admin/dashboard">

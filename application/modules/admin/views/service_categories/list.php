@@ -8,10 +8,10 @@
        		 </div>
        	</div>
        	<div class="row">
-	        <div class="col-sm-6 text-center">
+	        <div class="col-sm-12 text-center">
 
 	        	<?php if($this->session->flashdata('msg')): ?>
-	    			<p class="alert alert-success"><?php echo $this->session->flashdata('msg'); ?></p>
+	    			<p class="alert alert-success mr-30"><?php echo $this->session->flashdata('msg'); ?></p>
 				<?php endif; ?>
 
 	        </div>
