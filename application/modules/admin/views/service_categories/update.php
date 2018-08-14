@@ -8,11 +8,11 @@
 			 
                <div class="form-group">
                 <label class="control-label col-sm-12" for="firs
-        tname">Select Main Service Categories</label>
+        tname">Select Main Service Categories <span>*</span></label>
                 <div class="col-sm-12">
 
                     <select class="form-control" name="main_category_id"> 
-                      <option>Select Main Service Categories</option>
+                      <option>Select Main Service Categories </option>
                       <?php foreach ($servicecategories as $key => $value) { ?>
                       <option value="<?php echo $value->smc_id; ?>" <?php if($value->smc_id==$service->main_category_id) { ?> selected <?php } ?>"><?php echo $value->main_category; ?></option>
 
@@ -20,9 +20,9 @@
                     </select>
                 </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Sub Categories</label>
+                <label class="control-label col-sm-12" for="lastname">Sub Categories <span>*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Last Name" name="category" value="<?php echo $service->category; ?>">
+                  <input type="text" class="form-control" id="l_name" placeholder="Enter Last Name" name="category" value="<?php echo $service->category; ?>"  required>
                 </div>
               </div>
 			  
