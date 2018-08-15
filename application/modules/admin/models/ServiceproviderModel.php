@@ -31,6 +31,14 @@ class ServiceproviderModel extends CI_Model{
     $results = $query->result();
     return $results;
   }
+  
+  public function getTime(){  
+    $this->db->select('*');
+    $this->db->from('time_slot');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
 	
  function deleteuser($spid){
     $this->load->database();
