@@ -650,3 +650,9 @@ footer {
       background: #273C51;
     }
 }
+
+/*sheik */
+.validationerror {
+  color: red !important;
+}
+/*sheik end*/
