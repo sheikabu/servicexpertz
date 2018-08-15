@@ -4,11 +4,11 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-sm-12">
-              <form class="form-horizontal" action="<?php echo base_url() ?>admin/serviceprovider/insert" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" id="serviceprovider_form" action="<?php echo base_url() ?>admin/serviceprovider/insert" method="post" enctype="multipart/form-data">
             
 
 			       <div class="form-group">
-                <label class="control-label col-sm-12" for="firstname">Select Vendor</label>
+                <label class="control-label col-sm-12" for="firstname">Select Vendor<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                     <select id='vendor' name="vendor_id" class="form-control demo-default"  required placeholder="Select Vendor...">
                       <option value="">SELECT VENDOR</option>
@@ -19,7 +19,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="maincate">Select Main Category</label>
+                <label class="control-label col-sm-12" for="maincate">Select Main Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                     <select id='maincate' name="main_id" class="form-control demo-default" required placeholder="Select Main Category...">
                       <option>SELECT MAIN CATEGORY</option>
@@ -30,7 +30,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="cate">Select Category</label>
+                <label class="control-label col-sm-12" for="cate">Select Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                     <select id="category" multiple name="cate_id[]" class="form-control demo-default" required placeholder="Select Category...">
                       <option>SELECT CATEGORY</option>
@@ -41,7 +41,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="cate">Select Service</label>
+                <label class="control-label col-sm-12" for="cate">Select Service<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                     <select id="services" name="service_id" class="form-control demo-default"  required placeholder="Select Services...">
                       <option>SELECT SERVICES</option>
@@ -52,53 +52,53 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="cost">Min Cost</label>
+                <label class="control-label col-sm-12" for="cost">Min Cost<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" placeholder="Enter Min Cost" name="mincost" value="" required>
+                  <input type="text"  id="mincost" class="form-control" placeholder="Enter Min Cost" name="mincost" value="" required>
                 </div>
               </div>
                <div class="form-group">
-                <label class="control-label col-sm-12" for="cost">Image</label>
+                <label class="control-label col-sm-12" for="cost">Image<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                  <input type="file" name="userfile" class="form-control" placeholder="Image Upload" size="20" required/>
+                  <input type="file" name="userfile" id="image" class="form-control" placeholder="Image Upload" size="20" required/>
                 </div>
               </div>
                </div>
                 <div class="col-md-6 col-sm-12">
                 <div class="form-group">
-                <label class="control-label col-sm-12" for="firstname">Emp ID</label>
+                <label class="control-label col-sm-12" for="firstname">Emp ID<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" placeholder="Enter Service Provider ID" name="emp_id" value="" required>
+                  <input type="text" class="form-control" id="empid" placeholder="Enter Service Provider ID" name="emp_id" value="" required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="firstname">First Name</label>
+                <label class="control-label col-sm-12" for="firstname">First Name<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" placeholder="Enter First Name" name="first_name" value="" required>
+                  <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="first_name" value="" required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Last Name</label>
+                <label class="control-label col-sm-12" for="lastname">Last Name<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Last Name" name="last_name" value="" required>
+                  <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="" required>
                 </div>
               </div>
 			  <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Phone</label>
+                <label class="control-label col-sm-12" for="lastname">Phone<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Phone Number" name="phone" value="" required>
+                  <input type="text" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" value="" required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="email">Email</label>
+                <label class="control-label col-sm-12" for="email">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="e_name" placeholder="Enter Email" name="email" value="" required>
+                  <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" value="" required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="city">Select City</label>
+                <label class="control-label col-sm-12" for="city">Select City<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id="cities" name="city_id" class="form-control demo-default"  required placeholder="Select City...">
+                    <select id="cities" name="city_id" class="form-control demo-default" id="city" required placeholder="Select City...">
                       <option>SELECT CITY</option>
                       <?php foreach ($cities as $citkey => $citvalue) { ?>
                         <option value="<?php echo $citvalue->city_id; ?>"><?php echo $citvalue->city_name; ?></option>
@@ -107,15 +107,15 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="pincode">Pincode</label>
+                <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="e_name" placeholder="Enter Pincode" name="pincode" value="" required>
+                  <input type="text" class="form-control"  placeholder="Enter Pincode" id="pincode" name="pincode" value="" required>
                 </div>
               </div>
                <div class="form-group">
-                <label class="control-label col-sm-12" for="time">Available Time Slot</label>
+                <label class="control-label col-sm-12" for="time">Available Time Slot<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id="ts_name" name="ts_id" class="form-control demo-default"  required placeholder="Select time...">
+                    <select id="ts_name" name="ts_id" class="form-control demo-default"  id="timeslot" required placeholder="Select time...">
                       
                      <option>SELECT TIME SLOT</option>
                       <?php foreach ($time as $tkey => $tvalue) { ?>
