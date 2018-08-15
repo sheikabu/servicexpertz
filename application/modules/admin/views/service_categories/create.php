@@ -4,12 +4,12 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" action="<?php echo base_url() ?>admin/servicecategories/insert" method="post">
+              <form class="form-horizontal" id="categories_form" action="<?php echo base_url() ?>admin/servicecategories/insert" method="post">
 
                 <div class="form-group">
-                <label class="control-label col-sm-12">Select Main Service Categories <span>*</span></label>
+                <label class="control-label col-sm-12">Select Main Service Categories <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                     <select class="form-control" name="main_category_id"  required> 
+                     <select class="form-control" name="main_category_id"  id="mainservice" required> 
                       <option required>Select Main Service Categories</option>
                       <?php foreach ($servicecategories as $key => $value) { ?>
                       <option value="<?php echo $value->smc_id; ?>"><?php echo $value->main_category; ?> </option>
@@ -20,9 +20,9 @@
               </div>
                
               <div class="form-group">
-                <label class="control-label col-sm-2" for="lastname">Sub Categories <span>*</span></label>
+                <label class="control-label col-sm-2" for="lastname">Sub Categories <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Sub Categories" name="category" value="" required>
+                  <input type="text" class="form-control" id="subcategories" placeholder="Enter Sub Categories" name="category" value="" required>
                 </div>
               </div>
               <div class="form-group">   
