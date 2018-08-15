@@ -1,3 +1,14 @@
+    
+  
+  <script type="text/javascript" src="js/canvasjs.min.js"></script>
+  <!--SHEIK Chart script end-->
+  
+  
+    <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+      </script>
 <div class="container-fluid col-md-9 col-sm-9">
   <div class="row content">
     <div class="col-md-12 col-sm-12">      
@@ -60,7 +71,38 @@
 		              <i class="fas fa-chart-area"></i>
 		              Area Chart Example</div>
 		            <div class="card-body"><div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
-		              <canvas id="myAreaChart" width="1602" height="480" style="display: block; width: 1602px; height: 300px;" class="chartjs-render-monitor"></canvas>
+		                <div class="col-md-7 mb-3 ">
+		  <div id = "container" style = "width: 550px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+                ['months', 'vendor ', 'user'],
+               ['January',  28979,      15613],
+               ['February', 399,      157],
+               ['March',  124,      231],
+               ['April',  55,       46],
+               ['May',  0,      14],
+			   ['June',  0,      0],
+               ['July',  0,      0],
+			   ['August',  1290,      14],
+			   ['September', 230,      10],
+               ['October',  1000,      20],
+			   ['November', 30,      10],
+               ['December',  0,      0]
+            ]);
+
+            var options = {title: 'Monthly report'};  
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.ColumnChart(document.getElementById('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+		
+ </div>
 		            </div>
 		            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 		        </div>
