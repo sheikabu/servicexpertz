@@ -23,14 +23,20 @@ class Category extends MY_Controller {
     }
 	
 	public function getCategoryList(){
-		$condition = array('main_category_id' => $this->input->get('type'));
-		$categories = $this->common_model->getRecords('service_categories', $condition, $limit = null, $offset = null);
-		$i = 0;
-		foreach($categories as $cat){
-			$cat_condition = array('category_id' => $cat->sc_id);
-			$subcategories = $this->common_model->getRecords('services', $cat_condition, $limit = null, $offset = null);
-			$categories[$i]->services = $subcategories;
-			$i++;
+		$token = trim($this->input->get_request_header('Authorization'));		
+		$authentication = checkAuthentication($token);
+		if(count($authentication) > 0){
+			$condition = array('main_category_id' => $this->input->get('type'));
+			$categories = $this->common_model->getRecords('service_categories', $condition, $limit = null, $offset = null);
+			$i = 0;
+			foreach($categories as $cat){
+				$cat_condition = array('category_id' => $cat->sc_id);
+				$subcategories = $this->common_model->getRecords('services', $cat_condition, $limit = null, $offset = null);
+				$categories[$i]->services = $subcategories;
+				$i++;
+			}
+		}else{
+		$categories = array('code' => 1002, 'status' => 'failed', 'message' => 'Authentication failed!');
 		}
 		echo json_encode($categories);
     }
