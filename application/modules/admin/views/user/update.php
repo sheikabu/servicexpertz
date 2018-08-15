@@ -8,25 +8,31 @@
 			 
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firs
-				tname">First Name</label>
+				tname">First Name<span>*</span></label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" placeholder="Enter First Name" name="first_name" value="<?php echo $user->first_name;?>">
+                  <input type="text" class="form-control" placeholder="Enter First Name" name="first_name" value="<?php echo $user->first_name;?>"required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Last Name</label>
+                <label class="control-label col-sm-12" for="lastname">Last Name<span>*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter Last Name" name="last_name" value="<?php echo $user->last_name;?>">
+                  <input type="text" class="form-control" id="l_name" placeholder="Enter Last Name" name="last_name" value="<?php echo $user->last_name;?>"required>
                 </div>
               </div>
 			  <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Email</label>
+                <label class="control-label col-sm-12" for="lastname">Email<span>*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="l_name" placeholder="Enter email" name="email" value="<?php echo $user->email;?>">
+                  <input type="text" class="form-control" id="l_name" placeholder="Enter email" name="email" onblur="validateEmail(this);" value="<?php echo $user->email;?>"required>
+                </div>
+              </div>
+			   <div class="form-group">
+                <label class="control-label col-sm-12" for="lastname">Phone Number<span>*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="l_name" placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="user">
-                  <input type="hidden" class="form-control" id="l_name" placeholder="role" name="userid" value="<?php echo $user->userid; ?>">
+                  <input type="hidden" class="form-control" id="l_name" placeholder="role" name="userid" value="<?php echo $user->userid; ?>"required >
               <div class="form-group">   
                    <div class="col-sm-12"> 
                       <input class="btn btn-primary" type="submit" name="submit" value="Submit">
@@ -38,4 +44,19 @@
       </div>
     </div>
   </div>
+  
 </div>
+<script>
+function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Invalid Email Address');
+            return false;
+        }
+
+        return true;
+
+}
+</script>

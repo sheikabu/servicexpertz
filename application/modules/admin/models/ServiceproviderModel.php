@@ -16,9 +16,25 @@ class ServiceproviderModel extends CI_Model{
 	  return $results;
 	}
 
+  public function getCities(){  
+    $this->db->select('*');
+    $this->db->from('cities');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
+
   public function getVendors(){  
     $this->db->select('*');
     $this->db->from('vendors');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
+  
+  public function getTime(){  
+    $this->db->select('*');
+    $this->db->from('time_slot');
     $query=$this->db->get();    
     $results = $query->result();
     return $results;

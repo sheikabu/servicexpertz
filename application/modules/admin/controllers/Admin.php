@@ -48,8 +48,19 @@ class Admin extends MY_Controller {
             // If user did validate, 
             // Send them to members area
             $data['title'] = '';    	
-        	redirect('admin/user/list_user');
+        	//redirect('admin/user/list_user');
+        	$this->home();  
         }		
+	}
+
+	public function home() //login_check
+	{	
+		//pass counts here
+		$data['usercount'] = 10;
+		$data['vendorcount'] = 15;
+		$data['booking'] = 150;
+		$this->load_view('dashboard', $data);        
+        		
 	}
 	
 	

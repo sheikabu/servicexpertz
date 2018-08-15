@@ -13,6 +13,8 @@
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.3.1.js"></script> 
     <script src="<?php echo base_url(); ?>assets/js/jquery.dataTables.min.js"></script> 
     <script src="<?php echo base_url(); ?>assets/js/dataTables.bootstrap.min.js"></script> 
+     <script src="<?php echo base_url(); ?>assets/js/selectize.js"></script> 
+     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/selectize.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.dataTables.min.css" />
 </head>
@@ -26,10 +28,11 @@
     </div>
     <div class="top-nav">
       <ul class="navbar-nav ml-auto ml-md-0">
-        <li class="nav-item dropdown no-arrow">
+        <li class="nav-item dropdown no-arrow">          
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-user-o "></i>
-            <span class="ml-2">John Smith</span>
+
+            <span class="ml-2"><?php echo ucfirst($this->session->userdata('fname')); ?></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">Settings</a>

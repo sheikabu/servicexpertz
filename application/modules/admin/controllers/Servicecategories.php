@@ -34,14 +34,15 @@ class Servicecategories extends MY_Controller {
 
 
   public function add()
+
 	{	      
-	    $this->load_view('service_categories/create');	    
+		$data['servicecategories'] = $this->ServicecategoriesModel->getMainServiceCategories();		
+	    $this->load_view('service_categories/create',$data);      
 	}
 
 	public function insert() { 			  
-		$Servicecategories_array = array(
-            /* 'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'), */
+		$Servicecategories_array = array(            
+			'main_category_id' => $this->input->post('main_category_id'),
 			'category' => $this->input->post('category')            
         );					
         $this->ServicecategoriesModel->insertServicecategories($Servicecategories_array);         
@@ -56,8 +57,7 @@ class Servicecategories extends MY_Controller {
 		$sc_id = $this->uri->segment(4);         
         $delstatus = $this->ServicecategoriesModel->deleteServicecategories($sc_id);
 		if($delstatus==1)
-		{
-			$data['service'] = $this->ServicecategoriesModel->getlDetails();			 
+		{			
 			$this->session->set_flashdata('msg', 'Deleted successfully');
 		    redirect('admin/servicecategories/list_servicecategories');			
 		}
@@ -65,7 +65,7 @@ class Servicecategories extends MY_Controller {
 	} 
    public function update()
 
-         {	
+         {	$data['servicecategories'] = $this->ServicecategoriesModel->getMainServiceCategories();	
          	 $sc_id = $this->uri->segment(4);			 
              $row = $this->ServicecategoriesModel->geteServicecategories($sc_id);
              $data['service'] = $row;
@@ -74,8 +74,7 @@ class Servicecategories extends MY_Controller {
 		
 	public function updated() { 
 		  $sc_id = $this->input->post('sc_id');
-		  $Servicecategories_array = array(
-	           /*  'first_name' => $this->input->post('first_name'),*/
+		  $Servicecategories_array = array(	           
 				'main_category_id' => $this->input->post('main_category_id'), 
 				'category' => $this->input->post('category')            
 	        );			

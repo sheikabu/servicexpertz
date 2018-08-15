@@ -8,10 +8,10 @@
        		 </div>
        	</div>
        	<div class="row">
-	        <div class="col-sm-6 text-center">
+	        <div class="col-sm-12 text-center">
 
 	        	<?php if($this->session->flashdata('msg')): ?>
-	    			<p class="alert alert-success"><?php echo $this->session->flashdata('msg'); ?></p>
+	    			<p class="alert alert-success mr-30"><?php echo $this->session->flashdata('msg'); ?></p>
 				<?php endif; ?>
 
 	        </div>
@@ -22,6 +22,7 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
+			        	<th>id</th>
 			           <th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
@@ -35,10 +36,11 @@
 				foreach($user_list as $user) {
 				?>
 			        <tr>
+			        	<td><?php echo $user->userid; ?></td>
 			            <td><?php echo $user->first_name; ?></td>
 			            <td><?php echo $user->last_name; ?></td>
 			             <td><?php echo $user->email; ?></td>
-			            <td>phone number</td>
+			            <td><?php echo $user->phone; ?></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/update/<?php echo $user->userid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/delete/<?php echo $user->userid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="15px" height="15px" title="Delete" onClick="return doconfirm();" ></a></td>
 
@@ -62,11 +64,16 @@
 
 <script type="text/javascript">
   $(document).ready(function() {       
-  $('#userTable').dataTable( {
-      "columnDefs": [
-        { "width": "40%", "targets": 0 }
-      ]
+  $('#userTable').dataTable( { 
+  	  "columnDefs": [
+  		{
+    		"targets": [ 0 ],
+    		"visible": false,
+  		}],
+
+      "order": [[ 0, "desc" ]]
     } );
+
   } );
 </script>
 <script>

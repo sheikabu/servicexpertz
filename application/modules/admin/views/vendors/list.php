@@ -8,10 +8,10 @@
        		 </div>
        	</div>
        	<div class="row">
-	        <div class="col-sm-6 text-center">
+	        <div class="col-sm-12 text-center">
 
 	        	<?php if($this->session->flashdata('msg')): ?>
-	    			<p class="alert alert-success"><?php echo $this->session->flashdata('msg'); ?></p>
+	    			<p class="alert alert-success mr-30"><?php echo $this->session->flashdata('msg'); ?></p>
 				<?php endif; ?>
 
 	        </div>
@@ -22,23 +22,29 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
-			           <th>First Name</th>
-						<th>Last Name</th>
-						<th>Email</th>
-						<th>Phone</th>
+			        	<th>id</th>
+			           <th>Name of Company</th>
+						<th>Address</th>						
+						<th>Telephone No</th>						
+						<th>Email</th>						
+						<th>View</th>
 						<th>Edit</th>
-						<th>Delete</th>
+						<th>Delete</th>							
+													
 				    </tr>
 			    </thead>
 			    <tbody>
-			    <?php 
+			   <?php 
 				foreach($vendor_list as $vendor) {
-				?>
+				?>  
 			        <tr>
-			            <td><?php echo $vendor->first_name; ?></td>
-			            <td><?php echo $vendor->last_name; ?></td>
-			             <td><?php echo $vendor->email; ?></td>
-			            <td>phone number</td>
+			        <td><?php echo $vendor->vid;?> </td>
+			            <td><?php echo $vendor->company_name;?> </td>
+			            <td><?php echo $vendor->comany_address;?> </td>			            
+			            <td><?php echo $vendor->telephone_no;?> </td>
+			            <td><?php echo $vendor->email;?> </td>			            		            
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/vendors/view/<?php echo $vendor->vid; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td> 
+			           
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/vendors/update/<?php echo $vendor->vid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/vendors/delete/<?php echo $vendor->vid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 
@@ -62,11 +68,16 @@
 
 <script type="text/javascript">
   $(document).ready(function() {       
-  $('#userTable').dataTable( {
-      "columnDefs": [
-        { "width": "40%", "targets": 0 }
-      ]
+  $('#userTable').dataTable( { 
+  	  "columnDefs": [
+  		{
+    		"targets": [ 0 ],
+    		"visible": false,
+  		}],
+
+      "order": [[ 0, "desc" ]]
     } );
+
   } );
 </script>
 <script>

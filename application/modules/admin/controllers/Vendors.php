@@ -14,6 +14,8 @@ class Vendors extends MY_Controller {
 		       
 		    $this->load->model('VendorModel');
 			$this->load->helper('date');
+			$this->load->library('upload');
+			
     }
    
 	public function load_view($view, $vars = array()) {
@@ -38,11 +40,49 @@ class Vendors extends MY_Controller {
 	    $this->load_view('vendors/create');	    
 	}
 
-	public function insert() { 			  
+	public function insert() { 	
+	if(!empty($_FILES["userfile"]["name"]))  
+			{
+	$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        echo $this->upload->display_errors();  
+        }
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}
 		$vendors_array = array(
-            'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'),
-			'email' => $this->input->post('email')            
+            'company_name' => $this->input->post('company_name'),
+			'comany_address' => $this->input->post('comany_address'),
+			'pincode' => $this->input->post('pincode'),
+			'telephone_no' => $this->input->post('telephone_no'),
+			'fax_no' => $this->input->post('fax_no'),
+			'email' => $this->input->post('email'), 
+			'web' => $this->input->post('web'),
+            'name_representative' => $this->input->post('name_representative'),
+			'email_crepresentative' => $this->input->post('email_crepresentative'),
+			'pan_card' => $this->input->post('pan_card'),
+			'title_designation' => $this->input->post('title_designation'),
+			'direct_no' => $this->input->post('direct_no'),
+			'mobile_no' => $this->input->post('mobile_no'),
+			'date_cestablished' => $this->input->post('date_cestablished'),	
+			'cross_annual' => $this->input->post('cross_annual'), 
+			'bank_name' => $this->input->post('bank_name'), 
+			'bank_address' => $this->input->post('bank_address'), 
+			'staff_name' => $this->input->post('staff_name'), 
+			'staff_address' => $this->input->post('staff_address'), 
+			'skills' => $this->input->post('skills'),
+			'experience' => $this->input->post('experience'),
+			'image' => $image
+			
+
+			           
         );					
         $this->VendorModel->insertvendors($vendors_array);         
         $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -63,6 +103,14 @@ class Vendors extends MY_Controller {
 		}
 		
 	} 
+	public function view() // add user full details
+	{
+		 $vid = $this->uri->segment(4);			 
+             $row = $this->VendorModel->getevendors($vid);
+             $data['vendor'] = $row;
+             $this->load_view('admin/vendors/view', $data);
+		
+	}
    public function update()
 
          {	
@@ -73,17 +121,78 @@ class Vendors extends MY_Controller {
          }
 		
 	public function updated() { 
+	if(!empty($_FILES["userfile"]["name"]))  
+			{
+	$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        echo $this->upload->display_errors();  
+        }
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}
 		  $vid = $this->input->post('vid');
 		  $vendors_array = array(
-	            'first_name' => $this->input->post('first_name'),
-				'last_name' => $this->input->post('last_name'),
-				'email' => $this->input->post('email')	            
+	           'company_name' => $this->input->post('company_name'),
+			'comany_address' => $this->input->post('comany_address'),
+			'pincode' => $this->input->post('pincode'),
+			'telephone_no' => $this->input->post('telephone_no'),
+			'fax_no' => $this->input->post('fax_no'),
+			'email' => $this->input->post('email'), 
+			'web' => $this->input->post('web'),
+			'name_representative' => $this->input->post('name_representative'),
+			'email_crepresentative' => $this->input->post('email_crepresentative'),
+			'pan_card' => $this->input->post('pan_card'),
+			'title_designation' => $this->input->post('title_designation'),
+			'direct_no' => $this->input->post('direct_no'),
+			'mobile_no' => $this->input->post('mobile_no'),
+			'date_cestablished' => $this->input->post('date_cestablished'),	
+			'cross_annual' => $this->input->post('cross_annual'), 
+			'bank_name' => $this->input->post('bank_name'), 
+			'bank_address' => $this->input->post('bank_address'), 
+			'staff_name' => $this->input->post('staff_name'), 
+			'staff_address' => $this->input->post('staff_address'), 
+			'skills' => $this->input->post('skills'),
+			'experience' => $this->input->post('experience'), 	
+            'image' => $image
 	        );			
 		  
          $this->VendorModel->updatevendors($vid,$vendors_array);
          $this->session->set_flashdata('msg', 'updated successfully');
 	     redirect('admin/vendors/list_vendor');			
 	}
+	
+	 public function do_upload()
+        {
+                $config['upload_path']          = './uploads/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+
+                        $this->load->view('upload_form', $error);
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+
+                       
+                }
+        }
+	
+	
 	
 }
 

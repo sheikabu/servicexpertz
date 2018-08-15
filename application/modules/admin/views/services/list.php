@@ -4,7 +4,7 @@
 	<div class="width-fluid"> 
 		<div class="row">
 			<div class="col-sm-12 mt-10 mb-10 text-right">
-       		 	<a class="btn btn-primary" style="margin-right: 30px;" href="<?php echo base_url(); ?>admin/serviceprovider/add">Add Service Provider </a>
+       		 	<a class="btn btn-primary" style="margin-right: 30px;" href="<?php echo base_url(); ?>admin/services/add">Add Service </a>
        		 </div>
        	</div>
        	<div class="row">
@@ -22,25 +22,25 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
 			    <thead>
 			        <tr>
-			           <th>id</th>
-			           <th>First Name</th>
-					   <th>Last Name</th>						
-					   <th>Phone</th>
-					   <th>Edit</th>
-					   <th>Delete</th>
+			           <th>id</th>	
+			           <th>Main Category</th>
+						<th>Category</th>						
+						<th>Service</th>
+						<th>Edit</th>
+						<th>Delete</th>
 				    </tr>
 			    </thead>
 			    <tbody>
 			    <?php 
-				foreach($sp_list as $user) {
+				foreach($services_list as $services) {
 				?>
 			        <tr>
-			        	<td><?php echo $user->spid; ?></td>
-			            <td><?php echo $user->first_name; ?></td>
-			            <td><?php echo $user->last_name; ?></td>
-			             <td><?php echo $user->phone; ?></td>			            
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/update/<?php echo $user->spid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/delete/<?php echo $user->spid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
+			        	<td><?php echo $services->sid; ?></td>
+			            <td><?php echo strtoupper($services->main_category); ?></td>
+			            <td><?php echo strtoupper($services->category); ?></td>
+			             <td><?php echo $services->services; ?></td>			            
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $services->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $services->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
 			    <?php } ?>
 			    </tbody>
