@@ -1704,8 +1704,8 @@ INSERT INTO `service_categories` (`sc_id`, `main_category_id`, `category`, `crea
 --
 
 CREATE TABLE `service_main_categories` (
-  `smc_id` int(11) NOT NULL,
-  `main_category` varchar(100) NOT NULL,
+  `smc_id` int(150) NOT NULL,
+  `main_category` varchar(250) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
