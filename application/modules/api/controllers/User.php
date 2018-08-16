@@ -8,11 +8,15 @@ class User extends MY_Controller {
     function __construct() {
         parent::__construct();
 		header('Access-Control-Allow-Origin: *');
+		header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
         header('Access-Control-Allow-Methods: POST, GET, PUT, PATCH, DELETE, OPTIONS');
         header('Access-Control-Max-Age: 1000');
+		$method = $_SERVER['REQUEST_METHOD'];
+        if($method == "OPTIONS") {
+            die();
+        }
 		$this->load->model("api/user_model");
-		$this->load->model('api/common_model');
-		
+		$this->load->model('api/common_model');		
     }
 
     function index() {
@@ -26,8 +30,15 @@ class User extends MY_Controller {
 		$condition = array('email' => $email, 'password' => $password, 'active' => true);
 		$res = $this->common_model->getRecords('users', $condition, 1);
 		$result = array('code' => 1002, 'status' => 'failed', 'message' => 'Credential mismatch.');
+		$user = array();
 		if(count($res) == 1){
 			$result = $this->updateToken($res[0]->user_id);
+			$user['user_id'] = $res[0]->user_id;
+			$user['name'] = $res[0]->name;
+			$user['email'] = $res[0]->email;
+			$user['active'] = $res[0]->active;
+			$user['role'] = $res[0]->role;
+			$result['user_details'] = $user;
 		}
 		echo json_encode($result);
 	}
