@@ -137,36 +137,36 @@ $(document).ready( function () {
         rules: {
           vendor: "required",          
           maincate: "required",
-		  category: "required",          
+		      category: "required",          
           services: "required",
-		  mincost: "required",          
+		      mincost: "required",          
           image: "required",
-		  empid: "required",          
+		      empid: "required",          
           firstname: "required",
-		  lastname: "required",          
+		      lastname: "required",          
           phone: "required",
-		  city: "required",   
-		  email: {
-          required: true,
-          email: true
+		      city: "required",   
+		      email: {
+           required: true,
+            email: true
           },		  
           pincode: "required",
-		  timeslot: "required",
+		      timeslot: "required",
         },
         messages: {
           vendor: "Please Select vendor",          
           maincate: "Please Select Main Category",
-		  category: "Please Select category",          
+		      category: "Please Select category",          
           services: "Please Select services",
-		  mincost: "Please enter your Min Cost",          
+		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",
-		  empid: "Please enter your  Emp ID",          
+		      empid: "Please enter your  Emp ID",          
           firstname: "Please enter your First Name",
-		  lastname: "Please enter your Last Name",          
+		      lastname: "Please enter your Last Name",          
           phone: "Please enter your Phone Number",
-		  email: "Please enter your valid email address",          
+		      email: "Please enter your valid email address",          
           city: "Please Select City",
-		  pincode: "Please enter your Pincode",          
+		      pincode: "Please enter your Pincode",          
           timeslot: "Please Select Time Slot",
           
         },
@@ -174,12 +174,7 @@ $(document).ready( function () {
         errorPlacement: function ( error, element ) {
           // Add the `help-block` class to the error element
           error.addClass( "validationerror" );
-
-          if ( element.prop( "type" ) === "checkbox" ) {
-            error.insertAfter( element.parent( "label" ) );
-          } else {
-            error.insertAfter( element );
-          }
+         
         },
         highlight: function ( element, errorClass, validClass ) {
           $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );

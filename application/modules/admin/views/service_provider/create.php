@@ -1,11 +1,13 @@
+
+
 <div class="container-fluid col-md-9 col-sm-9">
 
   <div class="row content">
-    <div class="col-md-12 col-sm-12">      
+    <div class="col-md-12 col-sm-12">  
+    <form class="form-horizontal" id="serviceprovider_form" action="<?php echo base_url() ?>admin/serviceprovider/insert" method="post" enctype="multipart/form-data">    
       <div class="row">
-          <div class="col-md-6 col-sm-12">
-              <form class="form-horizontal" id="serviceprovider_form" action="<?php echo base_url() ?>admin/serviceprovider/insert" method="post" enctype="multipart/form-data">
-            
+       <div class="col-md-6 col-sm-12">
+              
 
 			       <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Vendor<span class="validationerror">*</span></label>
@@ -21,7 +23,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="maincate">Select Main Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id='maincate' name="main_id" class="form-control demo-default" required placeholder="Select Main Category...">
+                    <select id='maincate' multiple name="main_id[]" class="form-control demo-default" required placeholder="Select Main Category...">
                       <option>SELECT MAIN CATEGORY</option>
                       <?php foreach ($maincate as $mckey => $mcvalue) { ?>
                         <option value="<?php echo $mcvalue->smc_id; ?>"><?php echo $mcvalue->main_category; ?></option>
@@ -43,7 +45,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Service<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id="services" name="service_id" class="form-control demo-default"  required placeholder="Select Services...">
+                    <select id="services" multiple name="service_id[]" class="form-control demo-default"  required placeholder="Select Services...">
                       <option>SELECT SERVICES</option>
                       <?php foreach ($services as $skey => $svalue) { ?>
                         <option value="<?php echo $svalue->sid; ?>"><?php echo $svalue->services; ?></option>
@@ -66,9 +68,9 @@
                </div>
                 <div class="col-md-6 col-sm-12">
                 <div class="form-group">
-                <label class="control-label col-sm-12" for="firstname">Emp ID<span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="empid">Emp ID<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" id="empid" placeholder="Enter Service Provider ID" name="emp_id" value="" required>
+                  <input type="text" class="form-control" id="empid" placeholder="Enter Service Provider ID" value="" name="emp_id" required>
                 </div>
               </div>
               <div class="form-group">
@@ -131,10 +133,11 @@
 									 </div>
                 </div>
               </div>
-			 
-            </form>
+            <!--</form> -->
           </div>
+          </form>
       </div>
     </div>
   </div>
 </div>
+</form>
