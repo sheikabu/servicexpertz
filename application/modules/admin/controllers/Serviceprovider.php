@@ -42,8 +42,14 @@ public function add(){
 
 public function insert() { 		
 
+		$main_id = $this->input->post('main_id');
+		$maincate = json_encode($main_id, true);
+
 		$category = $this->input->post('cate_id');
 		$categories = json_encode($category, true);
+
+		$service_id = $this->input->post('service_id');
+		$services = json_encode($service_id, true);
 
 		$config['upload_path'] = 'upload/sp';
 		$config['overwrite'] = TRUE;
@@ -59,9 +65,9 @@ public function insert() {
 		
 	$sp_array = array(
 		'vendor_id' => $this->input->post('vendor_id'),
-		'main_category_id' => $this->input->post('main_id'),
+		'main_category_id' => $maincate,
 		'category_id' => $categories,
-		'services_id' => $this->input->post('service_id'),
+		'services_id' => $services,
 		'min_cost' => $this->input->post('mincost'),
         'first_name' => $this->input->post('first_name'),
 		'last_name' => $this->input->post('last_name'),
@@ -105,6 +111,16 @@ public function update() {
 		
 public function updated() { 
 
+		$main_id = $this->input->post('main_id');
+		$maincate = json_encode($main_id, true);
+
+		$category = $this->input->post('cate_id');
+		$categories = json_encode($category, true);
+
+		$service_id = $this->input->post('service_id');
+		$services = json_encode($service_id, true);
+
+
 		if(!empty($_FILES["userfile"]["name"])) {
 		$config['upload_path'] = 'upload/sp';
 		$config['overwrite'] = TRUE;
@@ -121,9 +137,9 @@ public function updated() {
 	  $spid = $this->input->post('spid');
 	  $sp_array = array(
         'vendor_id' => $this->input->post('vendor_id'),
-		'main_category_id' => $this->input->post('main_id'),
-		'category_id' => $this->input->post('cate_id'),
-		'services_id' => $this->input->post('service_id'),
+		'main_category_id' => $maincate,
+		'category_id' => $categories,
+		'services_id' => $services,
 		'min_cost' => $this->input->post('mincost'),
         'first_name' => $this->input->post('first_name'),
 		'last_name' => $this->input->post('last_name'),

@@ -20,10 +20,11 @@
                  <div class="form-group">
                 <label class="control-label col-sm-12" for="maincate">Select Main Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id='maincate' name="main_id" class="form-control demo-default" placeholder="Select Main Category...">
+                   <?php $maincate_id  = json_decode($service_providers->main_category_id); ?>
+                    <select id='maincate' name="main_id[]"  multiple class="form-control demo-default" placeholder="Select Main Category...">
                       <option>SELECT MAIN CATEGORY</option>
                       <?php foreach ($maincate as $mckey => $mcvalue) { ?>
-                        <option value="<?php echo $mcvalue->smc_id; ?>" <?php if($mcvalue->smc_id==$service_providers->main_category_id) { ?> selected <?php } ?>><?php echo $mcvalue->main_category; ?></option>
+                        <option value="<?php echo $mcvalue->smc_id; ?>" <?php if (in_array($mcvalue->smc_id, $maincate_id)) { ?> selected <?php } ?>><?php echo $mcvalue->main_category; ?></option>
                       <?php } ?>
                     </select>
                 </div>
@@ -31,10 +32,11 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id="category" name="cate_id" class="form-control demo-default" placeholder="Select Category...">
+                     <?php $category_id  = json_decode($service_providers->category_id); ?>
+                    <select id="category" name="cate_id[]" multiple class="form-control demo-default" placeholder="Select Category...">
                       <option>SELECT CATEGORY</option>
                       <?php foreach ($cate as $ckey => $cvalue) { ?>
-                        <option value="<?php echo $cvalue->sc_id; ?>" <?php if($cvalue->sc_id==$service_providers->category_id) { ?> selected <?php } ?>><?php echo $cvalue->category; ?></option>
+                        <option value="<?php echo $cvalue->sc_id; ?>" <?php if(in_array($cvalue->sc_id, $category_id)) { ?> selected <?php } ?>><?php echo $cvalue->category; ?></option>
                       <?php } ?>
                     </select>
                 </div>
@@ -42,10 +44,11 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Service<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id="services" name="service_id" class="form-control demo-default" placeholder="Select Services...">
+                    <?php $service_id  = json_decode($service_providers->services_id); ?>
+                    <select id="services" name="service_id[]" multiple class="form-control demo-default" placeholder="Select Services...">
                       <option>SELECT SERVICES</option>
                       <?php foreach ($services as $ckey => $svalue) { ?>
-                        <option value="<?php echo $svalue->sid; ?>" <?php if($svalue->sid==$service_providers->services_id) { ?> selected <?php } ?>><?php echo $svalue->services; ?></option>
+                        <option value="<?php echo $svalue->sid; ?>" <?php if(in_array($svalue->sid, $service_id)) { ?> selected <?php } ?>><?php echo $svalue->services; ?></option>
                       <?php } ?>
                     </select>
                 </div>
