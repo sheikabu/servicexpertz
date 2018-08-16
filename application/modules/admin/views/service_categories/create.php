@@ -20,7 +20,7 @@
               </div>
                
               <div class="form-group">
-                <label class="control-label col-sm-2" for="lastname">Sub Categories <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="lastname">Sub Categories <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="subcategories" placeholder="Enter Sub Categories" name="category" value="" required>
                 </div>
