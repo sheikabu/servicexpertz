@@ -77,11 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-<<<<<<< HEAD
 	'password' => '',
-=======
-	'password' => 'inapp',
->>>>>>> 9caea74353d46a12f0369e5189c686b6f8b2b776
 	'database' => 'service_expertz',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

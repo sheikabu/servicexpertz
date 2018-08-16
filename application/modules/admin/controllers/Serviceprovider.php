@@ -94,6 +94,21 @@ public function delete(){
 		}
 	
 	} 
+	
+	public function view() // add user full details
+	{
+		  	 $spid = $this->uri->segment(4);
+     $row = $this->ServiceproviderModel->geteuser($spid);
+     $data['vendors'] = $this->ServiceproviderModel->getVendors();
+     $data['vendors'] = $this->ServiceproviderModel->getVendors();	
+	 $data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
+	 $data['cate'] = $this->ServicecategoriesModel->getlDetails();
+	 $data['cities'] = $this->ServiceproviderModel->getCities();
+	 $data['time'] = $this->ServiceproviderModel->getTime();
+	 $data['services'] = $this->ServicesModel->getlDetails();	
+     $data['service_providers'] = $row;
+             $this->load_view('admin/service_provider/view', $data);
+	}
 
 public function update() {	
  	 $spid = $this->uri->segment(4);

@@ -31,6 +31,12 @@
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
+			   <div class="form-group">
+                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="<?php echo $user->password;?>"required>
+                </div>
+              </div>
                   <input type="hidden" class="form-control" name="role" value="user">
                   <input type="hidden" class="form-control" name="userid" value="<?php echo $user->userid; ?>"required >
               <div class="form-group">   
