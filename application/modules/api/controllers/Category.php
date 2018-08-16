@@ -31,7 +31,7 @@ class Category extends MY_Controller {
 			$subcategories = $this->common_model->getRecords('services', $cat_condition, $limit = null, $offset = null);
 			$categories[$i]->services = $subcategories;
 			$i++;
-		}
+		}	
 		echo json_encode($categories);
     }
 

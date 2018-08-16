@@ -22,7 +22,7 @@
 			    </div>
 			  </div>
 			  
-			  <form role="form" action="<?php echo base_url() ?>admin/vendors/insert" method="post" enctype="multipart/form-data">
+			  <form role="form" id="vendor_form" action="<?php echo base_url() ?>admin/vendors/insert" method="post" enctype="multipart/form-data">
 			    <div class="row setup-content" id="step-1">
 			      	<div class="col-sm-12 col-md-offset-3">
 			      		<div class="row">
@@ -35,32 +35,32 @@
 						        
 						        <div class="form-group">
 							        <label class="control-label">Name of Company<span>*</span></label>
-							        <input maxlength="100" type="text" required="required" name="company_name" class="form-control" placeholder="Enter Company Name" required>
+							        <input maxlength="100" type="text" id="companyname" required="required" name="company_name" class="form-control" placeholder="Enter Company Name" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address<span>*</span></label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="comany_address" rows="4" required></textarea>
+							        <textarea class="form-control rounded-0" id="comanyaddress" name="comany_address" rows="4" required></textarea>
 						            
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Pincode<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="pincode" placeholder="Enter Pincode" required>
+							        <input maxlength="100" type="text" id="pincode" class="form-control" name="pincode" placeholder="Enter Pincode" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Telephone No.<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control"  name="telephone_no" placeholder="Enter Telephone No." required>
+							        <input maxlength="100" type="text" id="telephone" class="form-control"  name="telephone_no" placeholder="Enter Telephone No." required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Fax No.<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control"  name="fax_no" placeholder="Enter Fax No." required>
+							        <input maxlength="100" type="text" id="faxno" class="form-control"  name="fax_no" placeholder="Enter Fax No." required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Email<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="email" onblur="validateEmail(this);"   placeholder="Enter Email" required>
+							        <input maxlength="100" type="text" id="email" class="form-control" name="email" onblur="validateEmail(this);"   placeholder="Enter Email" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Web<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control"  name="web" placeholder="Enter Web" required>
+							        <input maxlength="100" type="text" id="web" class="form-control"  name="web" placeholder="Enter Web" required>
 						        </div>
 								
 					        </div>
@@ -68,19 +68,19 @@
 
 						        <div class="form-group">
 							        <label class="control-label">Name of  Company Representative<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="name_representative" placeholder="Enter Name of  Company Representative" required>
+							        <input maxlength="100" type="text" id="namecrepresentative" class="form-control" name="name_representative" placeholder="Enter Name of  Company Representative" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Email of  Company Representative<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="email_crepresentative" onblur="validateEmail(this);"  placeholder="Enter Email of  Company Representative" required>
+							        <input maxlength="100" type="text" id="emailcrepresentative" class="form-control" name="email_crepresentative" onblur="validateEmail(this);"  placeholder="Enter Email of  Company Representative" required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Pan Card<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="pan_card" placeholder="Enter Pan Card" required>
+							        <input maxlength="100" type="text" id="pancard" class="form-control" name="pan_card" placeholder="Enter Pan Card" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Title/Designation<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="title_designation" placeholder="Enter Title/Designation" required>
+							        <input maxlength="100" type="text" id="titledesignation" class="form-control" name="title_designation" placeholder="Enter Title/Designation" required>
 						        </div>
 						        <!-- <div class="form-group">
 							        <label class="control-label">Telphone No.</label>
@@ -88,19 +88,19 @@
 						        </div> -->
 								<div class="form-group">
 							        <label class="control-label">Direct No.<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="direct_no" placeholder="Enter Direct No." required>
+							        <input maxlength="100" type="text" id="directno" class="form-control" name="direct_no" placeholder="Enter Direct No." required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Mobile No.<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="mobile_no" placeholder="Enter Mobile No." required>
+							        <input maxlength="100" type="text" id="mobileno" class="form-control" name="mobile_no" placeholder="Enter Mobile No." required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Date Company was Established <span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="date_cestablished" placeholder="Enter Date Company was Established" required>
+							        <input maxlength="100" type="text" id="datecestablished" class="form-control" name="date_cestablished" placeholder="Enter Date Company was Established" required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Gross Annual ... for the ..year <span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="cross_annual" placeholder="Enter Gross Annual ... for the ..year" required>
+							        <input maxlength="100" type="text" id="grossannual" class="form-control" name="cross_annual" placeholder="Enter Gross Annual ... for the ..year" required>
 						        </div>
 					        </div>
 					    </div>
@@ -124,11 +124,11 @@
 			          		<div class="col-sm-6">
 						        <div class="form-group">
 						            <label class="control-label">Bank Name<span>*</span></label>
-						            <input maxlength="200" type="text"  required="required" class="form-control" name="bank_name" placeholder="Enter Bank Name"required>
+						            <input maxlength="200" type="text" id="bankname" required="required" class="form-control" name="bank_name" placeholder="Enter Bank Name"required>
 						        </div>
 						        <div class="form-group">
 						            <label class="control-label">Bank Address<span>*</span></label>
-						            <input maxlength="200" type="text" class="form-control" name="bank_address" placeholder="Enter Bank Address" required>
+						            <input maxlength="200" type="text" id="bankaddress" class="form-control" name="bank_address" placeholder="Enter Bank Address" required>
 						        </div>
 						        
 					        </div>
@@ -154,24 +154,24 @@
 		          			<div class="col-sm-6">
 					          	<div class="form-group">
 							        <label class="control-label">Name of the Staff <span>*</span></label>
-							        <input maxlength="100" type="text" required="required" class="form-control" name="staff_name" placeholder="Enter Name of the Staff"required>
+							        <input maxlength="100" type="text" id="staffname" required="required" class="form-control" name="staff_name" placeholder="Enter Name of the Staff"required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Address<span>*</span></label>
-							        <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" name="staff_address" rows="4" required></textarea>
+							        <textarea class="form-control rounded-0" id="staffaddress"  name="staff_address" rows="4" required></textarea>
 						            
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Skills<span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="skills" placeholder="Enter Skills"required>
+							        <input maxlength="100" type="text"  class="form-control" id="skills" name="skills" placeholder="Enter Skills"required>
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Experience <span>*</span></label>
-							        <input maxlength="100" type="text"  class="form-control" name="experience" placeholder="Enter Experience"required>
+							        <input maxlength="100" type="text"  class="form-control" id="experience" name="experience" placeholder="Enter Experience"required>
 						        </div>
 								<div class="form-group">
 							        <label class="control-label">Image <span>*</span></label>
-							        <input type="file" name="userfile" class="form-control" required>
+							        <input type="file" name="userfile" id="image" class="form-control" required>
 						        </div>
 					          
 					        </div>

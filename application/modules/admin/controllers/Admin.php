@@ -17,6 +17,7 @@ class Admin extends MY_Controller {
 		
 		$this->load->model('LoginModel');
 		$this->load->model('UserModel');
+		$this->load->model('AdminModel');
 		$this->load->helper('date');
     }
    
@@ -56,9 +57,15 @@ class Admin extends MY_Controller {
 	public function home() //login_check
 	{	
 		//pass counts here
-		$data['usercount'] = 10;
-		$data['vendorcount'] = 15;
-		$data['booking'] = 150;
+		/* $data['usercount'] = 10; */
+		//$data['vendorcount'] = 15;
+		//$data['booking'] = 150;
+		$usersNo =  $this->AdminModel->get_UserNumber();  
+        $vendorNo =  $this->AdminModel->get_VendorNumber(); 
+        $bookingNo =  $this->AdminModel->get_BookNumber();		
+        $data['usercount'] = $usersNo[0]->no;
+		$data['vendorcount'] = $vendorNo[0]->no;
+		$data['booking'] = $bookingNo[0]->no;
 		$this->load_view('dashboard', $data);        
         		
 	}

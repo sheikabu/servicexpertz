@@ -8,25 +8,25 @@
 			 
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firs
-				tname">First Name<span>*</span></label>
+				tname">First Name<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                   <input type="text" class="form-control"  id="firstname" placeholder="Enter First Name" name="first_name" value="<?php echo $user->first_name;?>"required>
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Last Name<span>*</span></label>
+                <label class="control-label col-sm-12" for="lastname">Last Name</label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="<?php echo $user->last_name;?>"required>
                 </div>
               </div>
 			  <div class="form-group">
-                <label class="control-label col-sm-12" for="email">Email<span>*</span></label>
+                <label class="control-label col-sm-12" for="email">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="email"  placeholder="Enter email" name="email" onblur="validateEmail(this);" value="<?php echo $user->email;?>"required>
                 </div>
               </div>
 			   <div class="form-group">
-                <label class="control-label col-sm-12" for="phone">Phone Number<span>*</span></label>
+                <label class="control-label col-sm-12" for="phone">Phone Number<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
