@@ -24,8 +24,18 @@
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="subcategories" placeholder="Enter Last Name" name="category" value="<?php echo $service->category; ?>"  required>
                 </div>
+				 <div class="form-group">
+							        <label class="control-label">Image</label>
+									<img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->image;?>" >
+									 <input type="hidden" value="<?php echo $service->image;?>" name="old_image">
+						        </div>
+				<div class="form-group">
+	            <label class="control-label">Description<span class="validationerror">*</span></label>
+			    <input class="form-control rounded-0" id="description"  name="description" rows="4"  maxlength="200" value="<?php echo $service->description; ?>"></input>
+			  </div>
               </div>
-			  
+			  				
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="service">
 
                   <input type="hidden" class="form-control" name="sc_id" value="<?php echo $service->sc_id; ?>">

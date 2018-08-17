@@ -14,6 +14,7 @@ class Servicecategories extends MY_Controller {
 		       
 		    $this->load->model('ServicecategoriesModel');
 			$this->load->helper('date');
+			$this->load->library('upload');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -40,10 +41,31 @@ class Servicecategories extends MY_Controller {
 	    $this->load_view('service_categories/create',$data);      
 	}
 
-	public function insert() { 			  
+	public function insert() { 
+
+	if(!empty($_FILES["userfile"]["name"]))  
+			{
+	$config['upload_path'] = 'upload/servicecategories';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        echo $this->upload->display_errors();  
+        }
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}
+		
 		$Servicecategories_array = array(            
 			'main_category_id' => $this->input->post('main_category_id'),
-			'category' => $this->input->post('category')            
+			'category' => $this->input->post('category'),
+            'image' => $image,
+			'description' => $this->input->post('description')
+			 
         );					
         $this->ServicecategoriesModel->insertServicecategories($Servicecategories_array);         
         $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -73,10 +95,28 @@ class Servicecategories extends MY_Controller {
          }
 		
 	public function updated() { 
+	if(!empty($_FILES["userfile"]["name"]))  
+			{
+	$config['upload_path'] = 'upload/servicecategories';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        echo $this->upload->display_errors();  
+        }
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}
 		  $sc_id = $this->input->post('sc_id');
 		  $Servicecategories_array = array(	           
 				'main_category_id' => $this->input->post('main_category_id'), 
-				'category' => $this->input->post('category')            
+				'category' => $this->input->post('category'),
+                'image' => $image,
+			    'description' => $this->input->post('description')				
 	        );			
 		  
          $this->ServicecategoriesModel->updateServicecategories($sc_id,$Servicecategories_array);

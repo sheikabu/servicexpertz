@@ -13,6 +13,7 @@ class Services extends MY_Controller {
         parent::__construct();      
 		$this->load->model('ServicesModel');
 		$this->load->helper('date');
+		$this->load->library('upload');
     }
    
 	public function load_view($view, $vars = array()) {
@@ -33,11 +34,29 @@ public function add(){
     $this->load_view('services/create', $data);	    
 	}
 
-public function insert() { 			  
+public function insert() { 
+if(!empty($_FILES["userfile"]["name"]))  
+			{
+	$config['upload_path'] = 'upload/services';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        echo $this->upload->display_errors();  
+        }
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}			  
 	$service_array = array(
 		'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
-        'services' => $this->input->post('service'),	       
+        'services' => $this->input->post('service'),
+		'description' => $this->input->post('description'),
+        'image' => $image,		    		
     );			
     //print_r($service_array); exit;		
     $this->ServicesModel->insertService($service_array);         
@@ -66,12 +85,30 @@ public function update() {
      }
 		
 public function updated() { 
+if(!empty($_FILES["userfile"]["name"]))  
+			{
+	$config['upload_path'] = 'upload/services';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('userfile'))  
+        {  
+        echo $this->upload->display_errors();  
+        }
+		$image = $_FILES["userfile"]["name"];
+			}
+		else {
+         $image =  $this->input->post('old_image');
+		}	
 	  $sid = $this->input->post('sid');
 	  $service_array = array(
 		'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
-        'updated_at' => 'CURRENT_TIMESTAMP',	       
+        'updated_at' => 'CURRENT_TIMESTAMP',
+         'description' => $this->input->post('description'),
+         'image' => $image,		
     	);			
      $this->ServicesModel->updateService($sid,$service_array);
      $this->session->set_flashdata('msg', 'updated successfully');

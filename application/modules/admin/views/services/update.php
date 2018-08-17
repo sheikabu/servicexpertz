@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/updated" method="post">
+              <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/updated" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Main Category <span>*</span></label>
                 <div class="col-sm-12">
@@ -33,6 +33,16 @@
                   <input type="text" class="form-control" id="l_name" placeholder="Enter Service" name="service" value="<?php echo $service->services; ?>" required>
                 </div>
               </div>
+			   <div class="form-group">
+							        <label class="control-label">Image</label>
+									<img src="<?php echo base_url() ?>upload/services/<?php echo $service->image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->image;?>" >
+									 <input type="hidden" value="<?php echo $service->image;?>" name="old_image">
+						        </div>
+				<div class="form-group">
+	            <label class="control-label">Description<span class="validationerror">*</span></label>
+			    <input class="form-control rounded-0" id="description"  name="description" rows="4"  maxlength="200" value="<?php echo $service->description; ?>"></input>
+			  </div>
                <input type="hidden" class="form-control" id="l_name" placeholder="role" name="sid" value="<?php echo $service->sid; ?>">
               <div class="form-group">   
                   <div class="col-sm-12"> 
