@@ -24,8 +24,7 @@
 			        <tr>
 			        	<th>id</th>
 			        	<th>#</th>
-			           <th>First Name</th>
-						<th>Last Name</th>
+			           <th>First Name</th>						
 						<th>Email</th>
 						<th>Phone</th>
 						<th>Edit</th>
@@ -38,14 +37,13 @@
 				foreach($user_list as $user) {
 				?>
 			        <tr>
-			        	<td><?php echo $user->userid; ?></td>
+			        	<td><?php echo $user->user_id; ?></td>
 			        	<td><?php echo $u; ?></td>
-			            <td><?php echo $user->first_name; ?></td>
-			            <td><?php echo $user->last_name; ?></td>
+			            <td><?php echo $user->name; ?></td>			            
 			             <td><?php echo $user->email; ?></td>
 			            <td><?php echo $user->phone; ?></td>
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/update/<?php echo $user->userid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/delete/<?php echo $user->userid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="15px" height="15px" title="Delete" onClick="return doconfirm();" ></a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/update/<?php echo $user->user_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/delete/<?php echo $user->user_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="15px" height="15px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
 			    <?php $u++; } ?>
 			    </tbody>

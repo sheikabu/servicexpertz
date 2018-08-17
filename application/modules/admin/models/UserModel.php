@@ -21,7 +21,7 @@ class UserModel extends CI_Model{
    {
 
   $this->load->database();
- $this->db->delete('users', array('userid' => $userid));
+ $this->db->delete('users', array('user_id' => $userid));
 
   
    return true;
@@ -29,14 +29,14 @@ class UserModel extends CI_Model{
 	public function geteuser($userid)
 
          {
-             $this->db->where('userid', $userid);
+             $this->db->where('user_id', $userid);
              $query = $this->db->get('users');
              return $query->row();
          }
    
  public function updateuser($userid,$user_array) {
 
- 		$this->db->where('userid', $userid);
+ 		$this->db->where('user_id', $userid);
         $this->db->update('users', $user_array);
 
 		return true;

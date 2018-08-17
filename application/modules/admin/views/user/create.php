@@ -12,12 +12,12 @@
                   <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="first_name" value="" required>
                 </div>
               </div>
-              <div class="form-group">
+              <!--<div class="form-group">
                 <label class="control-label col-sm-12" for="lastname">Last Name</label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="" >
                 </div>
-              </div>
+              </div>-->
 			  <div class="form-group">
                 <label class="control-label col-sm-12" for="lastname">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
