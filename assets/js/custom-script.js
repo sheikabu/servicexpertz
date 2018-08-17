@@ -8,11 +8,13 @@ $(document).ready( function () {
           email: true
           },
           phone: "required",
+		  password:"required",
         },
         messages: {
           firstname: "Please enter your firstname",          
           email: "Please enter a valid email address",
           phone: "Please enter your Phone Number",
+		   password: "Please enter your password",
         },
         errorElement: "em",
         errorPlacement: function ( error, element ) {

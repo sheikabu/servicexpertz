@@ -30,6 +30,12 @@
                   <input type="text" class="form-control" id="phone" placeholder="Enter email" name="phone"  value="">
                 </div>
               </div>
+			    <div class="form-group">
+                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="">
+                </div>
+              </div>
                   <input type="hidden" class="form-control" name="role" value="user">
               <div class="form-group">   
                   <div class="col-sm-12"> 
