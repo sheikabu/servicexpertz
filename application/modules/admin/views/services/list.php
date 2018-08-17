@@ -23,6 +23,7 @@
 			    <thead>
 			        <tr>
 			           <th>id</th>	
+			           <th>#</th>	
 			           <th>Main Category</th>
 						<th>Category</th>						
 						<th>Service</th>
@@ -32,9 +33,11 @@
 			    </thead>
 			    <tbody>
 			    <?php 
+			    $s = 1;
 				foreach($services_list as $services) {
 				?>
 			        <tr>
+			        	<td><?php echo $s; ?></td>
 			        	<td><?php echo $services->sid; ?></td>
 			            <td><?php echo strtoupper($services->main_category); ?></td>
 			            <td><?php echo strtoupper($services->category); ?></td>
@@ -42,7 +45,7 @@
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $services->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $services->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
-			    <?php } ?>
+			    <?php $s++; } ?>
 			    </tbody>
 				</table>
 			</div>
@@ -62,7 +65,8 @@
     		"visible": false,
   		}],
 
-      "order": [[ 0, "desc" ]]
+      "order": [[ 0, "desc" ]],
+      "pageLength": 15,
     } );
 
   } );

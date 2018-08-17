@@ -23,6 +23,7 @@
 			    <thead>
 			        <tr>
 			          	<th>id</th>	
+			          	<th>#</th>	
 						<th>Main Categories</th>	
 						<th>Categories</th>						 
 						<th>Edit</th>
@@ -31,23 +32,18 @@
 			    </thead>
 			    <tbody>
 			    <?php 
+			    $sc =1;
 				foreach($servicecategories_list as $service) {
 				?>
-			        <tr>	
-			        	 <td><?php echo $service->sc_id; ?></td>		            
+			        <tr>
+			        	 <td><?php echo $service->sc_id; ?></td>
+			        	<td><?php echo $sc; ?></td>	
 			            <td><?php echo strtoupper($service->main_category); ?></td>
 			             <td><?php echo $service->category; ?></td>			            
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/update/<?php echo $service->sc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/delete/<?php echo $service->sc_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
-
-			          <!--  <td><a href="<?php echo base_url(); ?>admin/user/update/<?php echo $user->userid; ?>">Edit</a></td>
-			            <td><a href="javascript:void(0);" onclick="delete(<?php echo $user->userid;?>);">Delete</a>
-			            <a href="<?php echo base_url();?>admin/user/delete/<?php print($user->userid);?>">
-	   <img  src='images/delete.gif' title="Delete" onClick="return doconfirm();" >
-	</a>
-			            </td> -->
 			        </tr>
-			    <?php } ?>
+			    <?php $sc++; } ?>
 			    </tbody>
 				</table>
 			</div>
