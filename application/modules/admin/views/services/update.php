@@ -35,13 +35,17 @@
               </div>
 			   <div class="form-group">
 							        <label class="control-label">Image</label>
-									<img src="<?php echo base_url() ?>upload/services/<?php echo $service->image;?>" width="50" height="50">
-							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->image;?>" >
-									 <input type="hidden" value="<?php echo $service->image;?>" name="old_image">
+									<img src="<?php echo base_url() ?>upload/services/<?php echo $service->images;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->images;?>" >
+									 <input type="hidden" value="<?php echo $service->images;?>" name="old_image">
 						        </div>
 				<div class="form-group">
 	            <label class="control-label">Description<span class="validationerror">*</span></label>
-			    <input class="form-control rounded-0" id="description"  name="description" rows="4"  maxlength="200" value="<?php echo $service->description; ?>"></input>
+			    <input class="form-control rounded-0" id="description"  name="descriptions" rows="4"  maxlength="200" value="<?php echo $service->descriptions; ?>"></input>
+			  </div>
+			  <div class="form-group">
+	            <label class="control-label">Terms and Conditions<span class="validationerror">*</span></label>
+			    <input class="form-control rounded-0" id="terms_conditions"  name="terms_conditions" rows="4"  value="<?php echo $service->terms_conditions; ?>" required maxlength="200"></input>
 			  </div>
                <input type="hidden" class="form-control" id="l_name" placeholder="role" name="sid" value="<?php echo $service->sid; ?>">
               <div class="form-group">   

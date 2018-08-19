@@ -4,7 +4,7 @@
 	<div class="width-fluid"> 
 		<div class="row">
 			<div class="col-sm-12 mt-10 mb-10 text-right">
-       		 	<a class="btn btn-primary" style="margin-right: 30px;" href="<?php echo base_url(); ?>admin/services/add">Add Service </a>
+       		 	<a class="btn btn-primary" style="margin-right: 30px;" href="<?php echo base_url(); ?>admin/setting/add">Add Service </a>
        		 </div>
        	</div>
        	<div class="row">
@@ -22,26 +22,25 @@
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;" enctype="multipart/form-data">
 			    <thead>
 			        <tr>
-			           <th>id</th>	
-			           <th>#</th>	
+						
 			           						
-						<th>Service</th>
+						<th>Email</th>
 						
 				    </tr>
 			    </thead>
 			    <tbody>
 			    <?php 
 			    $s = 1;
-				foreach($services_list as $services) {
+				foreach($Setting_list as $setting) {
 				?>
 			        <tr>
 			        	
-			            <td></td>
+			            <td><?php echo $setting->email; ?></td>
 			           
 						 
                         					 
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $services->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $services->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/setting/update/<?php echo $setting->st_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/setting/delete/<?php echo $setting->st_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
 			    <?php $s++; } ?>
 			    </tbody>

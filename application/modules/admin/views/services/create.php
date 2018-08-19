@@ -33,13 +33,17 @@
                   <input type="text" class="form-control" id="l_name" placeholder="Enter Service" name="service" value="" required>
                 </div>
               </div>
-			    <div class="form-group">
-				  <label class="control-label">Image <span class="validationerror">*</span></label>
-				 <input type="file" name="userfile" id="image" name="image" class="form-control" required>
-			 </div>
+			   <div class="form-group">
+							        <label class="control-label">Image <span>*</span></label>
+							        <input type="file" name="userfile" id="images" class="form-control" required>
+						        </div>
 			<div class="form-group">
 	            <label class="control-label">Description<span class="validationerror">*</span></label>
-			    <textarea class="form-control rounded-0" id="description"  name="description" rows="4" required maxlength="200"></textarea>
+			    <textarea class="form-control rounded-0" id="description"  name="descriptions" rows="4" required maxlength="200"></textarea>
+			  </div>
+			  <div class="form-group">
+	            <label class="control-label">Terms and Conditions<span class="validationerror">*</span></label>
+			    <textarea class="form-control rounded-0" id="terms_conditions"  name="terms_conditions" rows="4" required maxlength="200"></textarea>
 			  </div>
               <div class="form-group">   
                      <div class="col-sm-12"> 

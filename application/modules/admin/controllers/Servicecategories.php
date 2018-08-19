@@ -54,16 +54,16 @@ class Servicecategories extends MY_Controller {
         {  
         echo $this->upload->display_errors();  
         }
-		$image = $_FILES["userfile"]["name"];
+		$imagess = $_FILES["userfile"]["name"];
 			}
 		else {
-         $image =  $this->input->post('old_image');
+         $imagess =  $this->input->post('old_image');
 		}
 		
 		$Servicecategories_array = array(            
 			'main_category_id' => $this->input->post('main_category_id'),
 			'category' => $this->input->post('category'),
-            'image' => $image,
+            'imagess' => $imagess,
 			'description' => $this->input->post('description')
 			 
         );					
@@ -106,16 +106,16 @@ class Servicecategories extends MY_Controller {
         {  
         echo $this->upload->display_errors();  
         }
-		$image = $_FILES["userfile"]["name"];
+		$imagess = $_FILES["userfile"]["name"];
 			}
 		else {
-         $image =  $this->input->post('old_image');
+         $imagess =  $this->input->post('old_image');
 		}
 		  $sc_id = $this->input->post('sc_id');
 		  $Servicecategories_array = array(	           
 				'main_category_id' => $this->input->post('main_category_id'), 
 				'category' => $this->input->post('category'),
-                'image' => $image,
+                'imagess' => $imagess,
 			    'description' => $this->input->post('description')				
 	        );			
 		  

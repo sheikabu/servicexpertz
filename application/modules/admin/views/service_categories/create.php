@@ -27,7 +27,7 @@
               </div>
 			  <div class="form-group">
 				  <label class="control-label">Image <span class="validationerror">*</span></label>
-				 <input type="file" name="userfile" id="image" name="image" class="form-control" required>
+				 <input type="file" name="userfile" id="imagess" name="imagess" class="form-control" required>
 			 </div>
 			<div class="form-group">
 	            <label class="control-label">Description<span class="validationerror">*</span></label>

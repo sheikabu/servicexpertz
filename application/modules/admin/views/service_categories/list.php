@@ -42,7 +42,7 @@
 			        	<td><?php echo $sc; ?></td>	
 			            <td><?php echo strtoupper($service->main_category); ?></td>
 			             <td><?php echo $service->category; ?></td>		
-                         <td><img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->image;?>" width="50" height="50"></td>	
+                         <td><img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->imagess; ?>" width="50" height="50"></td>	
 						 
                         <td><?php echo $service->description; ?></td>	 
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/update/<?php echo $service->sc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>

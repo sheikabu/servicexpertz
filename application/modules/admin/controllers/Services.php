@@ -27,10 +27,12 @@ public function list_services() {
 	$data['services_list'] = $this->ServicesModel->getlDetails();   	
     $this->load_view('services/list',$data);    
 	}
+	
 
 public function add(){
 	$data['maincate'] = $this->ServicesModel->getMainCategories();
 	$data['cate'] = $this->ServicesModel->getCategories();
+	
     $this->load_view('services/create', $data);	    
 	}
 
@@ -46,17 +48,18 @@ if(!empty($_FILES["userfile"]["name"]))
         {  
         echo $this->upload->display_errors();  
         }
-		$image = $_FILES["userfile"]["name"];
+		$images = $_FILES["userfile"]["name"];
 			}
 		else {
-         $image =  $this->input->post('old_image');
+         $images =  $this->input->post('old_image');
 		}			  
 	$service_array = array(
 		'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
-		'description' => $this->input->post('description'),
-        'image' => $image,		    		
+		'descriptions' => $this->input->post('descriptions'),
+        'images' => $images,
+        'terms_conditions' => $this->input->post('terms_conditions')		
     );			
     //print_r($service_array); exit;		
     $this->ServicesModel->insertService($service_array);         
@@ -96,10 +99,10 @@ if(!empty($_FILES["userfile"]["name"]))
         {  
         echo $this->upload->display_errors();  
         }
-		$image = $_FILES["userfile"]["name"];
+		$images = $_FILES["userfile"]["name"];
 			}
 		else {
-         $image =  $this->input->post('old_image');
+         $images =  $this->input->post('old_image');
 		}	
 	  $sid = $this->input->post('sid');
 	  $service_array = array(
@@ -107,12 +110,14 @@ if(!empty($_FILES["userfile"]["name"]))
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
         'updated_at' => 'CURRENT_TIMESTAMP',
-         'description' => $this->input->post('description'),
-         'image' => $image,		
+        'descriptions' => $this->input->post('descriptions'),
+        'images' => $images,
+		'terms_conditions' => $this->input->post('terms_conditions')		 
     	);			
      $this->ServicesModel->updateService($sid,$service_array);
      $this->session->set_flashdata('msg', 'updated successfully');
      redirect('admin/services/list_services');			
 	}
+		
 	
 }
