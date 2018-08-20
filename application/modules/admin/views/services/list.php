@@ -19,7 +19,7 @@
 		<div class="row">
           <div class="col-sm-12">
 
-	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
+	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;" enctype="multipart/form-data">
 			    <thead>
 			        <tr>
 			           <th>id</th>	
@@ -27,6 +27,9 @@
 			           <th>Main Category</th>
 						<th>Category</th>						
 						<th>Service</th>
+						<th>Image</th>
+						<th>Description</th>
+						<th>Terms and Conditions</th>
 						<th>Edit</th>
 						<th>Delete</th>
 				    </tr>
@@ -34,16 +37,22 @@
 			    <tbody>
 			    <?php 
 			    $s = 1;
-				foreach($services_list as $services) {
+				foreach($services_list as $service) {
 				?>
 			        <tr>
 			        	<td><?php echo $s; ?></td>
-			        	<td><?php echo $services->sid; ?></td>
-			            <td><?php echo strtoupper($services->main_category); ?></td>
-			            <td><?php echo strtoupper($services->category); ?></td>
-			             <td><?php echo $services->services; ?></td>			            
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $services->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $services->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
+			        	<td><?php echo $service->sid; ?></td>
+			            <td><?php echo strtoupper($service->main_category); ?></td>
+			            <td><?php echo strtoupper($service->category); ?></td>
+			             <td><?php echo $service->services; ?></td>	
+                        <td><img src="<?php echo base_url() ?>upload/services/<?php echo $service->images;?>" width="50" height="50"></td>	
+						
+									 <input type="hidden" value="<?php echo $service->images;?>" name="old_image">
+						 
+                        <td><?php echo $service->descriptions; ?></td>		
+						<td><?php echo $service->terms_conditions; ?></td>						
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $service->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $service->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
 			    <?php $s++; } ?>
 			    </tbody>

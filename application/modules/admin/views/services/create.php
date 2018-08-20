@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/insert" method="post">
+              <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/insert" method="post" enctype="multipart/form-data">
 			          <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Main Category <span>*</span></label>
                 <div class="col-sm-12">
@@ -33,6 +33,18 @@
                   <input type="text" class="form-control" id="l_name" placeholder="Enter Service" name="service" value="" required>
                 </div>
               </div>
+			   <div class="form-group">
+							        <label class="control-label">Image <span>*</span></label>
+							        <input type="file" name="userfile" id="images" class="form-control" required>
+						        </div>
+			<div class="form-group">
+	            <label class="control-label">Description<span class="validationerror">*</span></label>
+			    <textarea class="form-control rounded-0" id="description"  name="descriptions" rows="4" required maxlength="200"></textarea>
+			  </div>
+			  <div class="form-group">
+	            <label class="control-label">Terms and Conditions<span class="validationerror">*</span></label>
+			    <textarea class="form-control rounded-0" id="terms_conditions"  name="terms_conditions" rows="4" required maxlength="200"></textarea>
+			  </div>
               <div class="form-group">   
                      <div class="col-sm-12"> 
 												<input class="btn btn-primary" type="submit" name="submit" value="Submit">
