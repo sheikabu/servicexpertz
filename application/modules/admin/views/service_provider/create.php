@@ -12,7 +12,7 @@
 			       <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Vendor<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                    <select id='vendor' name="vendor_id" class="demo-default"  required placeholder="Select Vendor...">
+                    <select id="vendor" name="vendor_id" class="demo-default"   placeholder="Select Vendor..." required aria-required="true">
                       <option value="">SELECT VENDOR</option>
                       <?php foreach ($vendors as $key => $value) { ?>
                         <option value="<?php echo $value->vid; ?>"><?php echo $value->company_name; ?></option>
@@ -23,7 +23,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="maincate">Select Main Category<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                    <select id='maincate' multiple name="main_id[]" class="demo-default" required placeholder="Select Main Category...">
+                    <select id="maincate" multiple name="main_id[]" class="demo-default" required placeholder="Select Main Category...">
                       <option>SELECT MAIN CATEGORY</option>
                       <?php foreach ($maincate as $mckey => $mcvalue) { ?>
                         <option value="<?php echo $mcvalue->smc_id; ?>"><?php echo $mcvalue->main_category; ?></option>
@@ -82,7 +82,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="lastname">Last Name<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="" required>
+                  <input type="text" class="form-control"  placeholder="Enter Last Name" name="last_name" value="" >
                 </div>
               </div>
 			  <div class="form-group">
