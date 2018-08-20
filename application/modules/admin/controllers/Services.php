@@ -57,8 +57,8 @@ if(!empty($_FILES["userfile"]["name"]))
 		'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
-		'descriptions' => $this->input->post('descriptions'),
-        'images' => $images,
+		'description' => $this->input->post('descriptions'),
+        'image' => $images,
         'terms_conditions' => $this->input->post('terms_conditions')		
     );			
     //print_r($service_array); exit;		
@@ -110,8 +110,8 @@ if(!empty($_FILES["userfile"]["name"]))
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
         'updated_at' => 'CURRENT_TIMESTAMP',
-        'descriptions' => $this->input->post('descriptions'),
-        'images' => $images,
+        'description' => $this->input->post('descriptions'),
+        'image' => $images,
 		'terms_conditions' => $this->input->post('terms_conditions')		 
     	);			
      $this->ServicesModel->updateService($sid,$service_array);

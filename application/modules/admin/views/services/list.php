@@ -45,11 +45,12 @@
 			            <td><?php echo strtoupper($service->main_category); ?></td>
 			            <td><?php echo strtoupper($service->category); ?></td>
 			             <td><?php echo $service->services; ?></td>	
-                        <td><img src="<?php echo base_url() ?>upload/services/<?php echo $service->images;?>" width="50" height="50"></td>	
-						
-									 <input type="hidden" value="<?php echo $service->images;?>" name="old_image">
-						 
-                        <td><?php echo $service->descriptions; ?></td>		
+                        <td>
+                        	<?php if($service->image!='') { ?>       
+		                   <img src="<?php echo base_url() ?>upload/services/<?php echo $service->image; ?>" width="50" height="50"> <?php } else { ?>
+		                    <img src="<?php echo base_url() ?>upload/dummy.png" width="50" height="50">	                   
+		                  <?php } ?>                        
+                        <td><?php echo $service->description; ?></td>		
 						<td><?php echo $service->terms_conditions; ?></td>						
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $service->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $service->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>

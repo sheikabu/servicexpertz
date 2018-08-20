@@ -25,14 +25,23 @@
                   <input type="text" class="form-control" id="subcategories" placeholder="Enter Sub Categories" name="category" value="" required>
                 </div>
               </div>
-			  <div class="form-group">
-				  <label class="control-label">Image <span class="validationerror">*</span></label>
-				 <input type="file" name="userfile" id="imagess" name="imagess" class="form-control" required>
-			 </div>
-			<div class="form-group">
-	            <label class="control-label">Description<span class="validationerror">*</span></label>
-			    <textarea class="form-control rounded-0" id="description"  name="description" rows="4" required maxlength="200"></textarea>
-			  </div>
+
+
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="image">Image <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="file" name="userfile" id="imagess" name="imagess" class="form-control" required>
+                </div>
+              </div>
+
+                 <div class="form-group">
+                <label class="control-label col-sm-12" for="description">Description <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <textarea class="form-control rounded-0" id="description"  name="description" rows="4" required maxlength="200"></textarea>
+                </div>
+              </div>
+
+	
               <div class="form-group">   
                      <div class="col-sm-12"> 
                         <input class="btn btn-primary" type="submit" name="submit" value="Submit">

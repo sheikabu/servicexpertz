@@ -42,9 +42,12 @@
 			        	<td><?php echo $sc; ?></td>	
 			            <td><?php echo strtoupper($service->main_category); ?></td>
 			             <td><?php echo $service->category; ?></td>		
-                         <td><img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->imagess; ?>" width="50" height="50"></td>	
-						 
-                        <td><?php echo $service->description; ?></td>	 
+                         <td>
+                         <?php if($service->category_image!='') { ?>       
+		                   <img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->category_image; ?>" width="50" height="50"> <?php } else { ?>
+		                    <img src="<?php echo base_url() ?>upload/dummy.png" width="50" height="50">	                   
+		                   <?php } ?>
+                        <td><?php echo $service->category_description; ?></td>	 
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/update/<?php echo $service->sc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/delete/<?php echo $service->sc_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
