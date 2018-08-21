@@ -3,6 +3,13 @@
   <div class="row content">
     <div class="col-md-12 col-sm-12">      
       <div class="row">
+          <div class="col-sm-12 text-center">
+
+            <?php if($this->session->flashdata('msg')): ?>
+            <p class="alert alert-success mr-30"><?php echo $this->session->flashdata('msg'); ?></p>
+            <?php endif; ?>
+
+          </div>
           <div class="col-md-6 col-md-offset-3 mt-20">
               <form class="form-horizontal" id="user_form" action="<?php echo base_url() ?>admin/setting/updated" method="post">
 			 

@@ -10,7 +10,7 @@
                 <label class="control-label col-sm-12">Select Main Service Categories <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                      <select class="form-control" name="main_category_id"  id="mainservice" required> 
-                      <option required>Select Main Service Categories</option>
+                      <option value="">Select Main Service Categories</option>
                       <?php foreach ($servicecategories as $key => $value) { ?>
                       <option value="<?php echo $value->smc_id; ?>"><?php echo $value->main_category; ?> </option>
                       <?php } ?>                      

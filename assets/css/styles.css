@@ -267,6 +267,15 @@ h2.title{
   margin: 10px;
   font-weight: 700;
 }
+h3.sub-title{
+  background: #16A2D3;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
 .w-100{
   width: 100px;
 }
@@ -541,6 +550,11 @@ table.dataTable thead .sorting_asc:after,table.dataTable thead .sorting_desc:aft
     top: 100px;
     left: 43%;
 }
+.container-receipt .card{
+
+}
+
+
 
 
 

@@ -8,13 +8,13 @@ $(document).ready( function () {
           email: true
           },
           phone: "required",
-		  password:"required",
+		      password:"required",
         },
         messages: {
           firstname: "Please enter your firstname",          
           email: "Please enter a valid email address",
           phone: "Please enter your Phone Number",
-		   password: "Please enter your password",
+		      password: "Please enter your password",
         },
         errorElement: "em",
         errorPlacement: function ( error, element ) {
@@ -42,7 +42,7 @@ $(document).ready( function () {
           comanyaddress: "required",
           pincode: "required",
           telephone: "required",
-		  faxno: "required",
+		      faxno: "required",
           email: {
           required: true,
           email: true
@@ -108,11 +108,13 @@ $(document).ready( function () {
 	  
 	   $("#categories_form").validate( {
         rules: {
-          mainservice: "required",          
+          //mainservice: "required", 
+          mainservice: { valueNotEquals: "" },         
           subcategories: "required",
         },
         messages: {
-          mainservice: "Please Select Main Service Categories",          
+          //mainservice: "Please Select Main Service Categories",   
+          mainservice: { valueNotEquals: "Please select an item!" },      
           subcategories: "Please enter a Sub Categories",
           
         },
@@ -199,7 +201,7 @@ $(document).ready( function () {
 		  service:"required",
 		  images:"required",
 		  description:"required",
-		  terms_conditions"required"
+		  terms_conditions: "required"
         },
         messages: {
                     
