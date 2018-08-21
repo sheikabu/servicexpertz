@@ -8,11 +8,12 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firs
         tname">Select Vendor<span class="validationerror">*</span></label>
+		
 			          <div class="col-sm-12">
                     <select id='vendor' class="form-control demo-default" name="vendor_id" placeholder="Select Vendor..."> 
                       <option>SELECT VENDOR</option>
                       <?php foreach ($vendors as $key => $value) { ?>
-                      <option value="<?php echo $value->vid; ?>" <?php if($value->vid==$service_providers->vendor_id) { ?> selected <?php } ?>"><?php echo $value->company_name; ?></option>
+                      <option value="<?php echo $value->vid; ?>" </option>
                       <?php } ?>                      
                     </select>
                 </div>

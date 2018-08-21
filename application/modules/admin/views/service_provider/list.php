@@ -43,7 +43,7 @@
 			            <td><?php echo $user->first_name; ?></td>
 			            <td><?php echo $user->last_name; ?></td>
 			            <td><?php echo $user->phone; ?></td>
-                        <!--<td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/view/<?php echo $user->spid; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>-->
+                        <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/view/<?php echo $user->spid; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
 
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/update/<?php echo $user->spid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 						
