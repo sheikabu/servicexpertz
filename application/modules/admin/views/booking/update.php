@@ -4,48 +4,57 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" id="categories_form" action="<?php echo base_url() ?>admin/servicecategories/updated" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" id="booking_form" action="<?php echo base_url() ?>admin/booking/updated" method="post" >
 			 
                <div class="form-group">
-                <label class="control-label col-sm-12" for="firs
-        tname">Select Main Service Categories <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="bookingid">User Id<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-
-                    <select class="form-control" name="main_category_id" id="mainservice"> 
-                      <option>Select Main Service Categories </option>
-                      <?php foreach ($servicecategories as $key => $value) { ?>
-                      <option value="<?php echo $value->smc_id; ?>" <?php if($value->smc_id==$service->main_category_id) { ?> selected <?php } ?>"><?php echo $value->main_category; ?></option>
-
-                      <?php } ?>                      
-                    </select>
+				<input type="text" class="form-control"  placeholder="Enter Last Name" name="booking_id"  value="<?php echo $booking->booking_id; ?>" required>
+                 </div>    
                 </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Sub Categories <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="lastname">Services Id <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="subcategories" placeholder="Enter Last Name" name="category" value="<?php echo $service->category; ?>"  required>
+                  <input type="text" class="form-control" placeholder="Enter Last Name" name="services_id" value="<?php echo $booking->services_id; ?>" required>
                 </div>
                 </div>
 
                  <div class="form-group">
-                <label class="control-label col-sm-12" for="image">Image <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="image">Selected Date <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                   <img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->category_image; ?>" width="50" height="50">
-                      <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->category_image; ?>" >
-                   <input type="hidden" value="<?php echo $service->category_image; ?>" name="old_image">
+                   <input type="date" class="form-control"  placeholder="Enter Last Name" name="selected_date" value="<?php echo $booking->selected_date; ?>" required>
                 </div>
                 </div>
 
                 <div class="form-group">
-                <label class="control-label col-sm-12" for="description">Description <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="selectedtime">Selected Time <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input class="form-control rounded-0" id="description"  name="description" rows="4"  maxlength="200" value="<?php echo $service->category_description; ?>"></input>
+                  <input  type="time" class="form-control rounded-0"   name="selected_time"   value="<?php echo $booking->selected_time; ?>"></input>
                 </div>
-                </div>				    
+                </div>	
+                <div class="form-group">
+                <label class="control-label col-sm-12" for="comments">Comments <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control rounded-0" id="comments"  name="comments"   value="<?php echo $booking->comments; ?>"></input>
+                </div>
+                </div>	
+				<div class="form-group">
+                <label class="control-label col-sm-12" for="price">price<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control rounded-0" id="price"  name="price"    value="<?php echo $booking->price; ?>"></input>
+                </div>
+                </div>	
+				<div class="form-group">
+                <label class="control-label col-sm-12" for="status">status <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control rounded-0" id="status"  name="status" value="<?php echo $booking->status; ?>"></input>
+                </div>
+                </div>	
 							  
 			  				
-                  <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="service">
+                 
 
-                  <input type="hidden" class="form-control" name="sc_id" value="<?php echo $service->sc_id; ?>">
+                  <input type="hidden" class="form-control" name="booking_id" value="<?php echo $booking->booking_id; ?>">
 
               <div class="form-group">   
                     <div class="col-sm-12"> 

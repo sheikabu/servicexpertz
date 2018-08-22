@@ -27,7 +27,7 @@
 			           <th>First Name</th>
 					   <th>Last Name</th>						
 					   <th>Phone</th>
-					   <!--<th>View</th>-->
+					   <th>View</th>
 					   <th>Edit</th>
 					   <th>Delete</th>
 				    </tr>

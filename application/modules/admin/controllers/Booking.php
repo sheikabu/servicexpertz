@@ -37,7 +37,31 @@ class Booking extends MY_Controller {
     	$data['welcome'] = 'testing';
         $this->load_view('booking/receipt',$data);    
     }
+ public function update()
 
+         {	
+         	 $booking_id = $this->uri->segment(4);			 
+             $row = $this->BookingModel->getlDetails($booking_id);
+             $data['booking'] = $row;
+             $this->load_view('admin/booking/update', $data);
+         }
+		
+	public function updated() { 
+		  $booking_id = $this->input->post('booking_id');
+		  $booking_array = array(
+	            'user_id' => $this->input->post('user_id'),				
+				'services_id' => $this->input->post('services_id'),
+				'selected_date' => $this->input->post('selected_date'),
+				'selected_time' => $this->input->post('selected_time'),
+	            'comments'=> $this->input->post('comments'),
+				'price'=> $this->input->post('price'),
+				'status'=> $this->input->post('	status')
+	        );			
+		  
+         $this->BookingModel->updatebooking($booking_id,$booking_array);
+         $this->session->set_flashdata('msg', 'updated successfully');
+	     redirect('admin/booking/list_bookings');			
+	}
   
 	
 }
