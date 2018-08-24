@@ -41,10 +41,10 @@ class User extends MY_Controller {
 
 	public function insert() { 			  
 		$user_array = array(
-            'first_name' => $this->input->post('first_name'),
-			'last_name' => $this->input->post('last_name'),
+            'name' => $this->input->post('first_name'),			
 			'email' => $this->input->post('email'),
 			'phone' => $this->input->post('phone'),
+			'password' => $this->input->post('password'),
             'role'=> $this->input->post('role')
         );					
         $this->UserModel->insertuser($user_array);         
@@ -78,10 +78,10 @@ class User extends MY_Controller {
 	public function updated() { 
 		  $userid = $this->input->post('userid');
 		  $user_array = array(
-	            'first_name' => $this->input->post('first_name'),
-				'last_name' => $this->input->post('last_name'),
+	            'name' => $this->input->post('first_name'),				
 				'email' => $this->input->post('email'),
 				'phone' => $this->input->post('phone'),
+				'password' => $this->input->post('password'),
 	            'role'=> $this->input->post('role')
 	        );			
 		  

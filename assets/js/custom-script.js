@@ -8,11 +8,13 @@ $(document).ready( function () {
           email: true
           },
           phone: "required",
+		      password:"required",
         },
         messages: {
           firstname: "Please enter your firstname",          
           email: "Please enter a valid email address",
           phone: "Please enter your Phone Number",
+		      password: "Please enter your password",
         },
         errorElement: "em",
         errorPlacement: function ( error, element ) {
@@ -40,7 +42,7 @@ $(document).ready( function () {
           comanyaddress: "required",
           pincode: "required",
           telephone: "required",
-		  faxno: "required",
+		      faxno: "required",
           email: {
           required: true,
           email: true
@@ -106,11 +108,13 @@ $(document).ready( function () {
 	  
 	   $("#categories_form").validate( {
         rules: {
-          mainservice: "required",          
+          //mainservice: "required", 
+          mainservice: { valueNotEquals: "" },         
           subcategories: "required",
         },
         messages: {
-          mainservice: "Please Select Main Service Categories",          
+          //mainservice: "Please Select Main Service Categories",   
+          mainservice: { valueNotEquals: "Please select an item!" },      
           subcategories: "Please enter a Sub Categories",
           
         },
@@ -135,29 +139,29 @@ $(document).ready( function () {
 	  
 	   $("#serviceprovider_form").validate( {
         rules: {
-          vendor: "required",          
-          maincate: "required",
-		      category: "required",          
-          services: "required",
-		      mincost: "required",          
+          vendor: { valueNotEquals: "" },          
+          maincate: { valueNotEquals: "" },
+		  category: { valueNotEquals: "" },        
+          services: { valueNotEquals: "" },
+		  mincost: "required",          
           image: "required",
-		      empid: "required",          
+		  empid: "required",          
           firstname: "required",
-		      lastname: "required",          
+		  lastname: "required",          
           phone: "required",
-		      city: "required",   
-		      email: {
+		  city: { valueNotEquals: "" },   
+		  email: {
            required: true,
             email: true
           },		  
           pincode: "required",
-		      timeslot: "required",
+		  timeslot: { valueNotEquals: "" },
         },
         messages: {
-          vendor: "Please Select vendor",          
-          maincate: "Please Select Main Category",
-		      category: "Please Select category",          
-          services: "Please Select services",
+          vendor: { valueNotEquals: "Please select an item!" },          
+          maincate: { valueNotEquals: "Please select an item!" },
+		  category: { valueNotEquals: "Please select an item!" },          
+          services: { valueNotEquals: "Please select an item!" },
 		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",
 		      empid: "Please enter your  Emp ID",          
@@ -165,16 +169,21 @@ $(document).ready( function () {
 		      lastname: "Please enter your Last Name",          
           phone: "Please enter your Phone Number",
 		      email: "Please enter your valid email address",          
-          city: "Please Select City",
+          city: { valueNotEquals: "Please select an item!" },
 		      pincode: "Please enter your Pincode",          
-          timeslot: "Please Select Time Slot",
+          timeslot: { valueNotEquals: "Please select an item!" },
           
         },
         errorElement: "em",
         errorPlacement: function ( error, element ) {
           // Add the `help-block` class to the error element
           error.addClass( "validationerror" );
-         
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
         },
         highlight: function ( element, errorClass, validClass ) {
           $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
@@ -184,7 +193,44 @@ $(document).ready( function () {
         }
       } );
 	  
-	  
+	   $("#service_form").validate( {
+        rules: {
+          select_main_category: { valueNotEquals: "" },          
+         
+          select_category: { valueNotEquals: "" },
+		  service:"required",
+		  images:"required",
+		  description:"required",
+		  terms_conditions: "required"
+        },
+        messages: {
+                    
+          select_main_category: { valueNotEquals: "Please select an item!" },
+          select_category: { valueNotEquals: "Please select an item!" },
+		   service: "Please enter your service",
+		   images: "Please upload your images",
+		   description: "Please enter your description",
+		    terms_conditions: "Please enter your terms_conditions"
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "validationerror" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      } );
+
 	  
 	  
 

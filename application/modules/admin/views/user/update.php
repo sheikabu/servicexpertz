@@ -10,15 +10,15 @@
                 <label class="control-label col-sm-12" for="firs
 				tname">First Name<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control"  id="firstname" placeholder="Enter First Name" name="first_name" value="<?php echo $user->first_name;?>"required>
+                  <input type="text" class="form-control"  id="firstname" placeholder="Enter First Name" name="first_name" value="<?php echo $user->name;?>"required>
                 </div>
               </div>
-              <div class="form-group">
+             <!-- <div class="form-group">
                 <label class="control-label col-sm-12" for="lastname">Last Name</label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="<?php echo $user->last_name;?>"required>
                 </div>
-              </div>
+              </div>-->
 			  <div class="form-group">
                 <label class="control-label col-sm-12" for="email">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
@@ -31,8 +31,14 @@
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
+			   <div class="form-group">
+                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="<?php echo $user->password;?>"required>
+                </div>
+              </div>
                   <input type="hidden" class="form-control" name="role" value="user">
-                  <input type="hidden" class="form-control" name="userid" value="<?php echo $user->userid; ?>"required >
+                  <input type="hidden" class="form-control" name="userid" value="<?php echo $user->user_id; ?>"required >
               <div class="form-group">   
                    <div class="col-sm-12"> 
                       <input class="btn btn-primary" type="submit" name="submit" value="Submit">

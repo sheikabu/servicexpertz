@@ -23,26 +23,33 @@
 			    <thead>
 			        <tr>
 			           <th>id</th>
+			           <th>#</th>
 			           <th>First Name</th>
 					   <th>Last Name</th>						
 					   <th>Phone</th>
+					   <th>View</th>
 					   <th>Edit</th>
 					   <th>Delete</th>
 				    </tr>
 			    </thead>
 			    <tbody>
 			    <?php 
+			    $sp =1;
 				foreach($sp_list as $user) {
 				?>
 			        <tr>
 			        	<td><?php echo $user->spid; ?></td>
+			        	<td><?php echo $sp; ?></td>
 			            <td><?php echo $user->first_name; ?></td>
 			            <td><?php echo $user->last_name; ?></td>
-			             <td><?php echo $user->phone; ?></td>			            
+			            <td><?php echo $user->phone; ?></td>
+                        <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/view/<?php echo $user->spid; ?>"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/update/<?php echo $user->spid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+						
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/serviceprovider/delete/<?php echo $user->spid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
-			    <?php } ?>
+			    <?php $sp++; } ?>
 			    </tbody>
 				</table>
 			</div>

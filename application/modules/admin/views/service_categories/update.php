@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" id="categories_form" action="<?php echo base_url() ?>admin/servicecategories/updated" method="post">
+              <form class="form-horizontal" id="categories_form" action="<?php echo base_url() ?>admin/servicecategories/updated" method="post" enctype="multipart/form-data">
 			 
                <div class="form-group">
                 <label class="control-label col-sm-12" for="firs
@@ -24,8 +24,25 @@
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="subcategories" placeholder="Enter Last Name" name="category" value="<?php echo $service->category; ?>"  required>
                 </div>
-              </div>
-			  
+                </div>
+
+                 <div class="form-group">
+                <label class="control-label col-sm-12" for="image">Image <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                   <img src="<?php echo base_url() ?>upload/servicecategories/<?php echo $service->category_image; ?>" width="50" height="50">
+                      <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->category_image; ?>" >
+                   <input type="hidden" value="<?php echo $service->category_image; ?>" name="old_image">
+                </div>
+                </div>
+
+                <div class="form-group">
+                <label class="control-label col-sm-12" for="description">Description <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input class="form-control rounded-0" id="description"  name="description" rows="4"  maxlength="200" value="<?php echo $service->category_description; ?>"></input>
+                </div>
+                </div>				    
+							  
+			  				
                   <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="service">
 
                   <input type="hidden" class="form-control" name="sc_id" value="<?php echo $service->sc_id; ?>">

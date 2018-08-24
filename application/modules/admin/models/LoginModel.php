@@ -27,9 +27,8 @@ class LoginModel extends CI_Model{
             // If there is a user, then create session data
             $row = $query->row();
             $data = array(
-                    'userid' => $row->userid,
-                    'fname' => $row->first_name,
-                    'lname' => $row->last_name,
+                    'userid' => $row->user_id,
+                    'fname' => $row->name,                    
                     'username' => $row->username,
                     'validated' => true
                     );
