@@ -58,6 +58,8 @@ $route['api/refresh'] = 'api/user/refresh';
 $route['api/logout'] = 'api/user/logout';
 $route['api/category_list'] = 'api/category/getCategoryList';
 
+$route['api/booking'] = 'api/booking/create';
+
 
 
 $route['default_controller'] = 'welcome';
