@@ -37,15 +37,14 @@ class Booking extends MY_Controller {
     	$data['welcome'] = 'testing';
         $this->load_view('booking/receipt',$data);    
     }
- public function update()
 
-         {	
-         	 $booking_id = $this->uri->segment(4);			 
-             $row = $this->BookingModel->getlDetails($booking_id);
-             $data['booking'] = $row;
-             $this->load_view('admin/booking/update', $data);
-         }
-		
+ 	public function update()
+     {	
+     	 $booking_id = $this->uri->segment(4);			 
+         $data['booking'] = $this->BookingModel->getlDetails($booking_id);                  
+         $this->load_view('admin/booking/update', $data);
+     }
+
 	public function updated() { 
 		  $booking_id = $this->input->post('booking_id');
 		  $booking_array = array(
@@ -55,7 +54,7 @@ class Booking extends MY_Controller {
 				'selected_time' => $this->input->post('selected_time'),
 	            'comments'=> $this->input->post('comments'),
 				'price'=> $this->input->post('price'),
-				'status'=> $this->input->post('	status')
+				'status'=> $this->input->post('status')
 	        );			
 		  
          $this->BookingModel->updatebooking($booking_id,$booking_array);

@@ -14,13 +14,12 @@ class BookingModel extends CI_Model{
 	  $results = $query->result();
 	  return $results;
 	}
-	 public function updatebooking($booking_id,$booking_array) {
 
- 		$this->db->where('booking_id', $booking_id);
-        $this->db->update('booking', $booking_array);
-
-		return true;
-   } 
+	public function updatebooking($booking_id,$booking_array) {
+	$this->db->where('booking_id', $booking_id);
+	$this->db->update('booking', $booking_array);
+	return true;
+	} 
 
 }
 ?>
