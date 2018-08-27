@@ -25,6 +25,8 @@
 			          	<th>Service</th>	
 			          	<th>Selected Date</th>
 			          	<th>Selected Time</th>	
+						<th>comments</th>	
+						<th>price</th>	
 			          	<th>Status</th>	
 			          	<th>Update</th>	
 			          	<th>Receipt</th>	
@@ -43,9 +45,11 @@
 			        	<td><?php echo $booking->services_id; ?></td>
 			        	<td><?php echo $booking->selected_date; ?></td>
 			        	<td><?php echo $booking->selected_time; ?></td>
+						<td><?php echo $booking->comments; ?></td>
+						<td><?php echo $booking->price; ?></td>
 			        	<td><?php echo $booking->status; ?></td>
-			        	<td>update</td>
-			        	<td>Receipt</td>
+			        	<td><a href="<?php echo base_url(); ?>admin/booking/update/<?php echo $booking->booking_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			        	<td><a href="<?php echo base_url(); ?>admin/booking/receipt/<?php echo $booking->booking_id; ?>">Receipt</a></td>
 			            
 			             
 			             

@@ -12,7 +12,7 @@
 			       <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Vendor<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                    <select id="vendor" name="vendor_id" class="demo-default"   placeholder="Select Vendor..." required aria-required="true">
+                    <select   class="demo-default"   placeholder="Select Vendor..." name="vendor_id" id="vendor" required>
                       <option value="">SELECT VENDOR</option>
                       <?php foreach ($vendors as $key => $value) { ?>
                         <option value="<?php echo $value->vid; ?>"><?php echo $value->company_name; ?></option>
@@ -34,7 +34,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Category<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                    <select id="category" multiple name="cate_id[]" class="demo-default" required placeholder="Select Category...">
+                    <select  multiple name="cate_id[]" class="demo-default"  placeholder="Select Category..." id="category" required>
                       <option>SELECT CATEGORY</option>
                       <?php foreach ($cate as $ckey => $cvalue) { ?>
                         <option value="<?php echo $cvalue->sc_id; ?>"><?php echo $cvalue->category; ?></option>
@@ -45,7 +45,7 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Service<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                    <select id="services" multiple name="service_id[]" class="demo-default"  required placeholder="Select Services...">
+                    <select  multiple name="service_id[]" class="demo-default"  required placeholder="Select Services..." id="services" required>
                       <option>SELECT SERVICES</option>
                       <?php foreach ($services as $skey => $svalue) { ?>
                         <option value="<?php echo $svalue->sid; ?>"><?php echo $svalue->services; ?></option>
@@ -56,13 +56,13 @@
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cost">Min Cost<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                  <input type="text"  id="mincost" class="form-control" placeholder="Enter Min Cost" name="mincost" value="" required>
+                  <input type="text"  class="form-control" placeholder="Enter Min Cost" name="mincost" value=""  id="mincost" required>
                 </div>
               </div>
                <div class="form-group">
                 <label class="control-label col-sm-12" for="cost">Image<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">
-                  <input type="file" name="userfile" id="image" class="form-control" placeholder="Image Upload" size="20" required/>
+                  <input type="file" name="userfile"  class="form-control" placeholder="Image Upload" size="20" id="image" required/>
                 </div>
               </div>
                </div>

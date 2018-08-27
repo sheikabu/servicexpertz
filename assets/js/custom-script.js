@@ -139,29 +139,29 @@ $(document).ready( function () {
 	  
 	   $("#serviceprovider_form").validate( {
         rules: {
-          vendor: "required",          
-          maincate: "required",
-		      category: "required",          
-          services: "required",
-		      mincost: "required",          
+          vendor: { valueNotEquals: "" },          
+          maincate: { valueNotEquals: "" },
+		  category: { valueNotEquals: "" },        
+          services: { valueNotEquals: "" },
+		  mincost: "required",          
           image: "required",
-		      empid: "required",          
+		  empid: "required",          
           firstname: "required",
-		      lastname: "required",          
+		  lastname: "required",          
           phone: "required",
-		      city: "required",   
-		      email: {
+		  city: { valueNotEquals: "" },   
+		  email: {
            required: true,
             email: true
           },		  
           pincode: "required",
-		      timeslot: "required",
+		  timeslot: { valueNotEquals: "" },
         },
         messages: {
-          vendor: "Please Select vendor",          
-          maincate: "Please Select Main Category",
-		      category: "Please Select category",          
-          services: "Please Select services",
+          vendor: { valueNotEquals: "Please select an item!" },          
+          maincate: { valueNotEquals: "Please select an item!" },
+		  category: { valueNotEquals: "Please select an item!" },          
+          services: { valueNotEquals: "Please select an item!" },
 		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",
 		      empid: "Please enter your  Emp ID",          
@@ -169,9 +169,9 @@ $(document).ready( function () {
 		      lastname: "Please enter your Last Name",          
           phone: "Please enter your Phone Number",
 		      email: "Please enter your valid email address",          
-          city: "Please Select City",
+          city: { valueNotEquals: "Please select an item!" },
 		      pincode: "Please enter your Pincode",          
-          timeslot: "Please Select Time Slot",
+          timeslot: { valueNotEquals: "Please select an item!" },
           
         },
         errorElement: "em",
@@ -195,9 +195,9 @@ $(document).ready( function () {
 	  
 	   $("#service_form").validate( {
         rules: {
-          select_main_category: "required",          
+          select_main_category: { valueNotEquals: "" },          
          
-          select_category: "required",
+          select_category: { valueNotEquals: "" },
 		  service:"required",
 		  images:"required",
 		  description:"required",
@@ -205,8 +205,8 @@ $(document).ready( function () {
         },
         messages: {
                     
-          select_main_category: "Please select your  maincategory",
-          select_category: "Please select your category",
+          select_main_category: { valueNotEquals: "Please select an item!" },
+          select_category: { valueNotEquals: "Please select an item!" },
 		   service: "Please enter your service",
 		   images: "Please upload your images",
 		   description: "Please enter your description",
