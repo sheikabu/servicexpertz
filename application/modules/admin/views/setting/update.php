@@ -18,12 +18,12 @@
 			  <div class="form-group">
                 <label class="control-label col-sm-12" for="email">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="email"  placeholder="Enter email" name="email" onblur="validateEmail(this);" value="<?php echo $setting->email; ?>"required>
+                  <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" value="<?php echo $setting->email; ?>">
                 </div>
               </div>
 			  
                  
-                  <input type="hidden" class="form-control" name="st_id" value="<?php echo $setting->st_id; ?>"required >
+                  <input type="hidden" class="form-control" name="st_id" value="<?php echo $setting->st_id; ?>">
               <div class="form-group">   
                    <div class="col-sm-12"> 
                       <input class="btn btn-primary" type="submit" name="submit" value="Submit">
