@@ -7,7 +7,6 @@
        	</div>
        	<div class="row">
 	        <div class="col-sm-12 text-center">
-
 	        	<?php if($this->session->flashdata('msg')): ?>
 	    			<p class="alert alert-success mr-30"><?php echo $this->session->flashdata('msg'); ?></p>
 				<?php endif; ?>
@@ -35,14 +34,14 @@
 			    </thead>
 			    <tbody>
 			    <?php 
-			    $sc =1;
+			    $sc =1;			    
 				foreach($booking_list as $booking) {
 				?>
 			        <tr>
 			        	
 			        	 <td><?php echo $booking->booking_id; ?></td>
-			        	<td><?php echo $booking->user_id; ?></td>
-			        	<td><?php echo $booking->services_id; ?></td>
+			        	<td><?php echo $booking->name; ?></td>
+			        	<td><?php echo $booking->services; ?></td>
 			        	<td><?php echo $booking->selected_date; ?></td>
 			        	<td><?php echo $booking->selected_time; ?></td>
 						<td><?php echo $booking->comments; ?></td>

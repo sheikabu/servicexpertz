@@ -103,17 +103,16 @@ public function delete(){
 	
 	public function view() // add user full details
 	{
-		  	 $spid = $this->uri->segment(4);
+	 $spid = $this->uri->segment(4);
      $row = $this->ServiceproviderModel->geteuser($spid);
-     $data['vendors'] = $this->ServiceproviderModel->getVendors();
-     $data['vendors'] = $this->ServiceproviderModel->getVendors();	
-	 $data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
-	 $data['cate'] = $this->ServicecategoriesModel->getlDetails();
-	 $data['cities'] = $this->ServiceproviderModel->getCities();
-	 $data['time'] = $this->ServiceproviderModel->getTime();
-	 $data['services'] = $this->ServicesModel->getlDetails();	
+     $data['vendors'] = $this->ServiceproviderModel->getAVendors($row->vendor_id);
+	 $data['maincate'] = $this->ServiceproviderModel->getSelectedmaincategories($row->main_category_id);
+	 $data['cate'] = $this->ServiceproviderModel->getSelectedCategories($row->category_id);
+	 $data['services'] = $this->ServiceproviderModel->getSelectedServices($row->services_id);
+	 $data['cities'] = $this->ServiceproviderModel->getSelectedCities($row->city_id);
+	 $data['time'] = $this->ServiceproviderModel->getSelectedTime($row->ts_id);
      $data['service_providers'] = $row;
-             $this->load_view('admin/service_provider/view', $data);
+     $this->load_view('admin/service_provider/view', $data);
 	}
 
 public function update() {	

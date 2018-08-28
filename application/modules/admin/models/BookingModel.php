@@ -8,8 +8,11 @@ class BookingModel extends CI_Model{
     }
     
     public function getlDetails(){	
-	  $this->db->select('*');
-	  $this->db->from('booking');	     
+	  $this->db->select('users.name,services.services, booking.*');
+	  $this->db->from('booking');
+	  $this->db->join('users','booking.user_id=users.user_id');  
+      $this->db->join('services','booking.services_id=services.sid'); 
+
 	  $query=$this->db->get();	  
 	  $results = $query->result();
 	  return $results;
@@ -21,5 +24,16 @@ class BookingModel extends CI_Model{
 	return true;
 	} 
 
+	public function getUpdateDetails($bid){  
+    $this->db->where('booking_id', $bid);
+    $query = $this->db->get('booking');
+    return $query->row();
+  }
+
+  public function getSelectedService($selected){        
+    $this->db->where('sid', $selected);
+    $query = $this->db->get('services');
+	return $query->row();
+  }
 }
 ?>
