@@ -25,8 +25,7 @@ class setting extends MY_Controller {
  
    	public function update() {	
      	 $st_id = $this->uri->segment(4);			 
-         $row = $this->SettingModel->getesetting($st_id);
-         $data['setting'] = $row;
+         $data['setting'] = $this->SettingModel->getesetting($st_id);
          $this->load_view('admin/setting/update', $data);
          }
 		

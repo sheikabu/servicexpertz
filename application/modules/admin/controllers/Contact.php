@@ -28,4 +28,5 @@ class contact extends MY_Controller {
         $this->load_view('contact/list',$data);    
     }	
 	
+
 }

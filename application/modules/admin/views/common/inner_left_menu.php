@@ -17,6 +17,7 @@
            <!--<li><a href="<?php echo base_url(); ?>admin/booking/receipt"><i class="fa fa-bell mr-3 text-danger" aria-hidden="true"></i></i>Receipt</a></li>-->
             <li><a href="<?php echo base_url(); ?>admin/contact/list_contact"><i class="fa fa-phone mr-3" aria-hidden="true"></i></i>Contact us </a></li>
         </ul><br>   
+
       </div>
 <script>
 		function openNav() {

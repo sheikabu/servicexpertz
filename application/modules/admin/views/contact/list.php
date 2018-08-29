@@ -17,7 +17,9 @@
 		<div class="row">
           <div class="col-sm-12">
 
+
 	          <table id="userTable" class="display table-striped table-hover table-bordered" style="width: 100%;"">
+
 			    <thead>
 			        <tr>
 			           <th>#</th>

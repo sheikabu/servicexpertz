@@ -16,4 +16,5 @@ class ContactModel extends CI_Model{
 	}
 
 }
+
 ?>
