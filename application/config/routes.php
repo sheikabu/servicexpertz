@@ -60,6 +60,8 @@ $route['api/category_list'] = 'api/category/getCategoryList';
 
 $route['api/booking'] = 'api/booking/create';
 
+$route['api/booking/slot_list'] = 'api/booking/getTimeSlotList';
+
 $route['api/contact'] = 'api/contact/create';
 
 
