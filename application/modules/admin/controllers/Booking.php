@@ -13,6 +13,7 @@ class Booking extends MY_Controller {
         parent::__construct();
 		       
 		    $this->load->model('BookingModel');
+		    $this->load->model('ServiceproviderModel');
 			$this->load->helper('date');			
     }
    
@@ -41,19 +42,24 @@ class Booking extends MY_Controller {
  	public function update()
      {	
      	 $booking_id = $this->uri->segment(4);			 
-         $data['booking'] = $this->BookingModel->getlDetails($booking_id);                  
+         $booking = $this->BookingModel->getUpdateDetails($booking_id);          
+         $data['service'] = $this->BookingModel->getSelectedService($booking->services_id);   
+         $data['sp_list'] = $this->ServiceproviderModel->getlDetails();
+
+         $this->load->model('ServiceproviderModel');                     
+         $data['booking'] =  $booking;      
          $this->load_view('admin/booking/update', $data);
      }
 
 	public function updated() { 
 		  $booking_id = $this->input->post('booking_id');
-		  $booking_array = array(
-	            'user_id' => $this->input->post('user_id'),				
-				'services_id' => $this->input->post('services_id'),
+		  $service_provider = json_encode($this->input->post('service_provider_id'), true);
+		  $booking_array = array(	            					
 				'selected_date' => $this->input->post('selected_date'),
 				'selected_time' => $this->input->post('selected_time'),
 	            'comments'=> $this->input->post('comments'),
 				'price'=> $this->input->post('price'),
+				'service_provider'=> $service_provider,
 				'status'=> $this->input->post('status')
 	        );			
 		  

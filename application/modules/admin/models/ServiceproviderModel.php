@@ -31,7 +31,54 @@ class ServiceproviderModel extends CI_Model{
     $results = $query->result();
     return $results;
   }
+  /* Service Provider VIEW page */
+  public function getAVendors($vid){  
+    $this->db->where('vid', $vid);
+    $query = $this->db->get('vendors');
+    return $query->row();
+  }
   
+  public function getSelectedmaincategories($selected){  
+    $select = json_decode($selected);    
+    $this->db->where_in('smc_id', $select);
+    $query = $this->db->get('service_main_categories');
+    $results = $query->result();    
+    return $results;
+  }
+
+   public function getSelectedCategories($selected){  
+    $select = json_decode($selected);    
+    $this->db->where_in('sc_id', $select);
+    $query = $this->db->get('service_categories');
+    $results = $query->result();    
+    return $results;
+  }
+
+  public function getSelectedServices($selected){ 
+    $select = json_decode($selected);    
+    $this->db->where_in('sid', $select);
+    $query = $this->db->get('services');
+    $results = $query->result();    
+    return $results;
+  }
+
+  public function getSelectedCities($selected){ 
+    $select = json_decode($selected);    
+    $this->db->where_in('city_id', $select);
+    $query = $this->db->get('cities');
+    $results = $query->result();    
+    return $results;
+  }
+
+  public function getSelectedTime($selected){ 
+    $select = json_decode($selected);    
+    $this->db->where_in('ts_id', $select);
+    $query = $this->db->get('time_slot');
+    $results = $query->result();    
+    return $results;
+  }
+  /* Service Provider VIEW page */
+
   public function getTime(){  
     $this->db->select('*');
     $this->db->from('time_slot');
@@ -63,7 +110,7 @@ class ServiceproviderModel extends CI_Model{
     return true;
   }
 
-   
+  
 
 }
 ?>

@@ -58,25 +58,19 @@
 						<table id="" class="width-fluid display table-striped table-hover table-bordered">
 						    <thead>
 						        <tr>
-						        	<th>id</th>
-						        	<th>#</th>
+						        	<th>id</th>						        	
 						           <th>Services</th>						
-									<th>Sub Total</th>
-									<th>Tax Rate</th>
-									<th>Others</th>
+
 									<th>Total</th>
 							    </tr>
 						    </thead>
 						    <tbody>
 						    
 						        <tr>
-						        	<td></td>
-						        	<td></td>
-						            <td></td>
-						            <td></td>
-						            <td></td>
-						            <td></td>
-						            <td></td>
+						        	<td>#54212</td>
+						        	<td>OLD PC FOR SELL PURCHASE AND RENT</td>
+						           
+						            <td>450.00</td>
 						        </tr>
 						 
 						    </tbody>
@@ -88,17 +82,21 @@
 						<div class="card text-right">
 						 
 						  <ul class="list-group list-group-flush">
-						    <li class="list-group-item"><label class="mr-2">Sub total:</label><span class="b">30000.00</span></li>
-						    <li class="list-group-item"><label class="mr-2">Tax Rate:</label><span class="b">10,000.00</span></li>
-						    <li class="list-group-item"><label class="mr-2">Total Tax:</label><span class="b">10,000.00</span></li>
-						    <li class="list-group-item"><label class="mr-2">AOthers:</label><span class="b">00.00</span></li>
-						    <li class="list-group-item"><label class="mr-2">Total:</label><span class="b">50,000.00</span></li>
+						    <li class="list-group-item"><label class="mr-2">Sub total:</label><span class="b">450.00</span></li>
+						   
+						    <li class="list-group-item"><label class="mr-2">Total Tax:</label><span class="b">16%</span></li>
+						    <li class="list-group-item"><label class="mr-2">Others:</label><span class="b">00.00</span></li>
+						    <li class="list-group-item"><label class="mr-2">Total:</label><span class="b">600.00</span></li>
 						  </ul>
 						</div>
 					</div>
 				</div>
    		</div>
+   		
       </div>
+      <div>
+   			<center><input type="button" name="print" value="Print"></center>
+   		</div>
     </div>
   </div>
 </div>
