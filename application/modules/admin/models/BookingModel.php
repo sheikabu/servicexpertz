@@ -35,5 +35,15 @@ class BookingModel extends CI_Model{
     $query = $this->db->get('services');
 	return $query->row();
   }
+   public function getlReceipt(){	
+	  $this->db->select('users.name,services.services, booking.*');
+	  $this->db->from('booking');
+	  $this->db->join('users','booking.user_id=users.user_id');  
+      $this->db->join('services','booking.services_id=services.sid'); 
+
+	  $query=$this->db->get();	  
+	  $results = $query->result();
+	  return $results;
+	}
 }
 ?>
