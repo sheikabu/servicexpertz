@@ -34,8 +34,15 @@ class Booking extends MY_Controller {
         $this->load_view('booking/list',$data);    
     }
 
-    function receipt() {    	 	
-    	$data['welcome'] = 'testing';
+    function receipt() {
+		$booking_id = $this->uri->segment(4);    	
+    	$receipt = $this->BookingModel->getlReceipt($booking_id);
+    	$data['service'] = $this->BookingModel->getSelectedService($receipt->services_id);
+    	$data['time_slot'] = $this->BookingModel->getSelectedTime($receipt->slot_id); 
+    	$data['user'] = $this->BookingModel->getUser($receipt->user_id); 
+    	$data['sp'] = $this->BookingModel->getSP($receipt->service_provider);     	
+
+    	$data['booking'] = $receipt;
         $this->load_view('booking/receipt',$data);    
     }
 
@@ -43,9 +50,10 @@ class Booking extends MY_Controller {
      {	
      	 $booking_id = $this->uri->segment(4);			 
          $booking = $this->BookingModel->getUpdateDetails($booking_id);          
-         $data['service'] = $this->BookingModel->getSelectedService($booking->services_id);   
-         $data['sp_list'] = $this->ServiceproviderModel->getlDetails();
-
+         $data['service'] = $this->BookingModel->getSelectedService($booking[0]->services_id);   
+         $data['time_slot'] = $this->BookingModel->getSelectedTime($booking[0]->slot_id);   
+         $data['sp_list'] = $this->ServiceproviderModel->getlDetails();         
+         $data['time'] = $this->BookingModel->getTime();         
          $this->load->model('ServiceproviderModel');                     
          $data['booking'] =  $booking;      
          $this->load_view('admin/booking/update', $data);
@@ -56,7 +64,7 @@ class Booking extends MY_Controller {
 		  $service_provider = json_encode($this->input->post('service_provider_id'), true);
 		  $booking_array = array(	            					
 				'selected_date' => $this->input->post('selected_date'),
-				'selected_time' => $this->input->post('selected_time'),
+				'slot_id' => $this->input->post('selected_time'),
 	            'comments'=> $this->input->post('comments'),
 				'price'=> $this->input->post('price'),
 				'service_provider'=> $service_provider,

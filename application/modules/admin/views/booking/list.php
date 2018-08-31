@@ -43,7 +43,7 @@
 			        	<td><?php echo $booking->name; ?></td>
 			        	<td><?php echo $booking->services; ?></td>
 			        	<td><?php echo $booking->selected_date; ?></td>
-			        	<td><?php echo $booking->selected_time; ?></td>
+			        	<td><?php echo $booking->ts_name; ?></td>
 						<td><?php echo $booking->comments; ?></td>
 						<td><?php echo $booking->price; ?></td>
 			        	<td><?php echo $booking->status; ?></td>
