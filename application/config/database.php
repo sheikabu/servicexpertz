@@ -78,11 +78,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-<<<<<<< HEAD
 	'database' => 'service_expertz',
-=======
-	'database' => 'servicexpertz',
->>>>>>> 1e52eed6cd62a93dcbdfe776ca8509c770b97645
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

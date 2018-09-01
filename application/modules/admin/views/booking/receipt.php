@@ -5,9 +5,9 @@
       <div class="row">
    		<div class="col-md-12 mt-20">
 		<?php 
-			    $sc =1;			    
-				foreach($welcome as $receipt) {
-				?>
+	    $sc =1;			    
+		foreach($welcome as $receipt) {
+		?>
    			<div class="row bb">
 	   			<div class="col-md-6">
    					<h1 class="title">INVOICE</h1>
@@ -99,8 +99,8 @@
 						</div>
 					</div>
 				</div>
-				<?php $sc++; } ?>
-				 <input type="hidden" class="form-control" name="booking_id" value="<?php echo $receipt->booking_id; ?>">
+		<?php $sc++; } ?>
+		<input type="hidden" class="form-control" name="booking_id" value="<?php echo $receipt->booking_id; ?>">
    		</div>
    		
       </div>
