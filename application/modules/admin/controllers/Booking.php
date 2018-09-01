@@ -34,8 +34,9 @@ class Booking extends MY_Controller {
         $this->load_view('booking/list',$data);    
     }
 
-    function receipt() {    	 	
-    	$data['welcome'] = 'testing';
+    function receipt() { 
+		
+    	$data['welcome'] = $this->BookingModel->getlReceipt();
         $this->load_view('booking/receipt',$data);    
     }
 
