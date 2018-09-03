@@ -21,7 +21,12 @@
 						$result['email'] = $res[0]->email;
 						$result['role'] = $res[0]->role;	
 					}
+				}else{
+					return http_response_code(401);
+					
 				}
+				
+				
 				return $result;
 			}
 		}
