@@ -78,4 +78,3 @@ class Booking extends MY_Controller {
   
 	
 }
-

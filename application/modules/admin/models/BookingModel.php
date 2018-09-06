@@ -68,4 +68,3 @@ class BookingModel extends CI_Model{
 	   return $query->row();
    }
 }
-?>

@@ -52,6 +52,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['api/user/create'] = 'api/user/create';
 $route['api/user/change_password'] = 'api/user/changePassword';
+
+$route['api/user/image_upload'] = 'api/user/imageUpload';
+
 $route['api/forgot_password'] = 'api/user/forgotPassword';
 $route['api/login'] = 'api/user/login';
 $route['api/refresh'] = 'api/user/refresh';
@@ -59,6 +62,8 @@ $route['api/logout'] = 'api/user/logout';
 $route['api/category_list'] = 'api/category/getCategoryList';
 
 $route['api/booking'] = 'api/booking/create';
+$route['api/get_booking'] = 'api/booking/getBookings';
+$route['api/booking/slot_list'] = 'api/booking/getTimeSlotList';
 
 $route['api/contact'] = 'api/contact/create';
 
