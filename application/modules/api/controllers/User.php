@@ -39,6 +39,7 @@ class User extends MY_Controller {
 			$user['email'] = $res[0]->email;
 			$user['active'] = $res[0]->active;
 			$user['role'] = $res[0]->role;
+			$user['user_image'] = $res[0]->user_image;
 			$result['user_details'] = $user;
 		}
 		echo json_encode($result);
@@ -53,7 +54,7 @@ class User extends MY_Controller {
 		$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Invalied token.');
 		$res = $this->common_model->getRecords('users', $condition, 1);
 		if($res){
-			$valid_time = date( "Y-m-d H:i:s", strtotime( $res[0]->last_login."+ 3 hours" ) );
+			$valid_time = date( "Y-m-d H:i:s", strtotime( $res[0]->last_login."+1 month" ) );
 			$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Current token is valied.');	
 			if($valid_time < $current_time){	
 				$response = $this->updateToken($res[0]->user_id);			
@@ -141,7 +142,8 @@ class User extends MY_Controller {
 				$response = array('code' => 1002, 'status' => 'failed', 'message' => $validation);
 			}
 		}else{
-			$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Authentication failed!');
+			$response =  http_response_code(401);
+			//$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Authentication failed!');
 		}
         echo json_encode($response);
 	}
@@ -204,6 +206,65 @@ class User extends MY_Controller {
 
 
 
+	public function imageUpload(){    
+		if($this->input->get('id') > 0){
+				$user_id = $this->input->get('id');
+		}
+		$data = json_decode(trim(file_get_contents('php://input')), true); 
+		if (!file_exists('assets/images/upload/users')) {
+			mkdir('assets/images/upload/users', 0777, true);
+		}	
+		$target_dir = "assets/images/upload/users/";
+		$target_file = $target_dir . basename(trim(time().$_FILES["user_image"]["name"]));
+		$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		if(isset($_POST["submit"])) {
+			$check = getimagesize($_FILES["user_image"]["tmp_name"]);
+			if($check !== false) {
+			$message =  "File is an image - " . $check["mime"] . ".";
+			$uploadOk = 1;
+			} else {
+			$message =  "File is not an image.";
+			$uploadOk = 0;
+			}
+		}
+		if (file_exists($target_file)) {
+			$message =  "Sorry, file already exists.";
+			$uploadOk = 0;
+		}
+		if ($_FILES["user_image"]["size"] > 500000) {
+			$message =  "Sorry, your file is too large.";
+			$uploadOk = 0;
+		}
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+			$message = "Sorry, only JPG, JPEG, PNG files are allowed.";
+			$uploadOk = 0;
+		}
+		if ($uploadOk == 0) {
+			$response = array('code' => 1002, 'status' => 'failed', 'message' => $message);
+		} else {
+			if (move_uploaded_file($_FILES["user_image"]["tmp_name"], $target_file)) {			        
+				$condition = array('user_id' => $user_id);
+				$user_details = $this->common_model->getRecords('users', $condition);			        
+				if($user_details[0]->user_id > 0){
+					$values = array('user_image' => $target_file);
+					$update_status = $this->common_model->updateRecords('users', $values, $condition );	
+
+					if (file_exists($user_details[0]->user_image)){
+						unlink($user_details[0]->user_image);
+					}
+				}
+			$response = array('code' => 1001, 'status' => 'success', 
+								'message' => "The file ". basename( $_FILES["user_image"]["name"]). " has been uploaded.",
+								'image_path' => $target_file);
+			} else {
+				$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Sorry, there was an error uploading your file.!');
+			}
+		}
+		
+
+		echo json_encode($response);
+	}
 
 
 }

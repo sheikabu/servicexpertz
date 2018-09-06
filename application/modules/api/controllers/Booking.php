@@ -69,4 +69,30 @@ class Booking extends MY_Controller {
 		$slots = $this->common_model->getRecords('time_slot', $condition = null, $limit = null, $offset = null);
 		echo json_encode($slots);
 	}
+	
+	public function getBookings(){
+
+		$token = trim($this->input->get_request_header('Authorization'));		
+		$authentication = checkAuthentication($token);
+		if(count($authentication) > 0){
+				$booking_id = null;
+				if($this->input->get('id') > 0){
+					//$condition = array('booking_id' => $this->input->get('id'));
+					
+					$booking_id = $this->input->get('id');
+				}	
+				//$booking = $this->common_model->getRecords('booking', $condition, $limit = null, $offset = null);
+				$booking = $this->common_model->getBookingDetails($booking_id);
+		}else{
+			$booking =  http_response_code(401);
+			
+			
+			//$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Authentication failed!');
+		}
+		
+
+		echo json_encode($booking);
+	}
+	
+	
 }
