@@ -35,6 +35,10 @@ class AdminModel extends CI_Model{
 	  return $results;          
 
 }  
+public function get_BookingDetails(){  
+ 
+}
+
 
    
 

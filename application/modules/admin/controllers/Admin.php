@@ -66,6 +66,7 @@ class Admin extends MY_Controller {
         $data['usercount'] = $usersNo[0]->no;
 		$data['vendorcount'] = $vendorNo[0]->no;
 		$data['booking'] = $bookingNo[0]->no;
+		$data['bookingdetail'] = $this->AdminModel->get_BookingDetails();	
 		$this->load_view('dashboard', $data);        
         		
 	}
