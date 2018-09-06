@@ -30,6 +30,19 @@
                   <input type="text" class="form-control" id="phone" placeholder="Enter email" name="phone"  value="">
                 </div>
               </div>
+			   <div class="form-group">
+                <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                     <select class="form-control" name="role"  id="mainservice" required> 
+                      <option value="">Select role</option>
+                      
+                      <option value="Booking Agent">Booking Agent</option>
+					   <option value="Service Provider Agent"> Service Provider Agent</option>
+                                         
+
+                    </select>
+                </div>
+              </div>
 			    <div class="form-group">
                 <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          

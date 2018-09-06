@@ -31,6 +31,19 @@
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
+			    <div class="form-group">
+                <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                     <select class="form-control" name="role"  id="mainservice" required> 
+                      <option value="">Select role</option>
+                      
+                      <option value="<?php echo $user->role;?>">Booking Agent</option>
+					   <option value="<?php echo $user->role;?>"> Service Provider Agent</option>
+                                         
+
+                    </select>
+                </div>
+              </div>
 			   <div class="form-group">
                 <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
