@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" id="user_form" action="<?php echo base_url() ?>admin/user/insert" method="post" >
+              <form class="form-horizontal" id="user_form" action="<?php echo base_url() ?>admin/user/insert" method="post" enctype="multipart/form-data" >
 			 
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">First Name<span class="validationerror">*</span></label>
@@ -33,11 +33,12 @@
 			   <div class="form-group">
                 <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                     <select class="form-control" name="role"  id="mainservice" required> 
+                     <select class="form-control" name="role_id"  id="role" required> 
                       <option value="">Select role</option>
-                      
-                      <option value="Booking Agent">Booking Agent</option>
-					   <option value="Service Provider Agent"> Service Provider Agent</option>
+                       <?php foreach ($role as $key => $value) { ?>
+                      <option value="<?php echo $value->role_id; ?>"><?php echo $value->role_name; ?></option>
+                      <?php } ?>    
+                    
                                          
 
                     </select>

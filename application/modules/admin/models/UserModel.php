@@ -17,6 +17,13 @@ class UserModel extends CI_Model{
 	  return $results;
 	}
 	
+	 public function getRole(){  
+    $this->db->select('*');
+    $this->db->from('role');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
  function deleteuser($userid)
    {
 

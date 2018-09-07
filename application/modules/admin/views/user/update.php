@@ -34,13 +34,12 @@
 			    <div class="form-group">
                 <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                     <select class="form-control" name="role"  id="mainservice" required> 
+                      <select class="form-control" name="role_id"  id="role" required> 
                       <option value="">Select role</option>
-                      
-                      <option value="<?php echo $user->role;?>">Booking Agent</option>
-					   <option value="<?php echo $user->role;?>"> Service Provider Agent</option>
-                                         
-
+                      <?php foreach ($role as $rkey => $rvalue) { ?>
+                      <option value="<?php echo $rvalue->role_id; ?>"><?php echo $rvalue->role_name; ?></option>
+                      <?php } ?>    
+                    
                     </select>
                 </div>
               </div>

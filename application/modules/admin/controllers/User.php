@@ -35,8 +35,9 @@ class User extends MY_Controller {
     }
 
     public function add()
-	{	      
-	    $this->load_view('user/create');	    
+	{	
+	$data['role'] = $this->UserModel->getRole();
+	$this->load_view('user/create');	    
 	}
 
 	public function insert() { 			  
@@ -45,7 +46,7 @@ class User extends MY_Controller {
 			'email' => $this->input->post('email'),
 			'phone' => $this->input->post('phone'),
 			'password' => $this->input->post('password'),
-            'role'=> $this->input->post('role')
+            'role_name'=> $this->input->post('role_name')
         );					
         $this->UserModel->insertuser($user_array);         
         $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -82,7 +83,7 @@ class User extends MY_Controller {
 				'email' => $this->input->post('email'),
 				'phone' => $this->input->post('phone'),
 				'password' => $this->input->post('password'),
-	            'role'=> $this->input->post('role')
+	            'role_name'=> $this->input->post('role_name')
 	        );			
 		  
          $this->UserModel->updateuser($userid,$user_array);
