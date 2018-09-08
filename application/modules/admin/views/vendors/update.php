@@ -126,6 +126,18 @@
 						            <label class="control-label">Bank Name</label>
 						            <input maxlength="200" type="text"  required="required" class="form-control" name="bank_name" value="<?php echo $vendor->bank_name;?>"  placeholder="Enter Bank Name" required> 
 						        </div>
+						         <div class="form-group">
+						            <label class="control-label">Bank Account No<span>*</span></label>
+						            <input maxlength="200" type="text" id="accountno" required="required" class="form-control" name="bank_account_no"value="<?php echo $vendor->bank_account_no;?>" placeholder="Enter Bank Name"required>
+						        </div>
+						        <div class="form-group">
+						            <label class="control-label">IFSC Code<span>*</span></label>
+						            <input maxlength="200" type="text" id="ifsccode" required="required" class="form-control" name="ifsc_code" value="<?php echo $vendor->ifsc_code;?>" placeholder="Enter Bank Name"required>
+						        </div>
+						        <div class="form-group">
+						            <label class="control-label">Bank Account Type<span>*</span></label>
+						            <input maxlength="200" type="text" id="banktype" required="required" class="form-control" name="bank_account_type" value="<?php echo $vendor->bank_account_type;?>"placeholder="Enter Bank Name"required>
+						        </div>
 						        <div class="form-group">
 						            <label class="control-label">Bank Address</label>
 						            <input maxlength="200" type="text" class="form-control" name="bank_address" value="<?php echo $vendor->bank_address;?>" placeholder="Enter Bank Address" required>
@@ -176,6 +188,38 @@
 									 <input type="hidden" value="<?php echo $vendor->image;?>" name="old_image">
 						        </div>
 					        </div>
+					        	<div class="col-md-6 col-sm-12">
+							
+						        <div class="form-group">
+							        <label class="control-label">Address proof<span>*</span></label>
+							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->address_image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->address_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->address_image;?>" name="old_image">
+							       
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">PAN Crad Proof<span>*</span></label>
+							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->pan_image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->pan_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->pan_image;?>" name="old_image">
+							       
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">Company Establishment proof <span>*</span></label>
+							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->company_image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->company_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->company_image;?>" name="old_image">
+							       
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">Aadhar card proof (Front)<span>*</span></label>
+							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->aadhar_image;?>" width="50" height="50">
+							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->aadhar_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->aadhar_image;?>" name="old_image">
+							       
+						        </div>
+						        
+							</div>
 					    </div>
 						
 					    <div class="row">

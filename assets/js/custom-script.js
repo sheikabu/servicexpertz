@@ -139,28 +139,28 @@ $(document).ready( function () {
 	  
 	   $("#serviceprovider_form").validate( {
         rules: {
-          vendor: { valueNotEquals: "" },          
-          maincate: { valueNotEquals: "" },
-		  category: { valueNotEquals: "" },        
+          vendor_id:"required", 
+          //maincate: { valueNotEquals: "" },
+		      category: { valueNotEquals: "" },        
           services: { valueNotEquals: "" },
-		  mincost: "required",          
+		      mincost: "required",          
           image: "required",
-		  empid: "required",          
+		      empid: "required",          
           firstname: "required",
-		  lastname: "required",          
+		      lastname: "required",          
           phone: "required",
-		  city: { valueNotEquals: "" },   
-		  email: {
+		      city: { valueNotEquals: "" },   
+		      email: {
            required: true,
             email: true
           },		  
           pincode: "required",
-		  timeslot: { valueNotEquals: "" },
+		      timeslot: { valueNotEquals: "" },
         },
         messages: {
-          vendor: { valueNotEquals: "Please select an item!" },          
-          maincate: { valueNotEquals: "Please select an item!" },
-		  category: { valueNotEquals: "Please select an item!" },          
+          vendor_id: "Please select an item!",          
+         // maincate: { valueNotEquals: "Please select an item!" },
+		      category: { valueNotEquals: "Please select an item!" },          
           services: { valueNotEquals: "Please select an item!" },
 		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",

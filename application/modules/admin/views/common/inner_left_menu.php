@@ -13,7 +13,9 @@
 			     <li><a href="<?php echo base_url(); ?>admin/servicecategories/list_servicecategories"><i class="fa fa-sitemap mr-3" aria-hidden="true"></i>Service Categories</a></li>
            <li><a href="<?php echo base_url(); ?>admin/services/list_services"><i class="fa fa-server mr-3" aria-hidden="true"></i>Services</a></li>
           <li><a href="<?php echo base_url(); ?>admin/setting/update/1"><i class="fa fa-wrench mr-3" aria-hidden="true"></i>Settings</a></li>
+           <?php if($this->session->userdata('role')=='Booking Agent'){ ?>
           <li><a href="<?php echo base_url(); ?>admin/booking/list_bookings""><i class="fa fa-bell mr-3 text-danger" aria-hidden="true"></i></i>Booking</a></li>
+            <?php } ?>
            <!--<li><a href="<?php echo base_url(); ?>admin/booking/receipt"><i class="fa fa-bell mr-3 text-danger" aria-hidden="true"></i></i>Receipt</a></li>-->
             <li><a href="<?php echo base_url(); ?>admin/contact/list_contact"><i class="fa fa-phone mr-3" aria-hidden="true"></i></i>Contact us </a></li>
         </ul><br>   
