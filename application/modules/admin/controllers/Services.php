@@ -59,8 +59,11 @@ if(!empty($_FILES["userfile"]["name"]))
         'services' => $this->input->post('service'),
 		'description' => $this->input->post('descriptions'),
         'image' => $images,
-        'terms_conditions' => $this->input->post('terms_conditions')		
-    );			
+        'terms_conditions' => $this->input->post('terms_conditions'),
+        'price' => $this->input->post('cost'),
+        'additonal_cost' => $this->input->post('additional_cost'),
+        'parameter' => $this->input->post('parameter')
+      );			
     //print_r($service_array); exit;		
     $this->ServicesModel->insertService($service_array);         
     $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -112,7 +115,10 @@ if(!empty($_FILES["userfile"]["name"]))
         'updated_at' => 'CURRENT_TIMESTAMP',
         'description' => $this->input->post('descriptions'),
         'image' => $images,
-		'terms_conditions' => $this->input->post('terms_conditions')		 
+		'terms_conditions' => $this->input->post('terms_conditions'),
+		 'price' => $this->input->post('cost'),
+        'additonal_cost' => $this->input->post('additional_cost'),
+        'parameter' => $this->input->post('parameter')
     	);			
      $this->ServicesModel->updateService($sid,$service_array);
      $this->session->set_flashdata('msg', 'updated successfully');

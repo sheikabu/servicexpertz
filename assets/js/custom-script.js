@@ -138,10 +138,11 @@ $(document).ready( function () {
       } );
 	  
 	   $("#serviceprovider_form").validate( {
+      ignore: ':hidden:not([class~=selectized]),:hidden > .selectized, .selectize-control .selectize-input input',
         rules: {
-          vendor: { valueNotEquals: "" },          
-          maincate: { valueNotEquals: "" },
-		  category: { valueNotEquals: "" },        
+          vendor_sp: "required", 
+          maincate: "required", 
+		  category: "required",       
           services: { valueNotEquals: "" },
 		  mincost: "required",          
           image: "required",
@@ -155,12 +156,12 @@ $(document).ready( function () {
             email: true
           },		  
           pincode: "required",
-		  timeslot: { valueNotEquals: "" },
+		  timeslot: { valueNotEquals: "" }
         },
         messages: {
-          vendor: { valueNotEquals: "Please select an item!" },          
-          maincate: { valueNotEquals: "Please select an item!" },
-		  category: { valueNotEquals: "Please select an item!" },          
+          vendor_sp:  "Please select an item!" ,
+          maincate: "Please select an item!" ,
+		      category: "Please select an item!" ,      
           services: { valueNotEquals: "Please select an item!" },
 		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",
@@ -171,7 +172,7 @@ $(document).ready( function () {
 		      email: "Please enter your valid email address",          
           city: { valueNotEquals: "Please select an item!" },
 		      pincode: "Please enter your Pincode",          
-          timeslot: { valueNotEquals: "Please select an item!" },
+          timeslot: { valueNotEquals: "Please select an item!" }
           
         },
         errorElement: "em",
@@ -184,6 +185,7 @@ $(document).ready( function () {
           } else {
             error.insertAfter( element );
           }
+
         },
         highlight: function ( element, errorClass, validClass ) {
           $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
@@ -202,6 +204,7 @@ $(document).ready( function () {
 		  images:"required",
 		  description:"required",
 		  terms_conditions: "required"
+      //parameter: { valueNotEquals: "" }
         },
         messages: {
                     
@@ -211,6 +214,8 @@ $(document).ready( function () {
 		   images: "Please upload your images",
 		   description: "Please enter your description",
 		    terms_conditions: "Please enter your terms_conditions"
+        
+       // parameter: { valueNotEquals: "Please select an item!" }
         },
         errorElement: "em",
         errorPlacement: function ( error, element ) {
@@ -222,6 +227,7 @@ $(document).ready( function () {
           } else {
             error.insertAfter( element );
           }
+
         },
         highlight: function ( element, errorClass, validClass ) {
           $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
@@ -235,3 +241,40 @@ $(document).ready( function () {
 	  
 
      } );
+
+
+ $("#booking_form").validate( {
+        rules: {
+          total_cost:"required",
+          gst:"required"
+        },
+        messages: {
+          total_cost: "Please enter total cost",
+          gst: "Please enter GST"
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "validationerror" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      } );
+
+    
+    
+
+     } );
+
+

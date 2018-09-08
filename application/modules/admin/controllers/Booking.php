@@ -67,6 +67,8 @@ class Booking extends MY_Controller {
 				'slot_id' => $this->input->post('selected_time'),
 	            'comments'=> $this->input->post('comments'),
 				'price'=> $this->input->post('price'),
+				'total_cost'=> $this->input->post('total_cost'),
+				'gst'=> $this->input->post('gst'),
 				'service_provider'=> $service_provider,
 				'status'=> $this->input->post('status')
 	        );			

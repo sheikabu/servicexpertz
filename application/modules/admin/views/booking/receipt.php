@@ -3,7 +3,7 @@
 
   <div class="row content">
     <div class="col-md-12 col-sm-12">      
-      <div class="row">
+      <div class="row" id="divToPrint">
    		<div class="col-md-12 mt-20">
 		
    			<div class="row bb">
@@ -12,7 +12,12 @@
    				</div>
    				<div class="col-md-6 text-right">
    					<div class="col-md-12"><label class="mr-2">Invoice #:</label><span class="b"><?php echo $booking->booking_id;?></span></div>
-   					<div class="col-md-12"><label class="mr-2">Date:</label><span class="b">August 21, 2018</span></div>
+   					<div class="col-md-12"><label class="mr-2">Date:</label><span class="b">
+   					<?php $date = $booking->booking_date;   						
+   						echo date("F d, Y h:ia", strtotime($date));
+   						?>
+   					</span>
+   					</div>
    				</div>
    			</div>
    			<div class="row mt-20 bb">
@@ -25,10 +30,11 @@
 					  </div>
 					  <ul class="list-group list-group-flush">
 					    <li class="list-group-item"><label class="mr-2">Booking ID#:</label><span class="b"><?php echo $booking->booking_id;?></span></li>
-					    <li class="list-group-item"><label class="mr-2">Booking Date:</label><span class="b"> </span></li>
+					    <li class="list-group-item"><label class="mr-2">Booking Date:</label><span class="b"> <?php $date = $booking->booking_date;   						
+   						echo date("F d, Y h:ia", strtotime($date)); ?></span></li>
 					    <li class="list-group-item"><label class="mr-2">Customer ID:</label><span class="b"><?php echo $user->user_id;?></span></li>
 						 <li class="list-group-item"><label class="mr-2">Customer Name:</label><span class="b"><?php echo $user->name;?></span></li>
-					    <li class="list-group-item"><label class="mr-2">Address:</label><span class="b">121-Yamuna, GG Street, India</span></li>
+					    <li class="list-group-item"><label class="mr-2">Address:</label><span class="b">City and Pincode</span></li>
 					    <li class="list-group-item"><label class="mr-2">Contact:</label><span class="b"><?php echo $user->phone;?></span></li>
 					  </ul>
 					</div>
@@ -87,11 +93,12 @@
 						<div class="card text-right">
 						 
 						  <ul class="list-group list-group-flush">
-						    <li class="list-group-item"><label class="mr-2">Sub total:</label><span class="b">00.00</span></li>
+						    <li class="list-group-item"><label class="mr-2">Sub total:</label><span class="b"><?php echo $booking->total_cost; ?></span></li>
 						   
-						    <li class="list-group-item"><label class="mr-2">Total Tax:</label><span class="b">16%</span></li>
+						    <li class="list-group-item"><label class="mr-2">Total Tax:</label><span class="b"><?php echo $booking->gst; ?>%</span></li>
 						    <li class="list-group-item"><label class="mr-2">Others:</label><span class="b">00.00</span></li>
-						    <li class="list-group-item"><label class="mr-2">Total:</label><span class="b">00.00</span></li>
+						    <li class="list-group-item"><label class="mr-2">Total:</label><span class="b"><?php $total_price = $booking->total_cost *= (1 + $booking->gst / 100); 
+						    	echo number_format((float)$total_price, 2, '.', ''); ?></span></li>
 						  </ul>
 						</div>
 					</div>
@@ -102,9 +109,27 @@
    		
       </div>
       <div>
-   			<center><input type="button" name="print" value="Print"></center>
+			
+			<div>
+			<center><input type="button" value="print" onclick="PrintDiv();" /></center>
+			
+			</div>
    		</div>
     </div>
   </div>
 
 </div>
+
+<script type="text/javascript">     
+    function PrintDiv() {    
+       var divToPrint = document.getElementById('divToPrint');
+       var popupWin = window.open('', '_blank', 'width=300,height=300');
+       popupWin.document.open();
+
+       popupWin.document.write('<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/styles.css" type="text/css" />');
+       popupWin.document.write('<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bootstrap/css/bootstrap.min.css" type="text/css" />');
+
+       popupWin.document.write('<html><img width="200" height="45" src="<?php echo base_url(); ?>/assets/images/logo_servicexpertz%20_2.png"><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();
+            }
+ </script>

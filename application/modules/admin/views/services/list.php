@@ -30,6 +30,7 @@
 						<th>Image</th>
 						<th>Description</th>
 						<th>Terms and Conditions</th>
+						<th>Cost</th>
 						<th>Edit</th>
 						<th>Delete</th>
 				    </tr>
@@ -51,7 +52,8 @@
 		                    <img src="<?php echo base_url() ?>upload/dummy.png" width="50" height="50">	                   
 		                  <?php } ?>                        
                         <td><?php echo $service->description; ?></td>		
-						<td><?php echo $service->terms_conditions; ?></td>						
+						<td><?php echo $service->terms_conditions; ?></td>		
+						<td><?php echo $service->price; ?></td>						
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $service->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/delete/<?php echo $service->sid; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>

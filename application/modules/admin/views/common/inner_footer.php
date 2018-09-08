@@ -20,7 +20,10 @@ sortField: 'text'
 $('#cities').selectize({
 sortField: 'text'
 });
-
+$('#vendor_sp').selectize({
+sortField: 'text',
+allowEmptyOption: false
+});
 </script>
 </body>
 </html>
