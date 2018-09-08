@@ -100,9 +100,9 @@ class ServiceproviderModel extends CI_Model{
    }
    
  public function updateuser($spid,$sp_array) {
- 		$this->db->where('spid', $spid);
-    $this->db->update('service_providers', $sp_array);
-		return true;
+ 	   $this->db->where('spid', $spid);
+       $this->db->update('service_providers', $sp_array);
+	   return true;
    }
    
   public function insertuser($user_array) { 

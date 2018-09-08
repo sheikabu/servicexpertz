@@ -31,6 +31,18 @@
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
+			    <div class="form-group">
+                <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                      <select class="form-control" name="role_id"  id="role" required> 
+                      <option value="">Select role</option>
+                      <?php foreach ($role as $rkey => $rvalue) { ?>
+                      <option value="<?php echo $rvalue->role_id; ?>"><?php echo $rvalue->role_name; ?></option>
+                      <?php } ?>    
+                    
+                    </select>
+                </div>
+              </div>
 			   <div class="form-group">
                 <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          

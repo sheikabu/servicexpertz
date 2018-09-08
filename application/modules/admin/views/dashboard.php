@@ -22,8 +22,7 @@
                   </div>
                   <div class="mr-5"><?php echo $usercount; ?> USERS!</div>
                 </div>
-               <span class="card-footer text-white clearfix small z-1" href="#">
-                  
+               <span class="card-footer text-white clearfix small z-1"><a href="<?php echo base_url(); ?>admin/user/list_user" class="text-white" style="text-decoration: none;">LIST >></a>                   
                 </span>
               </div>
             </div>
@@ -35,8 +34,7 @@
                   </div>
                   <div class="mr-5"><?php echo $vendorcount; ?> Vendors!</div>
                 </div>
-               <span class="card-footer text-white clearfix small z-1" href="#">
-                  
+              <span class="card-footer text-white clearfix small z-1"><a href="<?php echo base_url(); ?>admin/vendors/list_vendor" class="text-white" style="text-decoration: none;">LIST >></a>                   
                 </span>
               </div>
             </div>
@@ -48,8 +46,7 @@
                   </div>
                   <div class="mr-5"><?php echo $booking; ?> Bookings!</div>
                 </div>
-                <span class="card-footer text-white clearfix small z-1" href="#">
-                  
+               <span class="card-footer text-white clearfix small z-1"><a href="<?php echo base_url(); ?>admin/booking/list_bookings" class="text-white" style="text-decoration: none;">LIST >></a>                   
                 </span>
               </div>
             </div>
@@ -69,7 +66,7 @@
          function drawChart() {
             // Define the chart to be drawn.
             var data = google.visualization.arrayToDataTable([
-                ['months', 'USER', 'BOOKINGS'],
+               ['months', 'USER', 'BOOKINGS'],
                ['January',  100,      10],
                ['February', 90,      15],
                ['March',  80,      20],
