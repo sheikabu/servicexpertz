@@ -70,6 +70,11 @@ class Booking extends MY_Controller {
 		echo json_encode($slots);
 	}
 	
+	public function getCityList(){
+		$slots = $this->common_model->getRecords('cities', $condition = null, $limit = null, $offset = null);
+		echo json_encode($slots);
+	}
+	
 	public function getBookings(){
 
 		$token = trim($this->input->get_request_header('Authorization'));		
