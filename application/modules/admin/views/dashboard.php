@@ -105,7 +105,8 @@
                                    <!--<a href="#">-->
                                    <span class="list-group-item">
                                     <i class="fa fa-shopping-cart fa-fw"></i><?php echo $bookingvalue->services; ?>
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                    <span class="pull-right text-muted small"><em><?php $bdate = $bookingvalue->booking_date;
+                                    echo date("F d, Y h:ia", strtotime($bdate)); ?></em>
                                     </span>
                                     </span>
                                 <!--</a>-->

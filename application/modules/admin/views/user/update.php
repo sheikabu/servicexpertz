@@ -13,12 +13,18 @@
                   <input type="text" class="form-control"  id="firstname" placeholder="Enter First Name" name="first_name" value="<?php echo $user->name;?>"required>
                 </div>
               </div>
-             <!-- <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Last Name</label>
-                <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="<?php echo $user->last_name;?>"required>
+            <div class="form-group">
+                <label class="control-label col-sm-12" for="username">User Name<span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="username" placeholder="Enter First Name" name="username" value="<?php echo $user->username;?>" required>
                 </div>
-              </div>-->
+              </div>
+			  <div class="form-group">
+                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="<?php echo $user->password;?>"required>
+                </div>
+              </div>
 			  <div class="form-group">
                 <label class="control-label col-sm-12" for="email">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
@@ -31,12 +37,18 @@
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
-			   <div class="form-group">
-                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
-                <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="<?php echo $user->password;?>"required>
+			    <div class="form-group">
+                <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                     <select class="form-control" name="role"  id="role" value="<?php echo $user->role;?>" required> 
+                     
+                      <option value="Booking Agent">Booking Agent</option>
+                      <option value="Vendor Tracking">Vendor Tracking</option>
+                      
+                     </select>
                 </div>
               </div>
+			   
                   <input type="hidden" class="form-control" name="role" value="user">
                   <input type="hidden" class="form-control" name="userid" value="<?php echo $user->user_id; ?>"required >
               <div class="form-group">   

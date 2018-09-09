@@ -123,6 +123,18 @@
 						           
 						        </div>
 						        <div class="form-group">
+						            <label class="control-label">Bank Account No</label>: <?php echo $vendor->bank_account_no;?>
+						           
+						        </div>
+						        <div class="form-group">
+						            <label class="control-label">IFSC Code</label>: <?php echo $vendor->ifsc_code;?>
+						           
+						        </div>
+						        <div class="form-group">
+						            <label class="control-label">Bank Account Type</label>: <?php echo $vendor->bank_account_type;?>
+						           
+						        </div>
+						        <div class="form-group">
 						            <label class="control-label">Bank Address</label>: <?php echo $vendor->bank_address;?>
 						           
 						        </div>
@@ -165,6 +177,29 @@
 								  <label class="control-label">image</label>: <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->image;?>" width="50" height="50">
 					        </div>
 					        </div>
+					         <div class="col-md-6 col-sm-12">
+					         	<div class="form-group">
+							        <label class="control-label">Address proof<span>*</span></label>:
+							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->address_image;?>" width="50" height="50">
+							        
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">PAN Crad Proof<span>*</span></label>:
+							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->pan_image;?>" width="50" height="50">
+							       
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">Company Establishment proof <span>*</span></label>:
+							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->company_image;?>" width="50" height="50">
+							        
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">Aadhar card proof<span>*</span></label>: 
+							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->aadhar_image;?>" width="50" height="50">
+							        
+						        </div>
+						        
+					         </div>
 					    </div>
 						
 					   

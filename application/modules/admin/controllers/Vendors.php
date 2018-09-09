@@ -41,22 +41,71 @@ class Vendors extends MY_Controller {
 	}
 
 	public function insert() { 	
-	if(!empty($_FILES["userfile"]["name"]))  
+		if(!empty($_FILES["userfile"]["name"]))  
 			{
-	$config['upload_path'] = 'upload/vendor';
+		$config['upload_path'] = 'upload/vendor';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
         $this->upload->initialize($config);
         $this->load->library('upload', $config); //image upload
-        if(!$this->upload->do_upload('userfile'))  
-        {  
+        if(!$this->upload->do_upload('userfile')) {  
         echo $this->upload->display_errors();  
         }
-		$image = $_FILES["userfile"]["name"];
+			$image = $_FILES["userfile"]["name"];
 			}
-		else {
-         $image =  $this->input->post('old_image');
-		}
+		//Address image
+		if(!empty($_FILES["address_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('address_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$address_image = $_FILES["address_image"]["name"];
+			}
+		//[pan] image
+		if(!empty($_FILES["pan_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('pan_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$pan_image = $_FILES["pan_image"]["name"];
+			}
+		//company image
+		if(!empty($_FILES["company_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('company_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$company_image = $_FILES["company_image"]["name"];
+			}
+		//aadhar image
+		if(!empty($_FILES["aadhar_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('aadhar_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$aadhar_image = $_FILES["aadhar_image"]["name"];
+			}
+				
 		$vendors_array = array(
             'company_name' => $this->input->post('company_name'),
 			'comany_address' => $this->input->post('comany_address'),
@@ -74,12 +123,21 @@ class Vendors extends MY_Controller {
 			'date_cestablished' => $this->input->post('date_cestablished'),	
 			'cross_annual' => $this->input->post('cross_annual'), 
 			'bank_name' => $this->input->post('bank_name'), 
+			'bank_account_no' => $this->input->post('bank_account_no'),
+			'ifsc_code' => $this->input->post('ifsc_code'),
+			'bank_account_type' => $this->input->post('bank_account_type'),
 			'bank_address' => $this->input->post('bank_address'), 
 			'staff_name' => $this->input->post('staff_name'), 
 			'staff_address' => $this->input->post('staff_address'), 
 			'skills' => $this->input->post('skills'),
 			'experience' => $this->input->post('experience'),
-			'image' => $image
+			'image' => $image,
+			'address_image' => $address_image,
+			'pan_image' => $pan_image,
+			'company_image' => $company_image,
+			'aadhar_image' => $aadhar_image
+			
+
 			
 
 			           
@@ -123,7 +181,7 @@ class Vendors extends MY_Controller {
 	public function updated() { 
 	if(!empty($_FILES["userfile"]["name"]))  
 			{
-	$config['upload_path'] = 'upload/vendor';
+	    $config['upload_path'] = 'upload/vendor';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
         $this->upload->initialize($config);
@@ -134,9 +192,59 @@ class Vendors extends MY_Controller {
         }
 		$image = $_FILES["userfile"]["name"];
 			}
-		else {
-         $image =  $this->input->post('old_image');
-		}
+		//Address image
+		if(!empty($_FILES["address_image"]["name"]))  
+			{
+				 
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('address_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			 $address_image = $_FILES["address_image"]["name"];
+			}
+		//[pan] image
+		if(!empty($_FILES["pan_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('pan_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$pan_image = $_FILES["pan_image"]["name"];
+			}
+		//company image
+		if(!empty($_FILES["company_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('company_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$company_image = $_FILES["company_image"]["name"];
+			}
+		//aadhar image
+		if(!empty($_FILES["aadhar_image"]["name"]))  
+			{
+		$config['upload_path'] = 'upload/vendor';
+        $config['overwrite'] = TRUE;
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
+        $this->upload->initialize($config);
+        $this->load->library('upload', $config); //image upload
+        if(!$this->upload->do_upload('aadhar_image')) {  
+        echo $this->upload->display_errors();  
+        }
+			$aadhar_image = $_FILES["aadhar_image"]["name"];
+			}
 		  $vid = $this->input->post('vid');
 		  $vendors_array = array(
 	           'company_name' => $this->input->post('company_name'),
@@ -155,12 +263,19 @@ class Vendors extends MY_Controller {
 			'date_cestablished' => $this->input->post('date_cestablished'),	
 			'cross_annual' => $this->input->post('cross_annual'), 
 			'bank_name' => $this->input->post('bank_name'), 
+			'bank_account_no' => $this->input->post('bank_account_no'),
+			'ifsc_code' => $this->input->post('ifsc_code'),
+			'bank_account_type' => $this->input->post('bank_account_type'),
 			'bank_address' => $this->input->post('bank_address'), 
 			'staff_name' => $this->input->post('staff_name'), 
 			'staff_address' => $this->input->post('staff_address'), 
 			'skills' => $this->input->post('skills'),
 			'experience' => $this->input->post('experience'), 	
-            'image' => $image
+            'image' => $image,
+			'address_image' => $address_image,
+			'pan_image' => $pan_image,
+			'company_image' => $company_image,
+			'aadhar_image' => $aadhar_image
 	        );			
 		  
          $this->VendorModel->updatevendors($vid,$vendors_array);

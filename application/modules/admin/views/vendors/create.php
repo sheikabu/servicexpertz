@@ -127,6 +127,18 @@
 						            <input maxlength="200" type="text" id="bankname" required="required" class="form-control" name="bank_name" placeholder="Enter Bank Name"required>
 						        </div>
 						        <div class="form-group">
+						            <label class="control-label">Bank Account No<span>*</span></label>
+						            <input maxlength="200" type="text" id="accountno" required="required" class="form-control" name="bank_account_no" placeholder="Enter Bank Name"required>
+						        </div>
+						        <div class="form-group">
+						            <label class="control-label">IFSC Code<span>*</span></label>
+						            <input maxlength="200" type="text" id="ifsccode" required="required" class="form-control" name="ifsc_code" placeholder="Enter Bank Name"required>
+						        </div>
+						        <div class="form-group">
+						            <label class="control-label">Bank Account Type<span>*</span></label>
+						            <input maxlength="200" type="text" id="banktype" required="required" class="form-control" name="bank_account_type" placeholder="Enter Bank Name"required>
+						        </div>
+						        <div class="form-group">
 						            <label class="control-label">Bank Address<span>*</span></label>
 						            <input maxlength="200" type="text" id="bankaddress" class="form-control" name="bank_address" placeholder="Enter Bank Address" required>
 						        </div>
@@ -177,6 +189,23 @@
 					        </div>
 							<div class="col-md-6 col-sm-12">
 							
+						        <div class="form-group">
+							        <label class="control-label">Address proof<span>*</span></label>
+							        <input type="file" name="address_image" id="address_image" class="form-control" required>
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">PAN Crad Proof<span>*</span></label>
+							        <input type="file" name="pan_image" id="pan_image" class="form-control" required>
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">Company Establishment proof <span>*</span></label>
+							        <input type="file" name="company_image" id="company_image" class="form-control" required>
+						        </div>
+						        <div class="form-group">
+							        <label class="control-label">Aadhar card proof<span>*</span></label>
+							        <input type="file" name="aadhar_image" id="aadhar_image" class="form-control" required>
+						        </div>
+						        
 							</div>
 					    </div>
 					    <div class="row">

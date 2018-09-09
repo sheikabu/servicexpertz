@@ -4,7 +4,7 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" id="user_form" action="<?php echo base_url() ?>admin/user/insert" method="post" >
+              <form class="form-horizontal" id="user_form" action="<?php echo base_url() ?>admin/user/insert" method="post" enctype="multipart/form-data" >
 			 
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">First Name<span class="validationerror">*</span></label>
@@ -12,12 +12,18 @@
                   <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="first_name" value="" required>
                 </div>
               </div>
-              <!--<div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Last Name</label>
-                <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="lastname" placeholder="Enter Last Name" name="last_name" value="" >
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="username">User Name<span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="username" placeholder="Enter First Name" name="username" value="" required>
                 </div>
-              </div>-->
+              </div>
+               <div class="form-group">
+                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="">
+                </div>
+              </div>
 			  <div class="form-group">
                 <label class="control-label col-sm-12" for="lastname">Email<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
@@ -30,13 +36,19 @@
                   <input type="text" class="form-control" id="phone" placeholder="Enter email" name="phone"  value="">
                 </div>
               </div>
-			    <div class="form-group">
-                <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
-                <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="">
+			   <div class="form-group">
+                <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                     <select class="form-control" name="role"  id="role" required> 
+                      
+                      <option value="Booking Agent">Booking Agent</option>
+                      <option value="Vendor Tracking">Vendor Tracking</option>
+                      
+                     </select>
                 </div>
               </div>
-                  <input type="hidden" class="form-control" name="role" value="user">
+			  
+                  
               <div class="form-group">   
                   <div class="col-sm-12"> 
                       <input class="btn btn-primary" type="submit" name="submit" value="Submit">

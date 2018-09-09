@@ -142,26 +142,29 @@ $(document).ready( function () {
         rules: {
           vendor_sp: "required", 
           maincate: "required", 
-		  category: "required",       
+		    category: "required",       
+
           services: { valueNotEquals: "" },
-		  mincost: "required",          
+		      mincost: "required",          
           image: "required",
-		  empid: "required",          
+		      empid: "required",          
           firstname: "required",
-		  lastname: "required",          
+		      lastname: "required",          
           phone: "required",
-		  city: { valueNotEquals: "" },   
-		  email: {
+		      city: { valueNotEquals: "" },   
+		      email: {
            required: true,
             email: true
           },		  
           pincode: "required",
+
 		  timeslot: { valueNotEquals: "" }
         },
         messages: {
           vendor_sp:  "Please select an item!" ,
           maincate: "Please select an item!" ,
 		      category: "Please select an item!" ,      
+
           services: { valueNotEquals: "Please select an item!" },
 		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",
