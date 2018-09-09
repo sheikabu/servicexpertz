@@ -22,7 +22,7 @@
 			  <div class="form-group">
                 <label class="control-label col-sm-12" for="password">Password<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="password"  placeholder="Enter Password" name="password" value="<?php echo $user->password;?>"required>
+                  <input type="password" class="form-control" id="password"  placeholder="Enter Password" name="password" value="<?php echo $user->password;?>"required>
                 </div>
               </div>
 			  <div class="form-group">

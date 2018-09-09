@@ -193,29 +193,29 @@
 						        <div class="form-group">
 							        <label class="control-label">Address proof<span>*</span></label>
 							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->address_image;?>" width="50" height="50">
-							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->address_image;?>" >
-									 <input type="hidden" value="<?php echo $vendor->address_image;?>" name="old_image">
+							        <input type="file" name="address_image"  class="form-control"  value="<?php echo $vendor->address_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->address_image;?>" name="old_address_image">
 							       
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">PAN Crad Proof<span>*</span></label>
 							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->pan_image;?>" width="50" height="50">
-							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->pan_image;?>" >
-									 <input type="hidden" value="<?php echo $vendor->pan_image;?>" name="old_image">
+							        <input type="file" name="pan_image"  class="form-control"  value="<?php echo $vendor->pan_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->pan_image;?>" name="old_pan_image">
 							       
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Company Establishment proof <span>*</span></label>
 							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->company_image;?>" width="50" height="50">
-							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->company_image;?>" >
-									 <input type="hidden" value="<?php echo $vendor->company_image;?>" name="old_image">
+							        <input type="file" name="company_image"  class="form-control"  value="<?php echo $vendor->company_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->company_image;?>" name="old_company_image">
 							       
 						        </div>
 						        <div class="form-group">
 							        <label class="control-label">Aadhar card proof (Front)<span>*</span></label>
 							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->aadhar_image;?>" width="50" height="50">
-							        <input type="file" name="userfile"  class="form-control"  value="<?php echo $vendor->aadhar_image;?>" >
-									 <input type="hidden" value="<?php echo $vendor->aadhar_image;?>" name="old_image">
+							        <input type="file" name="aadhar_image"  class="form-control"  value="<?php echo $vendor->aadhar_image;?>" >
+									 <input type="hidden" value="<?php echo $vendor->aadhar_image;?>" name="old_aadhar_image">
 							       
 						        </div>
 						        
