@@ -43,6 +43,8 @@
                       
                       <option value="Booking Agent">Booking Agent</option>
                       <option value="Vendor Tracking">Vendor Tracking</option>
+                      <option value="admin">Admin</option>
+                      <option value="user">User</option>
                       
                      </select>
                 </div>
