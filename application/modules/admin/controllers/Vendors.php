@@ -51,11 +51,13 @@ class Vendors extends MY_Controller {
         if(!$this->upload->do_upload('userfile')) {  
         echo $this->upload->display_errors();  
         }
-			$image = $_FILES["userfile"]["name"];
-			}
+		$image = $_FILES["userfile"]["name"];
+		}
+		else {
+         $image =  $this->input->post('old_image');
+		}
 		//Address image
-		if(!empty($_FILES["address_image"]["name"]))  
-			{
+		if(!empty($_FILES["address_image"]["name"])) {
 		$config['upload_path'] = 'upload/vendor';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
@@ -64,8 +66,11 @@ class Vendors extends MY_Controller {
         if(!$this->upload->do_upload('address_image')) {  
         echo $this->upload->display_errors();  
         }
-			$address_image = $_FILES["address_image"]["name"];
-			}
+		$address_image = $_FILES["address_image"]["name"];
+		}
+		else {
+         $address_image =  $this->input->post('old_address_image');
+		}		
 		//[pan] image
 		if(!empty($_FILES["pan_image"]["name"]))  
 			{
@@ -79,6 +84,9 @@ class Vendors extends MY_Controller {
         }
 			$pan_image = $_FILES["pan_image"]["name"];
 			}
+		else {
+         $pan_image =  $this->input->post('old_pan_image');
+		}
 		//company image
 		if(!empty($_FILES["company_image"]["name"]))  
 			{
@@ -92,6 +100,9 @@ class Vendors extends MY_Controller {
         }
 			$company_image = $_FILES["company_image"]["name"];
 			}
+		else {
+         $company_image =  $this->input->post('old_company_image');
+		}	
 		//aadhar image
 		if(!empty($_FILES["aadhar_image"]["name"]))  
 			{
@@ -105,7 +116,9 @@ class Vendors extends MY_Controller {
         }
 			$aadhar_image = $_FILES["aadhar_image"]["name"];
 			}
-				
+		else {
+         $aadhar_image =  $this->input->post('old_aadhar_image');
+		}	
 		$vendors_array = array(
             'company_name' => $this->input->post('company_name'),
 			'comany_address' => $this->input->post('comany_address'),
@@ -192,10 +205,11 @@ class Vendors extends MY_Controller {
         }
 		$image = $_FILES["userfile"]["name"];
 			}
+			else {
+         $image =  $this->input->post('old_image');
+		}
 		//Address image
-		if(!empty($_FILES["address_image"]["name"]))  
-			{
-				 
+		if(!empty($_FILES["address_image"]["name"]))  {
 		$config['upload_path'] = 'upload/vendor';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
@@ -204,8 +218,12 @@ class Vendors extends MY_Controller {
         if(!$this->upload->do_upload('address_image')) {  
         echo $this->upload->display_errors();  
         }
-			 $address_image = $_FILES["address_image"]["name"];
-			}
+		$address_image = $_FILES["address_image"]["name"];
+		}
+		else {
+			
+         $address_image =  $this->input->post('old_address_image');
+		}
 		//[pan] image
 		if(!empty($_FILES["pan_image"]["name"]))  
 			{
@@ -219,6 +237,9 @@ class Vendors extends MY_Controller {
         }
 			$pan_image = $_FILES["pan_image"]["name"];
 			}
+			else {
+         $pan_image =  $this->input->post('old_pan_image');
+		}
 		//company image
 		if(!empty($_FILES["company_image"]["name"]))  
 			{
@@ -232,6 +253,10 @@ class Vendors extends MY_Controller {
         }
 			$company_image = $_FILES["company_image"]["name"];
 			}
+			else {
+         $company_image =  $this->input->post('old_company_image');
+
+		}
 		//aadhar image
 		if(!empty($_FILES["aadhar_image"]["name"]))  
 			{
@@ -245,6 +270,9 @@ class Vendors extends MY_Controller {
         }
 			$aadhar_image = $_FILES["aadhar_image"]["name"];
 			}
+			else {
+         $aadhar_image =  $this->input->post('old_aadhar_image');
+		}
 		  $vid = $this->input->post('vid');
 		  $vendors_array = array(
 	           'company_name' => $this->input->post('company_name'),
