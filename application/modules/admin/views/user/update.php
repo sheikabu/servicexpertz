@@ -37,14 +37,15 @@
                   <input type="text" class="form-control" id="phone"  placeholder="Enter phone number" name="phone" value="<?php echo $user->phone;?>"required>
                 </div>
               </div>
-			    <div class="form-group">
+			        <div class="form-group">
                 <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                      <select class="form-control" name="role"  id="role" value="<?php echo $user->role;?>" required> 
                      
-                      <option value="Booking Agent">Booking Agent</option>
-                      <option value="Vendor Tracking">Vendor Tracking</option>
-                      
+                      <option value="Booking Agent"<?php if($user->role=="Booking Agent") { ?> selected <?php } ?>>Booking Agent</option>
+                      <option value="Vendor Tracking"<?php if($user->role=="Vendor Tracking") { ?> selected <?php } ?>>Vendor Tracking</option>
+                      <option value="admin"<?php if($user->role=="admin") { ?> selected <?php } ?>>Admin</option>
+                      <option value="user"<?php if($user->role=="user") { ?> selected <?php } ?>>User</option>
                      </select>
                 </div>
               </div>
