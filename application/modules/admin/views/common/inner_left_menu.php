@@ -9,7 +9,7 @@
           	<li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></li>
             <li><a href="<?php echo base_url(); ?>admin/user/list_user"><i class="fa fa-users mr-3" aria-hidden="true"></i>Users</a></li>
             <?php } ?>
-             <?php if(($this->session->userdata('role')=='Vendor Tracking')||(($this->session->userdata('role')=='admin'))){ ?>
+             <?php if(($this->session->userdata('role')=='Vendor Tracking')||($this->session->userdata('role')=='admin')){ ?>
             <li><a href="<?php echo base_url(); ?>admin/vendors/list_vendor"><i class="fa fa-user-circle-o mr-3" aria-hidden="true"></i>Vendors</a></li>
             <li><a href="<?php echo base_url(); ?>admin/serviceprovider/list_sp"><i class="fa fa-cogs mr-3" aria-hidden="true"></i>Service Providers</a></li>
 			     <li><a href="<?php echo base_url(); ?>admin/servicecategories/list_servicecategories"><i class="fa fa-sitemap mr-3" aria-hidden="true"></i>Service Categories</a></li>
@@ -23,6 +23,7 @@
             <?php } ?>
            <!--<li><a href="<?php echo base_url(); ?>admin/booking/receipt"><i class="fa fa-bell mr-3 text-danger" aria-hidden="true"></i></i>Receipt</a></li>-->
             <?php if($this->session->userdata('role')=='admin') { ?>
+            <li><a href="<?php echo base_url(); ?>admin/booknow/book_list"><i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i></i>Book Now</a></li>
             <li><a href="<?php echo base_url(); ?>admin/contact/list_contact"><i class="fa fa-phone mr-3" aria-hidden="true"></i></i>Contact us </a></li>
             <?php } ?>
         </ul><br>   

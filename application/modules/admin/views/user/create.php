@@ -39,12 +39,13 @@
 			   <div class="form-group">
                 <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                     <select class="form-control" name="role"  id="role" required> 
-                      
-                      <option value="Booking Agent">Booking Agent</option>
-                      <option value="Vendor Tracking">Vendor Tracking</option>
+                     <select class="form-control" name="role"  id="role" required>
+                      <option value="">--SELECT--</option>
                       <option value="admin">Admin</option>
                       <option value="user">User</option>
+                      <option value="Booking Agent">Booking Agent</option>
+                      <option value="Vendor Tracking">Vendor Tracking</option>
+                      
                       
                      </select>
                 </div>

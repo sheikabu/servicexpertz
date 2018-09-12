@@ -48,9 +48,8 @@
 			             <td><?php echo $service->services; ?></td>	
                         <td>
                         	<?php if($service->image!='') { ?>       
-		                   <img src="<?php echo base_url() ?>upload/services/<?php echo $service->image; ?>" width="50" height="50"> <?php } else { ?>
-		                    <img src="<?php echo base_url() ?>upload/dummy.png" width="50" height="50">	                   
-		                  <?php } ?>                        
+		                   <div class="zoom"><img src="<?php echo base_url() ?><?php echo $service->image; ?>" width="20" height="20" /></div>		                   
+		                    <?php } ?>		                    
                         <td><?php echo $service->description; ?></td>		
 						<td><?php echo $service->terms_conditions; ?></td>		
 						<td><?php echo $service->price; ?></td>						

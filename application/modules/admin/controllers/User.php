@@ -87,7 +87,7 @@ class User extends MY_Controller {
 			    'password' => $this->input->post('password'),
                 'role'=> $this->input->post('role')
 	        );			
-		  
+		  	
          $this->UserModel->updateuser($userid,$user_array);
          $this->session->set_flashdata('msg', 'updated successfully');
 	     redirect('admin/user/list_user');			

@@ -27,6 +27,7 @@
 			           <th>First Name</th>						
 						<th>Email</th>
 						<th>Phone</th>
+						<th>Role</th>
 						<th>Edit</th>
 						<th>Delete</th>
 				    </tr>
@@ -42,6 +43,7 @@
 			            <td><?php echo $user->name; ?></td>			            
 			             <td><?php echo $user->email; ?></td>
 			            <td><?php echo $user->phone; ?></td>
+			            <td><?php echo ucfirst($user->role); ?></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/update/<?php echo $user->user_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/user/delete/<?php echo $user->user_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="15px" height="15px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>

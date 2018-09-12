@@ -71,17 +71,7 @@
                   <input type="file" name="userfile"  class="form-control" placeholder="Image Upload" size="20" id="image" required/>
                 </div>
               </div>
-              <div class="form-group">
-                <label class="control-label col-sm-12" for="city">Select City<span class="validationerror ml-2">*</span></label>
-                <div class="col-sm-12">
-                    <select id="cities" name="city_id" class="demo-default" id="city" required placeholder="Select City...">
-                      <option>SELECT CITY</option>
-                      <?php foreach ($cities as $citkey => $citvalue) { ?>
-                        <option value="<?php echo $citvalue->city_id; ?>"><?php echo $citvalue->city_name; ?></option>
-                      <?php } ?>
-                    </select>
-                </div>
-              </div>
+             
               <div class="form-group">
                 <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">          
@@ -103,7 +93,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="control-label col-sm-12" for="lastname">Last Name<span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="lastname">Last Name</label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control"  placeholder="Enter Last Name" name="last_name" value="" >
                 </div>
@@ -121,21 +111,22 @@
                 </div>
               </div>
 
-              <div class="form-group">
+               <div class="form-group">
                 <label class="control-label col-sm-12" for="city">Select City<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select id="cities" name="city_id" class="demo-default" id="city" required placeholder="Select City...">
-                      <option>SELECT CITY</option>
+                    <select id="cities" name="city_id" class="demo-default" id="city_sp" required placeholder="Select City...">
+                      <option value="">SELECT CITY</option>
                       <?php foreach ($cities as $citkey => $citvalue) { ?>
                         <option value="<?php echo $citvalue->city_id; ?>"><?php echo $citvalue->city_name; ?></option>
                       <?php } ?>
                     </select>
                 </div>
+                <span class="validationerror"></span>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control"  placeholder="Enter Pincode" id="pincode" name="pincode" value="" required>
+                  <input type="text" class="form-control"  placeholder="Enter Pincode" id="pincode_id" name="pincode" value="" required>
                 </div>
               </div>
 

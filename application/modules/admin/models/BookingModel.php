@@ -53,6 +53,11 @@ class BookingModel extends CI_Model{
     $query = $this->db->get('users');
     return $query->row();
   }
+  public function getCity($cid){  
+    $this->db->where('city_id', $cid);
+    $query = $this->db->get('cities');
+    return $query->row();
+  }
   public function getTime(){  
     $this->db->select('*');
     $this->db->from('time_slot');

@@ -38,7 +38,7 @@
                 <div class="form-group">
                 <label class="control-label col-sm-12" for="image">Image <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                 <img src="<?php echo base_url() ?>upload/services/<?php echo $service->image;?>" width="50" height="50" id="image" required>
+                 <img src="<?php echo base_url() ?><?php echo $service->image;?>" width="50" height="50" id="image" required>
                       <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->image;?>" >
                    <input type="hidden" value="<?php echo $service->image;?>" name="old_image">
                 </div>

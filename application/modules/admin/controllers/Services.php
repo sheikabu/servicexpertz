@@ -48,16 +48,16 @@ if(!empty($_FILES["userfile"]["name"]))
         {  
         echo $this->upload->display_errors();  
         }
-		$images = $_FILES["userfile"]["name"];
+		    $images = 'upload/services/'.$_FILES["userfile"]["name"];
 			}
 		else {
          $images =  $this->input->post('old_image');
 		}			  
 	$service_array = array(
-		'main_category_id' => $this->input->post('maincate_id'),
+		    'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
-		'description' => $this->input->post('descriptions'),
+		    'description' => $this->input->post('descriptions'),
         'image' => $images,
         'terms_conditions' => $this->input->post('terms_conditions'),
         'price' => $this->input->post('cost'),
@@ -102,7 +102,7 @@ if(!empty($_FILES["userfile"]["name"]))
         {  
         echo $this->upload->display_errors();  
         }
-		$images = $_FILES["userfile"]["name"];
+		    $images = 'upload/services/'.$_FILES["userfile"]["name"];
 			}
 		else {
          $images =  $this->input->post('old_image');

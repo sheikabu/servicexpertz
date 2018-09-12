@@ -41,16 +41,15 @@
                 <label class="control-label col-sm-12">Select role <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                      <select class="form-control" name="role"  id="role" value="<?php echo $user->role;?>" required> 
-                     
-                      <option value="Booking Agent"<?php if($user->role=="Booking Agent") { ?> selected <?php } ?>>Booking Agent</option>
-                      <option value="Vendor Tracking"<?php if($user->role=="Vendor Tracking") { ?> selected <?php } ?>>Vendor Tracking</option>
                       <option value="admin"<?php if($user->role=="admin") { ?> selected <?php } ?>>Admin</option>
                       <option value="user"<?php if($user->role=="user") { ?> selected <?php } ?>>User</option>
+                      <option value="Booking Agent"<?php if($user->role=="Booking Agent") { ?> selected <?php } ?>>Booking Agent</option>
+                      <option value="Vendor Tracking"<?php if($user->role=="Vendor Tracking") { ?> selected <?php } ?>>Vendor Tracking</option>
+                     
                      </select>
                 </div>
-              </div>
-			   
-                  <input type="hidden" class="form-control" name="role" value="user">
+              </div>		   
+                  
                   <input type="hidden" class="form-control" name="userid" value="<?php echo $user->user_id; ?>"required >
               <div class="form-group">   
                    <div class="col-sm-12"> 

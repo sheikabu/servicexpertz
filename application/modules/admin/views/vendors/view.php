@@ -14,11 +14,7 @@
 			      <div class="stepwizard-step">
 			        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
 			        <p>Step 2</p>
-			      </div>
-			      <div class="stepwizard-step">
-			        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-			        <p>Step 3</p>
-			      </div>
+			      </div>			      
 			    </div>
 			  </div>
 			 
@@ -27,7 +23,7 @@
 			      	<div class="col-sm-12 col-md-offset-3">
 			      		<div class="row">
 			      			<div class="col-sm-12">
-			      				<h3 class="mb-20">Company Details and General Information</h3>
+			      				<h3 class="mb-20">COMPANY DETAILS AND GENERAL INFORMATION</h3>
 			      			</div>
 			      		</div>
 			      		<div class="row">
@@ -113,7 +109,7 @@
 			        <div class="col-md-12">
 			        	<div class="row">
 			      			<div class="col-sm-12">
-			          			<h3 class="mb-20">Bank Information</h3>
+			          			<h3 class="mb-20">BANK INFORMATION</h3>
 							</div>
 			          	</div>
 			          	<div class="row">
@@ -144,70 +140,7 @@
 					   
 			        </div>
 			      </div>
-			    </div>
-			    <div class="row setup-content" id="step-3">
-			      <div class="col-sm-12 col-md-offset-3">
-			        <div class="col-md-12">
-			        	<div class="row">
-			      			<div class="col-sm-12">
-			          			<h3 class="mb-20">Details of Staff Memebers Handling Services</h3>
-			          		</div>
-			          	</div>
-		          		<div class="row">
-		          			<div class="col-sm-6">
-					          	<div class="form-group">
-							        <label class="control-label">Name of the Staff</label>: <?php echo $vendor->staff_name;?>
-							        
-						        </div>
-						        <div class="form-group">
-							        <label class="control-label">Address</label>: <?php echo $vendor->staff_address;?>
-							       
-						            
-						        </div>
-						        <div class="form-group">
-							        <label class="control-label">Skills</label>: <?php echo $vendor->skills;?>
-							      
-						        </div>
-						        <div class="form-group">
-							        <label class="control-label">Experience</label>: <?php echo $vendor->experience;?>
-							      
-						        </div>
-								 <div class="form-group">
-								 
-								  <label class="control-label">image</label>: <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->image;?>" width="50" height="50">
-					        </div>
-					        </div>
-					         <div class="col-md-6 col-sm-12">
-					         	<div class="form-group">
-							        <label class="control-label">Address proof<span>*</span></label>:
-							         <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->address_image;?>" width="50" height="50">
-							        
-						        </div>
-						        <div class="form-group">
-							        <label class="control-label">PAN Crad Proof<span>*</span></label>:
-							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->pan_image;?>" width="50" height="50">
-							       
-						        </div>
-						        <div class="form-group">
-							        <label class="control-label">Company Establishment proof <span>*</span></label>:
-							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->company_image;?>" width="50" height="50">
-							        
-						        </div>
-						        <div class="form-group">
-							        <label class="control-label">Aadhar card proof<span>*</span></label>: 
-							        <img src="<?php echo base_url() ?>upload/vendor/<?php echo $vendor->aadhar_image;?>" width="50" height="50">
-							        
-						        </div>
-						        
-					         </div>
-					    </div>
-						
-					   
-					</div>
-			      </div>
-			    </div>
-				 <input type="hidden" class="form-control" id="l_name" placeholder="role" name="role" value="vendor">
-                  <input type="hidden" class="form-control" id="l_name" placeholder="role" name="vid" value="<?php echo $vendor->vid; ?>">
+			    </div>			    				
 			  </form>
 			  
 			</div>

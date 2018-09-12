@@ -40,6 +40,7 @@ class Booking extends MY_Controller {
     	$data['service'] = $this->BookingModel->getSelectedService($receipt->services_id);
     	$data['time_slot'] = $this->BookingModel->getSelectedTime($receipt->slot_id); 
     	$data['user'] = $this->BookingModel->getUser($receipt->user_id); 
+    	$data['city'] = $this->BookingModel->getCity($receipt->city_id); 
     	$data['sp'] = $this->BookingModel->getSP($receipt->service_provider);     	
 
     	$data['booking'] = $receipt;

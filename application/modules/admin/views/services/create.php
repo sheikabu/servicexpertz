@@ -6,7 +6,18 @@
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
               
-			           
+			         <div class="form-group">
+                <label class="control-label col-sm-12" for="firstname">Select Main Category <span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                    <select name="maincate_id" class="form-control" id="select_main_category" required>
+                      <option>SELECT MAIN CATETORY</option>
+                      <?php foreach ($maincate as $key => $value) { ?>
+                        <option value="<?php echo $value->smc_id; ?>"><?php echo $value->main_category; ?></option>
+                      <?php } ?>
+                    </select>
+                </div>
+              </div>
+
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">

@@ -34,7 +34,7 @@
    						echo date("F d, Y h:ia", strtotime($date)); ?></span></li>
 					    <li class="list-group-item"><label class="mr-2">Customer ID:</label><span class="b"><?php echo $user->user_id;?></span></li>
 						 <li class="list-group-item"><label class="mr-2">Customer Name:</label><span class="b"><?php echo $user->name;?></span></li>
-					    <li class="list-group-item"><label class="mr-2">Address:</label><span class="b">City and Pincode</span></li>
+					    <li class="list-group-item"><label class="mr-2">Address:</label><span class="b"><?php echo $city->city_name;?>, <?php echo $booking->pincode;?></span></li>
 					    <li class="list-group-item"><label class="mr-2">Contact:</label><span class="b"><?php echo $user->phone;?></span></li>
 					  </ul>
 					</div>

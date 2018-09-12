@@ -54,7 +54,7 @@ class Servicecategories extends MY_Controller {
         {  
         echo $this->upload->display_errors();  
         }
-		$imagess = $_FILES["userfile"]["name"];
+		$imagess = 'upload/servicecategories/'.$_FILES["userfile"]["name"];
 			}
 		else {
          $imagess =  $this->input->post('old_image');
@@ -106,7 +106,7 @@ class Servicecategories extends MY_Controller {
 		        {
 		        echo $this->upload->display_errors();  
 		        }
-				$imagess = $_FILES["userfile"]["name"];
+				$imagess = 'upload/servicecategories/'.$_FILES["userfile"]["name"];
 			}
 		else {
          	$imagess =  $this->input->post('old_image');

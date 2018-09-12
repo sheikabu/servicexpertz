@@ -28,7 +28,8 @@
 						<th>price</th>	
 			          	<th>Status</th>	
 			          	<th>Update</th>	
-			          	<th>Receipt</th>	
+			          	<th>Receipt</th>
+			          	<th>Source</th>	
 						
 				    </tr>
 			    </thead>
@@ -38,7 +39,6 @@
 				foreach($booking_list as $booking) {
 				?>
 			        <tr>
-			        	
 			        	 <td><?php echo $booking->booking_id; ?></td>
 			        	<td><?php echo $booking->name; ?></td>
 			        	<td><?php echo $booking->services; ?></td>
@@ -49,7 +49,7 @@
 			        	<td><?php echo $booking->status; ?></td>
 			        	<td><a href="<?php echo base_url(); ?>admin/booking/update/<?php echo $booking->booking_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			        	<td><a href="<?php echo base_url(); ?>admin/booking/receipt/<?php echo $booking->booking_id; ?>">Receipt</a></td>
-			            
+			            <td><?php if($booking->source=='') { echo 'Mobile'; } else { echo 'Web'; } ?></td>
 			             
 			             
 			             	                        

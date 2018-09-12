@@ -19,6 +19,7 @@ class ServiceproviderModel extends CI_Model{
   public function getCities(){  
     $this->db->select('*');
     $this->db->from('cities');
+    $this->db->where('city_state', 'Kerala');
     $query=$this->db->get();    
     $results = $query->result();
     return $results;
