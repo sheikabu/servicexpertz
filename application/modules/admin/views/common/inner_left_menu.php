@@ -13,6 +13,7 @@
             <li><a href="<?php echo base_url(); ?>admin/vendors/list_vendor"><i class="fa fa-user-circle-o mr-3" aria-hidden="true"></i>Vendors</a></li>
             <li><a href="<?php echo base_url(); ?>admin/serviceprovider/list_sp"><i class="fa fa-cogs mr-3" aria-hidden="true"></i>Service Providers</a></li>
 			     <li><a href="<?php echo base_url(); ?>admin/servicecategories/list_servicecategories"><i class="fa fa-sitemap mr-3" aria-hidden="true"></i>Service Categories</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/servicesubcategories/list_servicesubcategories"><i class="fa fa-sitemap mr-3" aria-hidden="true"></i>Service Sub Categories</a></li>
            <?php } ?>
             <?php if($this->session->userdata('role')=='admin') { ?>
            <li><a href="<?php echo base_url(); ?>admin/services/list_services"><i class="fa fa-server mr-3" aria-hidden="true"></i>Services</a></li>
