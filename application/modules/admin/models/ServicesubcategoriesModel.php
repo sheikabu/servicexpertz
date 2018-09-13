@@ -24,11 +24,11 @@ class ServicesubcategoriesModel extends CI_Model{
     return $results;
   }
 	
- function deleteServicecategories($sc_id)
+ function deleteServicesubcategories($ssc_id)
    {
 
   $this->load->database();
- $this->db->delete('service_categories', array('sc_id' => $sc_id));
+ $this->db->delete('service_subcategories', array('ssc_id' => $ssc_id));
 
   
    return true;
@@ -41,10 +41,10 @@ class ServicesubcategoriesModel extends CI_Model{
              return $query->row();
          }
    
- public function updateServicecategories($sc_id,$Servicecategories_array) {
+ public function updateServicesubcategories($ssc_id,$Servicesubcategories_array) {
 
- 		$this->db->where('sc_id', $sc_id);
-        $this->db->update('service_categories',$Servicecategories_array);
+ 		$this->db->where('ssc_id', $ssc_id);
+        $this->db->update('service_subcategories',$Servicesubcategories_array);
 
 		return true;
    }
@@ -55,13 +55,22 @@ class ServicesubcategoriesModel extends CI_Model{
 		return true;
     }
 
-   public function getMainServiceCategories(){  
-    $this->db->select('*');
-    $this->db->from('service_main_categories');
-    $query=$this->db->get();    
-    $results = $query->result();
+   public function getMainServiceCategories($selected){  
+     $select = json_decode($selected);    
+    $this->db->where_in('smc_id', $select);
+    $query = $this->db->get('service_main_categories');
+    $results = $query->result();    
     return $results;
   }
+   public function getSelectedCategories($selected){  
+    $select = json_decode($selected);    
+    $this->db->where_in('sc_id', $select);
+    $query = $this->db->get('service_categories');
+    $results = $query->result();    
+    return $results;
+  }
+ 
 
+ 
 }
 ?>

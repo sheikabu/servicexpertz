@@ -26,6 +26,7 @@
 			          	<th>#</th>	
 						<th>Main Categories</th>	
 						<th>Categories</th>	
+						<th>Sub Categories</th>
 						<th>Image</th>	
 						<th>Description</th>						
 						<th>Edit</th>
@@ -39,7 +40,8 @@
 				?>
 			        <tr>
 			        	 <td><?php echo $servicesubcategories_list->ssc_id; ?></td>
-			        	<td><?php echo $sc; ?></td>	
+			        	 <td><?php echo $sc; ?></td>
+			        	<td><?php echo $servicesubcategories_list->main_category_id; ?></td>
 			            <td><?php echo strtoupper($servicesubcategories_list->category_id); ?></td>
 			             <td><?php echo $servicesubcategories_list->sub_category; ?></td>		
                          <td>
@@ -49,7 +51,7 @@
 
 		                </td>
                         <td><?php echo $servicesubcategories_list->category_description; ?></td>	 
-			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/update/<?php echo $servicesubcategories_list->ssc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicesubcategories/update/<?php echo $servicesubcategories_list->ssc_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/servicecategories/delete/<?php echo $servicesubcategories_list->ssc_id; ?>"><img  src='<?php echo base_url(); ?>assets/images/delete.png' width="20px" height="20px" title="Delete" onClick="return doconfirm();" ></a></td>
 			        </tr>
 			    <?php $sc++; } ?>
