@@ -11,7 +11,8 @@ class Servicesubcategories extends MY_Controller {
 
     function __construct() {
         parent::__construct();
-		       
+		    $this->load->model('ServiceproviderModel');
+		    $this->load->model('ServicecategoriesModel');  
 		    $this->load->model('ServicesubcategoriesModel');
 			$this->load->helper('date');
 			$this->load->library('upload');
@@ -37,12 +38,19 @@ class Servicesubcategories extends MY_Controller {
   public function add()
 
 	{	      
-		$data['servicsubcategories'] = $this->ServicesubcategoriesModel->getMainServiceCategories();		
+		//$data['servicsubcategories'] = $this->ServicesubcategoriesModel->getMainServiceCategories();
+		$data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
+	    $data['cate'] = $this->ServicecategoriesModel->getlDetails();		
 	    $this->load_view('service_subcategories/create',$data);      
 	}
 
 	public function insert() { 
 
+        $main_id = $this->input->post('main_id');
+		$maincate = json_encode($main_id, true);
+
+		$category = $this->input->post('cate_id');
+		$categories = json_encode($category, true);
 	if(!empty($_FILES["userfile"]["name"]))  
 			{
 	$config['upload_path'] = 'upload/servicesubcategories';
@@ -61,8 +69,8 @@ class Servicesubcategories extends MY_Controller {
 		}
 		
 		$Servicesubcategories_array = array(            
-			'main_category_id' => $this->input->post('main_category_id'),
-			'category' => $this->input->post('category'),
+			'main_category_id' => $maincate,
+		    'category_id' => $categories,
 			'sub_category' => $this->input->post('sub_category'),
             'sub_category_image' => $imagess,
 			'category_description' => $this->input->post('description')
@@ -77,22 +85,23 @@ class Servicesubcategories extends MY_Controller {
 
      public function delete()
 	{	
-		$sc_id = $this->uri->segment(4);         
-        $delstatus = $this->ServicecategoriesModel->deleteServicecategories($sc_id);
+		$ssc_id = $this->uri->segment(4);         
+        $delstatus = $this->ServicesubcategoriesModel->deleteServicesubcategories($ssc_id);
 		if($delstatus==1)
 		{			
 			$this->session->set_flashdata('msg', 'Deleted successfully');
-		    redirect('admin/servicecategories/list_servicecategories');			
+		    redirect('admin/servicesubcategories/list_servicecategories');			
 		}
 		
 	} 
    public function update()
 
-         {	$data['servicecategories'] = $this->ServicecategoriesModel->getMainServiceCategories();	
-         	 $sc_id = $this->uri->segment(4);			 
-             $row = $this->ServicecategoriesModel->geteServicecategories($sc_id);
+         {	 $data['maincate'] = $this->ServicecategoriesModel->getmaincategories();
+	         $data['cate'] = $this->ServicecategoriesModel->getlDetails();
+         	 $ssc_id = $this->uri->segment(4);			 
+             $row = $this->ServicesubcategoriesModel->geteServicecategories($ssc_id);
              $data['service'] = $row;
-             $this->load_view('admin/service_categories/update', $data);
+             $this->load_view('admin/service_subcategories/update', $data);
          }
 		
 	public function updated() { 
