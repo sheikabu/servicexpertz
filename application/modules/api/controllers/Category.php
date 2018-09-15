@@ -29,11 +29,18 @@ class Category extends MY_Controller {
 		$i = 0;
 		foreach($categories as $cat){
 			$cat_condition = array('category_id' => $cat->sc_id);
-			$subcategories = $this->common_model->getRecords('services', $cat_condition, $limit = null, $offset = null);
-			$categories[$i]->services = $subcategories;
+			$subcategories = $this->common_model->getRecords('service_subcategories', $cat_condition, $limit = null, $offset = null);
+				$j = 0;
+				foreach($subcategories as $sub){
+					$sub_condition = array('sub_category_id' => $sub->ssc_id);
+					$services = $this->common_model->getRecords('services', $sub_condition, $limit = null, $offset = null);
+					$subcategories[$j]->services = $services;
+					$j++;
+				}
+			$categories[$i]->subcategories = $subcategories;
 			$i++;
 		}	
-		echo json_encode($categories);
+		echo json_encode($categories);	
     }
 
 
