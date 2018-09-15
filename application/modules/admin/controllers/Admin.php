@@ -66,8 +66,15 @@ class Admin extends MY_Controller {
         $data['usercount'] = $usersNo[0]->no;
 		$data['vendorcount'] = $vendorNo[0]->no;
 		$data['booking'] = $bookingNo[0]->no;
-		$data['bookingdetail'] = $this->AdminModel->get_BookingDetails();	
-		$this->load_view('dashboard', $data);        
+		$data['bookingdetail'] = $this->AdminModel->get_BookingDetails();
+		if($this->session->userdata('role')=='Booking Agent') {
+		redirect('admin/booking/list_bookings');
+		} elseif ($this->session->userdata('role')=='Vendor Tracking') {
+		redirect('admin/vendors/list_vendor');
+		}
+		else {
+		$this->load_view('dashboard', $data);
+		}
         		
 	}
 	

@@ -138,40 +138,34 @@ $(document).ready( function () {
       } );
 	  
 	   $("#serviceprovider_form").validate( {
+      ignore: ':hidden:not([class~=selectized]),:hidden > .selectized, .selectize-control .selectize-input input',
         rules: {
-          vendor: { valueNotEquals: "" },          
-          maincate: { valueNotEquals: "" },
-		  category: { valueNotEquals: "" },        
-          services: { valueNotEquals: "" },
-		  mincost: "required",          
+		      mincost: "required",          
           image: "required",
-		  empid: "required",          
+		      empid: "required",          
           firstname: "required",
-		  lastname: "required",          
+		      lastname: "required",          
           phone: "required",
-		  city: { valueNotEquals: "" },   
-		  email: {
+          pincode_id: "required",
+		      city_sp: "required", 
+		      email: {
            required: true,
             email: true
           },		  
-          pincode: "required",
-		  timeslot: { valueNotEquals: "" },
+          		      timeslot: "required"
         },
-        messages: {
-          vendor: { valueNotEquals: "Please select an item!" },          
-          maincate: { valueNotEquals: "Please select an item!" },
-		  category: { valueNotEquals: "Please select an item!" },          
-          services: { valueNotEquals: "Please select an item!" },
+        messages: {    
 		      mincost: "Please enter your Min Cost",          
           image: "Please upload image",
 		      empid: "Please enter your  Emp ID",          
           firstname: "Please enter your First Name",
 		      lastname: "Please enter your Last Name",          
           phone: "Please enter your Phone Number",
+          pincode_id: "Please enter your Pincode",
 		      email: "Please enter your valid email address",          
-          city: { valueNotEquals: "Please select an item!" },
-		      pincode: "Please enter your Pincode",          
-          timeslot: { valueNotEquals: "Please select an item!" },
+          city_sp: "Please select an item!"
+		      
+         
           
         },
         errorElement: "em",
@@ -184,6 +178,7 @@ $(document).ready( function () {
           } else {
             error.insertAfter( element );
           }
+
         },
         highlight: function ( element, errorClass, validClass ) {
           $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
@@ -202,6 +197,7 @@ $(document).ready( function () {
 		  images:"required",
 		  description:"required",
 		  terms_conditions: "required"
+      //parameter: { valueNotEquals: "" }
         },
         messages: {
                     
@@ -211,6 +207,77 @@ $(document).ready( function () {
 		   images: "Please upload your images",
 		   description: "Please enter your description",
 		    terms_conditions: "Please enter your terms_conditions"
+        
+       // parameter: { valueNotEquals: "Please select an item!" }
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "validationerror" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      } );
+
+	  
+	  
+
+     } );
+
+
+ $("#booking_form").validate( {
+        rules: {
+          total_cost:"required",
+          gst:"required"
+        },
+        messages: {
+          total_cost: "Please enter total cost",
+          gst: "Please enter GST"
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "validationerror" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      } );
+
+
+ $("#employee_details_form").validate( { 
+        rules: {         
+          staffname: "required",
+          staffaddress: "required",
+          skills: "required",
+          experience: "required",
+        },
+        messages: {         
+          staffname: "Please enter a valid staff name",
+          staffaddress: "Please enter your Name of  Company Representative",
+          skills: "Please enter your skills",
+          experience: "Please enter your experience",
         },
         errorElement: "em",
         errorPlacement: function ( error, element ) {
@@ -231,7 +298,11 @@ $(document).ready( function () {
         }
       } );
 
-	  
-	  
 
-     } );
+$('#next').on('click', function() {
+    $("#vendor_form").valid();
+});
+
+function goBack() {
+    window.history.back();
+}

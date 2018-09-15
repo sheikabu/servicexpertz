@@ -48,19 +48,22 @@ if(!empty($_FILES["userfile"]["name"]))
         {  
         echo $this->upload->display_errors();  
         }
-		$images = $_FILES["userfile"]["name"];
+		    $images = 'upload/services/'.$_FILES["userfile"]["name"];
 			}
 		else {
          $images =  $this->input->post('old_image');
 		}			  
 	$service_array = array(
-		'main_category_id' => $this->input->post('maincate_id'),
+		    'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
         'services' => $this->input->post('service'),
-		'description' => $this->input->post('descriptions'),
+		    'description' => $this->input->post('descriptions'),
         'image' => $images,
-        'terms_conditions' => $this->input->post('terms_conditions')		
-    );			
+        'terms_conditions' => $this->input->post('terms_conditions'),
+        'price' => $this->input->post('cost'),
+        'additonal_cost' => $this->input->post('additional_cost'),
+        'parameter' => $this->input->post('parameter')
+      );			
     //print_r($service_array); exit;		
     $this->ServicesModel->insertService($service_array);         
     $this->session->set_flashdata('msg', 'Inserted successfully');
@@ -99,7 +102,7 @@ if(!empty($_FILES["userfile"]["name"]))
         {  
         echo $this->upload->display_errors();  
         }
-		$images = $_FILES["userfile"]["name"];
+		    $images = 'upload/services/'.$_FILES["userfile"]["name"];
 			}
 		else {
          $images =  $this->input->post('old_image');
@@ -112,7 +115,10 @@ if(!empty($_FILES["userfile"]["name"]))
         'updated_at' => 'CURRENT_TIMESTAMP',
         'description' => $this->input->post('descriptions'),
         'image' => $images,
-		'terms_conditions' => $this->input->post('terms_conditions')		 
+		'terms_conditions' => $this->input->post('terms_conditions'),
+		 'price' => $this->input->post('cost'),
+        'additonal_cost' => $this->input->post('additional_cost'),
+        'parameter' => $this->input->post('parameter')
     	);			
      $this->ServicesModel->updateService($sid,$service_array);
      $this->session->set_flashdata('msg', 'updated successfully');

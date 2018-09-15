@@ -53,12 +53,12 @@
                     </select>
                 </div>
               </div>
-              <div class="form-group">
+              <!--<div class="form-group">
                 <label class="control-label col-sm-12" for="cost">Min Cost<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                   <input type="text" class="form-control" placeholder="Enter Min Cost" name="mincost" value="<?php echo $service_providers->min_cost;?>">
                 </div>
-              </div>
+              </div>-->
                <div class="form-group">
                 <label class="control-label col-sm-12" for="cost">Image<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
@@ -67,6 +67,23 @@
                   <input type="hidden" name="existingimage" value="<?php echo $service_providers->image;?>" />
                 </div>
               </div>
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="city">Select City<span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                    <select id="cities" name="city_id" class="form-control demo-default"  required placeholder="Select City...">
+                      <option>SELECT CITY</option>
+                      <?php foreach ($cities as $citkey => $citvalue) { ?>
+                        <option value="<?php echo $citvalue->city_id; ?>" <?php if($citvalue->city_id==$service_providers->city_id) { ?> selected <?php } ?>><?php echo $citvalue->city_name; ?></option>
+                      <?php } ?>
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="e_name" placeholder="Enter Pincode" name="pincode" value="<?php echo $service_providers->pincode; ?>" required>
+                </div>
+              </div>  
                 </div>
                 <div class="col-md-6 col-sm-12">
                 <div class="form-group">
@@ -100,23 +117,7 @@
                   <input type="text" class="form-control" id="e_name" placeholder="Enter Email" name="email" value="<?php echo $service_providers->email;?>">
                 </div>
               </div> 
-              <div class="form-group">
-                <label class="control-label col-sm-12" for="city">Select City<span class="validationerror">*</span></label>
-                <div class="col-sm-12">
-                    <select id="cities" name="city_id" class="form-control demo-default"  required placeholder="Select City...">
-                      <option>SELECT CITY</option>
-                      <?php foreach ($cities as $citkey => $citvalue) { ?>
-                        <option value="<?php echo $citvalue->city_id; ?>" <?php if($citvalue->city_id==$service_providers->city_id) { ?> selected <?php } ?>><?php echo $citvalue->city_name; ?></option>
-                      <?php } ?>
-                    </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror">*</span></label>
-                <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="e_name" placeholder="Enter Pincode" name="pincode" value="<?php echo $service_providers->pincode; ?>" required>
-                </div>
-              </div>  
+              
               <div class="form-group">
                 <label class="control-label col-sm-12" for="city">Available Time Slot<span class="validationerror">*</span></label>
                 <div class="col-sm-12">

@@ -50,9 +50,9 @@ public function insert() {
 
 		$service_id = $this->input->post('service_id');
 		$services = json_encode($service_id, true);
-if(!empty($_FILES["userfile"]["name"]))  
+		if(!empty($_FILES["userfile"]["name"]))  
 			{
-	$config['upload_path'] = 'upload/sp';
+		$config['upload_path'] = 'upload/sp';
         $config['overwrite'] = TRUE;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';  
         $this->upload->initialize($config);
@@ -63,9 +63,7 @@ if(!empty($_FILES["userfile"]["name"]))
         }
 		$image = $_FILES["userfile"]["name"];
 			}
-		else {
-         $image =  $this->input->post('old_image');
-		}
+		
 		
 			
 		
@@ -74,7 +72,7 @@ if(!empty($_FILES["userfile"]["name"]))
 		'main_category_id' => $maincate,
 		'category_id' => $categories,
 		'services_id' => $services,
-		'min_cost' => $this->input->post('mincost'),
+		'min_cost' => 0,
         'first_name' => $this->input->post('first_name'),
 		'last_name' => $this->input->post('last_name'),
 		'phone' => $this->input->post('phone'),
@@ -163,7 +161,7 @@ if(!empty($_FILES["userfile"]["name"]))
 		'main_category_id' => $maincate,
 		'category_id' => $categories,
 		'services_id' => $services,
-		'min_cost' => $this->input->post('mincost'),
+		'min_cost' => 0,
         'first_name' => $this->input->post('first_name'),
 		'last_name' => $this->input->post('last_name'),
 		'phone' => $this->input->post('phone'),

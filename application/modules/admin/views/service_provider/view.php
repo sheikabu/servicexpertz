@@ -46,14 +46,14 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!--<div class="form-group">
                     <div class="row bb">
                       <label class="control-label col-sm-6 col-xs-12" for="cost">Min Cost : </label>
                       <div class="col-sm-6 col-xs-12 result">
                           <?php echo $service_providers->min_cost;?>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
                   <div class="form-group">
                     <div class="row bb"> 
                       <label class="control-label col-sm-6 col-xs-12" for="cost">Image : </label>
@@ -62,6 +62,25 @@
       		            </div>
                     </div>
                   </div>
+                   <div class="form-group">
+                  <div class="row bb">
+                    <label class="control-label col-sm-6 col-xs-12" for="city">Select City : </label>
+                    <div class="col-sm-6 col-xs-12 result">
+                         <?php $selected = ''; foreach ($cities as $key => $value) {
+                            $selected .= $value->city_name.',';
+                          } echo rtrim($selected,',');
+                          ?>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="row bb">
+                    <label class="control-label col-sm-6 col-xs-12" for="pincode">Pincode : </label>
+                    <div class="col-sm-6 col-xs-12 result">
+                        <?php echo $service_providers->pincode; ?>
+                    </div>
+                  </div>
+              </div>  
               </form>
 				    </div>
             <div class="col-md-6 col-sm-12">
@@ -107,25 +126,7 @@
                     </div>
                 </div>
               </div> 
-              <div class="form-group">
-                  <div class="row bb">
-                    <label class="control-label col-sm-6 col-xs-12" for="city">Select City : </label>
-                    <div class="col-sm-6 col-xs-12 result">
-                         <?php $selected = ''; foreach ($cities as $key => $value) {
-                            $selected .= $value->city_name.',';
-                          } echo rtrim($selected,',');
-                          ?>
-                    </div>
-                  </div>
-              </div>
-              <div class="form-group">
-                  <div class="row bb">
-                    <label class="control-label col-sm-6 col-xs-12" for="pincode">Pincode : </label>
-                    <div class="col-sm-6 col-xs-12 result">
-                        <?php echo $service_providers->pincode; ?>
-                    </div>
-                  </div>
-              </div>  
+             
               <div class="form-group">
                   <div class="row bb">
                    <label class="control-label col-sm-6 col-xs-12" for="city">Available Time Slot : </label>

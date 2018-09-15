@@ -1,10 +1,11 @@
 <div class="container-fluid col-md-9 col-sm-9">
 
   <div class="row content">
-    <div class="col-md-12 col-sm-12">      
+    <div class="col-md-12 col-sm-12">    
+     <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/updated" method="post" enctype="multipart/form-data" id="service_form">  
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" action="<?php echo base_url() ?>admin/services/updated" method="post" enctype="multipart/form-data" id="service_form">
+             
               <div class="form-group">
                 <label class="control-label col-sm-12" for="firstname">Select Main Category <span class="validationerror">*</span></label>
                 <div class="col-sm-12">
@@ -37,7 +38,7 @@
                 <div class="form-group">
                 <label class="control-label col-sm-12" for="image">Image <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                 <img src="<?php echo base_url() ?>upload/services/<?php echo $service->image;?>" width="50" height="50" id="image" required>
+                 <img src="<?php echo base_url() ?><?php echo $service->image;?>" width="50" height="50" id="image" required>
                       <input type="file" name="userfile"  class="form-control"  value="<?php echo $service->image;?>" >
                    <input type="hidden" value="<?php echo $service->image;?>" name="old_image">
                 </div>
@@ -46,29 +47,55 @@
                <div class="form-group">
                 <label class="control-label col-sm-12" for="desc">Description <span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                  <input type="text" class="form-control" id="descriptions" placeholder="Enter Descriptions" name="descriptions" value="<?php echo $service->description; ?>"  required>
-                </
+                  <textarea class="form-control rounded-0" id="descriptions"  name="descriptions" rows="4" required maxlength="200"><?php echo $service->description; ?></textarea>
                 </div>
               </div>
 
                <div class="form-group">
                 <label class="control-label col-sm-12" for="desc">Terms and Conditions<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
-                 <input class="form-control rounded-0" id="terms_conditions"  name="terms_conditions" rows="4"  value="<?php echo $service->terms_conditions; ?>" required maxlength="200"></input>
-                </
+                   <textarea class="form-control rounded-0" id="terms_conditions"  name="terms_conditions" rows="4" required maxlength="200"><?php echo $service->terms_conditions; ?></textarea>
+                </div>
+                
+              </div>
+              </div>
+          <div class="col-md-6 col-md-offset-3 mt-20">
+                <div class="form-group">
+                <label class="control-label col-sm-12">Minimum Cost <span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="cost" placeholder="Enter Cost"  name="cost" value=<?php echo $service->price; ?> required>
                 </div>
               </div>
-
-               <input type="hidden" class="form-control" id="l_name" placeholder="role" name="sid" value="<?php echo $service->sid; ?>">
-              <div class="form-group">   
-                  <div class="col-sm-12"> 
-                   <input class="btn btn-primary" type="submit" name="submit" value="Submit">
-                  </div>
+                <div class="form-group">
+                <label class="control-label col-sm-12">Additonal Cost<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <input type="text" class="form-control" id="additional_cost" placeholder="Enter Additonal Cost"  name="additional_cost" value=<?php echo $service->additonal_cost; ?> required>
+                </div>
               </div>
-			 
-            </form>
+                <div class="form-group">
+                <label class="control-label col-sm-12">Parameter<span class="validationerror">*</span></label>
+                <div class="col-sm-12">          
+                  <select name="parameter" class="form-control" id="parameter">
+                    <option value="">--SELECT--</option>
+                    <option value="Per Hour" <?php if($service->parameter=="Per Hour") { ?> selected <?php } ?>>Per Hour</option>
+                    <option value="Per Day" <?php if($service->parameter=="Per Day") { ?> selected <?php } ?>>Per Day</option>
+                    <option value="Per Number" <?php if($service->parameter=="Per Number") { ?> selected <?php } ?>>Per Number</option>
+                  </select>  
+                </div>
+              </div>
+               
+                <input type="hidden" class="form-control" id="l_name" placeholder="role" name="sid" value="<?php echo $service->sid; ?>">
+              <div class="form-group">   
+                     <div class="col-sm-12"> 
+                        <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+                   </div>
+                </div>
+               </div>
+       
+     
           </div>
       </div>
+             </form>
     </div>
   </div>
 </div>
