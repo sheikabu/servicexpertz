@@ -54,7 +54,7 @@ class User extends MY_Controller {
 		$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Invalied token.');
 		$res = $this->common_model->getRecords('users', $condition, 1);
 		if($res){
-			$valid_time = date( "Y-m-d H:i:s", strtotime( $res[0]->last_login."+1 month" ) );
+			$valid_time = date( "Y-m-d H:i:s", strtotime( $res[0]->last_login."+11 months" ) );
 			$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Current token is valied.');	
 			if($valid_time < $current_time){	
 				$response = $this->updateToken($res[0]->user_id);			
