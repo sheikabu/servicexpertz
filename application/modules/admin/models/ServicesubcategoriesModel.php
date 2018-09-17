@@ -9,9 +9,10 @@ class ServicesubcategoriesModel extends CI_Model{
     }
     
     public function getlDetails(){	
-	  $this->db->select('*');
+	  $this->db->select('service_subcategories.*,service_categories.category,service_main_categories.main_category');
 	  $this->db->from('service_subcategories');	 
-    $this->db->join('service_categories','service_categories.sc_id=service_subcategories.category_id');  
+    $this->db->join('service_categories','service_categories.sc_id=service_subcategories.category_id'); 
+    $this->db->join('service_main_categories','service_main_categories.smc_id=service_subcategories.main_category_id','left');  
 	  $query=$this->db->get();	  
 	  $results = $query->result();
 	  return $results;
@@ -27,11 +28,9 @@ class ServicesubcategoriesModel extends CI_Model{
  function deleteServicesubcategories($ssc_id)
    {
 
-  $this->load->database();
- $this->db->delete('service_subcategories', array('ssc_id' => $ssc_id));
-
-  
-   return true;
+    $this->load->database();
+    $this->db->delete('service_subcategories', array('ssc_id' => $ssc_id));
+    return true;
    } 
 	public function geteServicecategories($ssc_id)
 
@@ -70,7 +69,21 @@ class ServicesubcategoriesModel extends CI_Model{
     return $results;
   }
  
+  public function fetchCategory($mcate_id,$cate_id) {   //12     
+      $this->db->where('main_category_id', $mcate_id);      
+      $query = $this->db->get('service_categories');
+      $results = $query->result();         
+      //print_r($results); exit;   
+      $output = '<option value="">Select Category</option>';
+      foreach($results as $ckey => $cvalue)
+      { 
+        $selected = '';
+            if($cvalue->sc_id==$cate_id) { $selected = 'selected'; }
+       $output .= '<option value="'.$cvalue->sc_id.'" '.$selected.'>'.$cvalue->category.'</option>';
+      }
+      return $output;
 
+  }
  
 }
 ?>

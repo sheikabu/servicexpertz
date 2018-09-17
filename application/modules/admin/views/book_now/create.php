@@ -7,9 +7,9 @@
           <div class="col-md-6 col-md-offset-3 mt-20">
                <form class="form-horizontal" id="booknow_form" action="<?php echo base_url() ?>admin/booknow/create" method="post">
          <div class="form-group">
-        <label class="control-label col-sm-12" for="lastname">Select User</label>
+        <label class="control-label col-sm-12" for="lastname">Select User <span class="validationerror">*</span></label>
         <div class="col-sm-12"> 
-         <select id="user_name" name="selected_user" class="form-control demo-default"  required placeholder="Select User...">
+         <select id="user_name" name="selected_user" class="form-control demo-default" required="required" placeholder="Select User...">
               <option value="">SELECT USER</option>
               <?php foreach ($users as $ukey => $uvalue) { ?>
                 <option value="<?php echo $uvalue->user_id; ?>"><?php echo $uvalue->name; ?></option>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-        <label class="control-label col-sm-12" for="lastname">Service</label>
+        <label class="control-label col-sm-12" for="lastname">Service <span class="validationerror">*</span></label>
         <div class="col-sm-12"> 
          <select id="services" name="selected_service" class="form-control demo-default"  required placeholder="Select Service...">
               <option value="">SELECT SERVICE</option>
@@ -68,7 +68,7 @@
         </div>  
        
          <div class="form-group">
-        <label class="control-label col-sm-12" for="status">Pincode <span class="validationerror">*</span></label>
+        <label class="control-label col-sm-12" for="status">Pincode</label>
         <div class="col-sm-12">    
           <input type="text" name="pincode" class="form-control"  value="">     
         </div>
@@ -76,7 +76,7 @@
         <div class="form-group">
         <label class="control-label col-sm-12" for="status">Status <span class="validationerror">*</span></label>
         <div class="col-sm-12">    
-         <select class="form-control" id="status"  name="status">
+         <select class="form-control" id="status"   name="status">
              <option value="pending">Pending</option>
              <option value="in-progress">In Progress</option>
              <option value="completed">Completed</option>

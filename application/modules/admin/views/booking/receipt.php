@@ -50,8 +50,19 @@
 					    <li class="list-group-item"><label class="mr-2">Service #:</label><span class="b"><?php echo $service->services; ?></span></li>
 					    <li class="list-group-item"><label class="mr-2">Prefer Service Date:</label><span class="b"><?php echo $booking->selected_date; ?></span></li>
 					    <li class="list-group-item"><label class="mr-2">Prefer Service Time:</label><span class="b"><?php echo $time_slot->ts_name;?></span></li>
-						 <li class="list-group-item"><label class="mr-2">Service Provider:</label><span class="b"><?php echo $sp->first_name; ?></span></li>
-						 <li class="list-group-item"><label class="mr-2">Service Provider Contact:</label><span class="b"><?php echo $sp->phone; ?></span></li>
+						 <li class="list-group-item"><label class="mr-2">Service Provider:</label><span class="b">
+
+						 <?php $spname = '';foreach ($sp as $key => $value) {
+						 	$spname .= $value['first_name'].', ';
+						 	//$splink .= '<a href='.base_url().'admin/serviceprovider/view/'.$value['spid'].'>'.$spname.'<a>, ';
+						 	} echo rtrim($spname,', '); ?>
+						 </span></li>
+
+						 <li class="list-group-item"><label class="mr-2">Service Provider Contact:</label><span class="b">
+						 	<?php $spphone = ''; foreach ($sp as $key => $value) {
+						 	$spphone .= $value['phone'].', ';
+						 	} echo rtrim($spphone,', '); ?>
+						 </span></li>
 					    <li class="list-group-item"><label class="mr-2">Status:</label><span class="b"><?php echo $booking->status;?></span></li>
 					    
 					  </ul>
@@ -70,16 +81,19 @@
 						<table id="" class="width-fluid display table-striped table-hover table-bordered">
 						    <thead>
 						        <tr>
-						        	<th>id</th>						        	
-						           <th>Services</th>						
-
+						           <th>Booking ID</th>						        	
+						           <th>Services</th>
+						           <th>Comments</th>							
 									<th>Total</th>
 							    </tr>
 						    </thead>
 						    <tbody>
 						     <tr>
 						        	<td><?php echo $booking->booking_id; ?></td>
-						        	<td><?php echo $service->services; ?></td>						           
+						        	<td><?php echo $service->services; ?></td>		
+						        	<td>
+						        	<?php if($booking->comments=='') { echo 'None'; } else { echo $booking->comments; } ?>				
+						        	</td>						           
 						            <td><?php echo $booking->price; ?></td>
 </tr>
 						 

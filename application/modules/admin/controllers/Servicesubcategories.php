@@ -24,11 +24,12 @@ class Servicesubcategories extends MY_Controller {
 	    $this->load->view($view, $vars);
 	    $this->load->view('common/inner_footer');
 	  }
- function index($data = NULL) { 	
+ 	function index($data = NULL) { 	
     	$this->load->view('common/header',$data);     	        
         $this->load->view('list',$data);
         $this->load->view('common/footer');
     }
+
      function list_servicesubcategories() {     	
     	$data['servicesubcategories'] = $this->ServicesubcategoriesModel->getlDetails();   	
         $this->load_view('service_subcategories/list',$data);    
@@ -44,33 +45,39 @@ class Servicesubcategories extends MY_Controller {
 	    $this->load_view('service_subcategories/create',$data);      
 	}
 
+	public function fetch_category() {
+			//$this->input->post('maincate');
+			$mcate_id = $this->input->post('maincate');
+		    $cate_id = $this->input->post('cate_id');
+			echo $this->ServicesubcategoriesModel->fetchCategory($mcate_id,$cate_id);
+			
+	}
+
 	public function insert() { 
 
-        $main_id = $this->input->post('main_id');
-		$maincate = json_encode($main_id, true);
-
+        $main_id = $this->input->post('main_category');
 		$category = $this->input->post('cate_id');
-		$categories = json_encode($category, true);
-	if(!empty($_FILES["userfile"]["name"]))  
+		
+			if(!empty($_FILES["userfile"]["name"]))  
 			{
-	$config['upload_path'] = 'upload/servicesubcategories';
-        $config['overwrite'] = TRUE;
-        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
-        $this->upload->initialize($config);
-        $this->load->library('upload', $config); //image upload
-        if(!$this->upload->do_upload('userfile'))  
-        {  
-        echo $this->upload->display_errors();  
-        }
-		$imagess = 'upload/servicesubcategories/'.$_FILES["userfile"]["name"];
+				$config['upload_path'] = 'upload/servicesubcategories';
+				$config['overwrite'] = TRUE;
+				$config['allowed_types'] = 'jpg|jpeg|png|gif';  
+				$this->upload->initialize($config);
+				$this->load->library('upload', $config); //image upload
+				if(!$this->upload->do_upload('userfile'))  
+				{  
+				echo $this->upload->display_errors();  
+				}
+				$imagess = 'upload/servicesubcategories/'.$_FILES["userfile"]["name"];
 			}
-		else {
-         $imagess =  $this->input->post('old_image');
-		}
+			else {
+				$imagess =  $this->input->post('old_image');
+			}
 		
 		$Servicesubcategories_array = array(            
-			'main_category_id' => $maincate,
-		    'category_id' => $categories,
+			'main_category_id' => $main_id,
+		    'category_id' => $category,
 			'sub_category' => $this->input->post('sub_category'),
             'sub_category_image' => $imagess,
 			'category_description' => $this->input->post('description')
@@ -90,7 +97,7 @@ class Servicesubcategories extends MY_Controller {
 		if($delstatus==1)
 		{			
 			$this->session->set_flashdata('msg', 'Deleted successfully');
-		    redirect('admin/servicesubcategories/list_servicecategories');			
+		    redirect('admin/servicesubcategories/list_servicesubcategories');			    
 		}
 		
 	} 
@@ -107,7 +114,7 @@ class Servicesubcategories extends MY_Controller {
 	public function updated() { 
 	if(!empty($_FILES["userfile"]["name"]))  
 			{
-				$config['upload_path'] = 'upload/servicecategories';
+				$config['upload_path'] = 'upload/servicesubcategories';
 		        $config['overwrite'] = TRUE;
 		        $config['allowed_types'] = 'jpg|jpeg|png|gif';  
 		        $this->upload->initialize($config);
@@ -116,22 +123,23 @@ class Servicesubcategories extends MY_Controller {
 		        {
 		        echo $this->upload->display_errors();  
 		        }
-				$imagess = 'upload/servicecategories/'.$_FILES["userfile"]["name"];
+				$imagess = 'upload/servicesubcategories/'.$_FILES["userfile"]["name"];
 			}
 		else {
          	$imagess =  $this->input->post('old_image');
 		}
-		  $sc_id = $this->input->post('sc_id');
+		  $ssc_id = $this->input->post('ssc_id');
 		  $Servicecategories_array = array(	           
-				'main_category_id' => $this->input->post('main_category_id'), 
-				'category' => $this->input->post('category'),
-                'category_image' => $imagess,
+				'main_category_id' => $this->input->post('main_category'), 
+				'category_id' => $this->input->post('cate_id'),
+				'sub_category' => $this->input->post('sub_category'),
+                'sub_category_image' => $imagess,
 			    'category_description' => $this->input->post('description')				
 	        );			
 		  
-         $this->ServicecategoriesModel->updateServicecategories($sc_id,$Servicecategories_array);
+         $this->ServicesubcategoriesModel->updateServicesubcategories($ssc_id,$Servicecategories_array);
          $this->session->set_flashdata('msg', 'updated successfully');
-	     redirect('admin/servicecategories/list_servicecategories');			
+	      redirect('admin/servicesubcategories/list_servicesubcategories');	
 	}
 	
 }

@@ -40,7 +40,7 @@ class Booking extends MY_Controller {
     	$data['service'] = $this->BookingModel->getSelectedService($receipt->services_id);
     	$data['time_slot'] = $this->BookingModel->getSelectedTime($receipt->slot_id); 
     	$data['user'] = $this->BookingModel->getUser($receipt->user_id); 
-    	$data['city'] = $this->BookingModel->getCity($receipt->city_id); 
+    	$data['city'] = $this->BookingModel->getCity($receipt->city_id);     	
     	$data['sp'] = $this->BookingModel->getSP($receipt->service_provider);     	
 
     	$data['booking'] = $receipt;
@@ -72,12 +72,36 @@ class Booking extends MY_Controller {
 				'gst'=> $this->input->post('gst'),
 				'service_provider'=> $service_provider,
 				'status'=> $this->input->post('status')
-	        );			
+	        );	
+
+	    if($this->input->post('status')=='completed'){
+	    		$user_id = $this->input->post('user_id');
+	    		$userdetail = $this->BookingModel->getUser($user_id);
+	    		$phone = $userdetail->phone;
+	    		$name = $userdetail->name; 
+	    		$api_key = '45B9E7678ED7AA';
+				$contacts = $phone;
+				$from = 'SMSDMO'; //SEREXPZ
+				$sms_text = urlencode('Hello '.$name.', Thanks for booking our service. have a great day');
+				$routeid=13;
+
+				//Submit to server
+
+				$ch = curl_init();
+				curl_setopt($ch,CURLOPT_URL, "http://bulksms.smsroot.com/app/smsapi/index.php");
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, "key=".$api_key."&campaign=0&routeid=14&type=text&contacts=".$contacts."&routeid=13&senderid=".$from."&msg=".$sms_text);
+				$response = curl_exec($ch);
+				curl_close($ch);				
+	    	}	
 		  
          $this->BookingModel->updatebooking($booking_id,$booking_array);
          $this->session->set_flashdata('msg', 'updated successfully');
 	     redirect('admin/booking/list_bookings');			
 	}
   
-	
+	/*public function chart() {
+		echo 'test'; exit;
+	}*/
 }

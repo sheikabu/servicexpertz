@@ -35,6 +35,17 @@
                       </div>
                     </div>
                   </div>
+                    <div class="form-group">
+                    <div class="row bb">
+                      <label class="control-label col-sm-6 col-xs-12" for="cate">Select Sub Category : </label>
+                      <div class="col-sm-6 col-xs-12 result">
+                         <?php $selected = ''; foreach ($subcate as $key => $value) {
+                            $selected .= $value->sub_category.',';
+                          } echo rtrim($selected,',');
+                          ?>
+                      </div>
+                    </div>
+                  </div>
                   <div class="form-group">
                     <div class="row bb">
                       <label class="control-label col-sm-6 col-xs-12" for="cate">Select Service :  </label>

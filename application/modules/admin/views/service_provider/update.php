@@ -41,6 +41,18 @@
                     </select>
                 </div>
               </div>
+               <div class="form-group">
+                <label class="control-label col-sm-12" for="cate">Select Sub category<span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                    <?php $sub_category_id  = json_decode($service_providers->sub_category_id); ?>
+                    <select id="subcategory" name="subcate_id[]" multiple class="form-control demo-default" placeholder="Select Services...">
+                      <option>SELECT SUB CATEGORY</option>
+                      <?php foreach ($subcate as $subkey => $subvalue) { ?>
+                        <option value="<?php echo $subvalue->ssc_id; ?>" <?php if(in_array($subvalue->ssc_id, $sub_category_id)) { ?> selected <?php } ?>><?php echo $subvalue->sub_category; ?></option>
+                      <?php } ?>
+                    </select>
+                </div>
+              </div>
               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Service<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
@@ -78,12 +90,12 @@
                     </select>
                 </div>
               </div>
-              <div class="form-group">
+              <!--<div class="form-group">
                 <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror">*</span></label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control" id="e_name" placeholder="Enter Pincode" name="pincode" value="<?php echo $service_providers->pincode; ?>" required>
                 </div>
-              </div>  
+              </div> --> 
                 </div>
                 <div class="col-md-6 col-sm-12">
                 <div class="form-group">

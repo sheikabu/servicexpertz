@@ -298,6 +298,34 @@ $(document).ready( function () {
         }
       } );
 
+ $("#booknow_form").validate( { 
+  ignore: ':hidden:not([class~=selectized]),:hidden > .selectized, .selectize-control .selectize-input input',
+        rules: {       
+         user_name: { valueNotEquals: "" },  
+         
+        },
+        messages: {         
+        user_name: { valueNotEquals: "Please select an item!" },
+        },
+        errorElement: "em",
+        errorPlacement: function ( error, element ) {
+          // Add the `help-block` class to the error element
+          error.addClass( "validationerror" );
+
+          if ( element.prop( "type" ) === "checkbox" ) {
+            error.insertAfter( element.parent( "label" ) );
+          } else {
+            error.insertAfter( element );
+          }
+        },
+        highlight: function ( element, errorClass, validClass ) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+        },
+        unhighlight: function (element, errorClass, validClass) {
+          $( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+        }
+      } );
+
 
 $('#next').on('click', function() {
     $("#vendor_form").valid();
@@ -306,3 +334,4 @@ $('#next').on('click', function() {
 function goBack() {
     window.history.back();
 }
+

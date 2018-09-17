@@ -25,6 +25,14 @@ class ServiceproviderModel extends CI_Model{
     return $results;
   }
 
+  public function getSubCategory(){  
+    $this->db->select('*');
+    $this->db->from('service_subcategories');    
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
+
   public function getVendors(){  
     $this->db->select('*');
     $this->db->from('vendors');
@@ -51,6 +59,15 @@ class ServiceproviderModel extends CI_Model{
     $select = json_decode($selected);    
     $this->db->where_in('sc_id', $select);
     $query = $this->db->get('service_categories');
+    $results = $query->result();    
+    return $results;
+  }
+
+
+   public function getSelectedSubCategories($selected){  
+    $select = json_decode($selected);    
+    $this->db->where_in('ssc_id', $select);
+    $query = $this->db->get('service_subcategories');
     $results = $query->result();    
     return $results;
   }

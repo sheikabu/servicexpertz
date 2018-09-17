@@ -13,6 +13,7 @@ class ServicesModel extends CI_Model{
 	  $this->db->from('services');
     $this->db->join('service_main_categories','service_main_categories.smc_id=services.main_category_id');  
     $this->db->join('service_categories','service_categories.sc_id=services.category_id');  
+    $this->db->join('service_subcategories','service_subcategories.ssc_id=services.sub_category_id','left');  
 	 
 	  $query=$this->db->get();	  
 	  $results = $query->result();
@@ -30,6 +31,14 @@ class ServicesModel extends CI_Model{
   public function getCategories(){  
     $this->db->select('*');
     $this->db->from('service_categories');
+    $query=$this->db->get();    
+    $results = $query->result();
+    return $results;
+  }
+
+   public function getSubCategories(){  
+    $this->db->select('*');
+    $this->db->from('service_subcategories');
     $query=$this->db->get();    
     $results = $query->result();
     return $results;
@@ -58,7 +67,37 @@ class ServicesModel extends CI_Model{
     return true;
   }
 
-   
+   public function fetchCategory($mcate_id,$cate_id) {        
+      $this->db->where('main_category_id', $mcate_id);      
+      $query = $this->db->get('service_categories');
+      $results = $query->result();            
+      $output = '<option value="">Select Category</option>';
+      foreach($results as $ckey => $cvalue)
+      {
+
+       $selected = '';
+            if($cvalue->sc_id==$cate_id) { $selected = 'selected'; }
+       $output .= '<option value="'.$cvalue->sc_id.'" '.$selected.'>'.$cvalue->category.'</option>';
+
+      }
+      return $output;
+
+  }
+
+  public function fetchSubCategory($cate,$sub_cate_id) {        
+      $this->db->where('category_id', $cate);      
+      $query = $this->db->get('service_subcategories');
+      $results = $query->result();            
+      $output = '<option value="">Select sub Category</option>';
+      foreach($results as $ckey => $cvalue)
+      {
+       $selected = '';
+            if($cvalue->ssc_id==$sub_cate_id) { $selected = 'selected'; }
+       $output .= '<option value="'.$cvalue->ssc_id.'" '.$selected.'>'.$cvalue->sub_category.'</option>';
+      }
+      return $output;
+
+  }
 
 }
 ?>

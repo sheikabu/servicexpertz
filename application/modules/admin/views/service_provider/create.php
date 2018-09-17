@@ -46,6 +46,19 @@
                  <span class="validationerror"></span>
               </div>
               <div class="form-group">
+                <label class="control-label col-sm-12" for="cate">Select Sub category<span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                    <select  multiple name="subcate_id[]" class="demo-default"  required placeholder="Select Services..." id="subcategory" required>
+                      <option>SELECT SUB CATEGORY</option>
+                      <?php foreach ($subcate as $skey => $svalue) { ?>
+                        <option value="<?php echo $svalue->ssc_id; ?>"><?php echo $svalue->sub_category; ?></option>
+                      <?php } ?>
+                    </select>
+                </div>
+                 <span class="validationerror"></span>
+              </div>
+
+              <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Service<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
                     <select  multiple name="service_id[]" class="demo-default"  required placeholder="Select Services..." id="services" required>
@@ -72,12 +85,12 @@
                 </div>
               </div>
              
-              <div class="form-group">
+              <!--<div class="form-group">
                 <label class="control-label col-sm-12" for="pincode">Pincode<span class="validationerror ml-2">*</span></label>
                 <div class="col-sm-12">          
                   <input type="text" class="form-control"  placeholder="Enter Pincode" id="pincode" name="pincode" value="" required>
                 </div>
-              </div>
+              </div>-->
                </div>
                 <div class="col-md-6 col-sm-12">
                 <div class="form-group">
