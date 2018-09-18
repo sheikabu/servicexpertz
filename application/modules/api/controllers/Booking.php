@@ -40,6 +40,7 @@ class Booking extends MY_Controller {
 				$name = $res_user[0]->name;
 				$phone = $res_user[0]->phone;
 				$otp = $this->generateOTP();
+				$data['otp'] = $otp;
 				$sms_status = $this->sendSMS($phone, $name, $otp);
 				//sheik end
 				$res = $this->common_model->insert('booking', $data);
