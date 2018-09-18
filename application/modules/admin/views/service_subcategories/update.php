@@ -47,9 +47,9 @@
                 </div>
 
                 <div class="form-group">
-                <label class="control-label col-sm-12" for="description">Description <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="description">Description</label>
                 <div class="col-sm-12">          
-                  <input class="form-control rounded-0" id="description"  name="description" rows="4"  maxlength="200" value="<?php echo $service->category_description; ?>"></input>
+                  <textarea class="form-control rounded-0" id="description"  name="description" rows="4" maxlength="200"><?php echo $service->category_description; ?></textarea>
                 </div>
                 </div>				    
 							  

@@ -38,4 +38,21 @@ class Contact extends MY_Controller {
 		}		
         echo json_encode($response);
     }
+
+
+    public function Feedback(){
+		$data = json_decode(trim(file_get_contents('php://input')), true);
+		$result = 'mandatory fields must be filled!';				
+		if($data['name'] != '' && $data['email'] != '') {		
+			$res = $this->common_model->insert('feedback', $data);
+			if ($res == 1) {
+				$response = array('code' => 1001, 'status' => 'success', 'message' => 'record added successfully.');
+			} else {
+				$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Error occurred.');
+			}			
+		}else{
+			$response = array('code' => 1002, 'status' => 'failed', 'message' => 'mandatory fields must be filled!');
+		}		
+        echo json_encode($response);
+    }
 }

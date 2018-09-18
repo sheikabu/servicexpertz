@@ -47,9 +47,9 @@
               </div>
 
                  <div class="form-group">
-                <label class="control-label col-sm-12" for="description">Description <span class="validationerror">*</span></label>
+                <label class="control-label col-sm-12" for="description">Description</label>
                 <div class="col-sm-12">          
-                  <textarea class="form-control rounded-0" id="description"  name="description" rows="4" required maxlength="200"></textarea>
+                  <textarea class="form-control rounded-0" id="description"  name="description" rows="4" maxlength="200"></textarea>
                 </div>
               </div>
 
