@@ -45,6 +45,10 @@ class User extends MY_Controller {
 		echo json_encode($result);
 	}
 	
+	public function facebookLogin(){
+		
+	}
+	
 	public function refresh(){
 		$res = trim($this->input->get_request_header('Authorization'));	
 		$refresh_token = explode(" ",$res);
