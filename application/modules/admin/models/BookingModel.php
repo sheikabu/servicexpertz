@@ -67,9 +67,10 @@ class BookingModel extends CI_Model{
   }
 
   public function getSP($spid){
-  	   $select = json_decode($spid);  	
+  	 $select = json_decode($spid); 
 	   $this->db->where_in('spid', $select);
 	   $query = $this->db->get('service_providers');
-	   return $query->row();
+     //print_r($query->result_array());
+	   return $query->result_array();
    }
 }

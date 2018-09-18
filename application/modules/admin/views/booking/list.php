@@ -47,12 +47,19 @@
 						<td><?php echo $booking->comments; ?></td>
 						<td><?php echo $booking->price; ?></td>
 			        	<td><?php echo $booking->status; ?></td>
+			        	<?php if($booking->status=='completed') { ?>
+			        	<td>COMPLETED</td>
+			        	<?php } else { ?>
 			        	<td><a href="<?php echo base_url(); ?>admin/booking/update/<?php echo $booking->booking_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			        	<?php } ?>
+
+			        	<?php if($booking->status=='completed') { ?>
 			        	<td><a href="<?php echo base_url(); ?>admin/booking/receipt/<?php echo $booking->booking_id; ?>">Receipt</a></td>
+			        	<?php } else { ?>
+			        	<td>Receipt</td>
+			        	<?php } ?>
 			            <td><?php if($booking->source=='') { echo 'Mobile'; } else { echo 'Web'; } ?></td>
-			             
-			             
-			             	                        
+      	                        
 			        </tr>
 			    <?php $sc++; } ?>
 			    </tbody>
@@ -83,5 +90,9 @@ function doconfirm()
         return false;
     }
 }
+
+setTimeout(function(){
+   window.location.reload(1);
+}, 15000);
 </script>
 

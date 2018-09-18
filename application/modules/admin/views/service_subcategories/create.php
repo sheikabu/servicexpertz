@@ -9,7 +9,7 @@
                 <div class="form-group">
                 <label class="control-label col-sm-12" for="maincate">Select Main Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select class="form-control" id="maincate" multiple name="main_category[]" class="demo-default" required placeholder="Select Main Category...">
+                    <select class="form-control" id="maincate" name="main_category" class="demo-default" required placeholder="Select Main Category...">
                       <option>SELECT MAIN CATEGORY</option>
                       <?php foreach ($maincate as $mckey => $mcvalue) { ?>
                         <option value="<?php echo $mcvalue->smc_id; ?>"><?php echo $mcvalue->main_category; ?></option>
@@ -18,19 +18,19 @@
                 </div>
                 <span class="validationerror"></span>
               </div>
-               
-              <div class="form-group">
+
+
+               <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select  multiple name="cate_id[]" class="demo-default"  placeholder="Select Category..." id="category" required>
-                      <option>SELECT CATEGORY</option>
-                      <?php foreach ($cate as $ckey => $cvalue) { ?>
-                        <option value="<?php echo $cvalue->sc_id; ?>"><?php echo $cvalue->category; ?></option>
-                      <?php } ?>
-                    </select>
+                    <select name="cate_id" id="category1" class="form-control input-lg demo-default">
+                     <option value="">Select Category</option>
+                  </select>
                 </div>
                  <span class="validationerror"></span>
               </div>
+
+            
 
               <div class="form-group">
                 <label class="control-label col-sm-12" for="lastname">Sub Categories <span class="validationerror">*</span></label>
@@ -67,3 +67,25 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready( function () {  
+ $('#maincate').change(function(){
+  var maincate = $('#maincate').val();
+  if(maincate != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>admin/servicesubcategories/fetch_category",
+    method:"POST",
+    data:{maincate:maincate},
+    success:function(data)
+    {
+     $('#category1').html(data);
+     //$('#city').html('<option value="">Select City</option>');
+    }
+   });
+  }
+ });
+ 
+});
+</script>

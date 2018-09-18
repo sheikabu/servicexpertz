@@ -25,10 +25,11 @@
 			           <th>id</th>	
 			           <th>#</th>	
 			           <th>Main Category</th>
-						<th>Category</th>						
+						<th>Category</th>	
+						<th>Sub Category</th>						
 						<th>Service</th>
 						<th>Image</th>
-						<th>Description</th>
+						
 						<th>Terms and Conditions</th>
 						<th>Cost</th>
 						<th>Edit</th>
@@ -45,12 +46,13 @@
 			        	<td><?php echo $service->sid; ?></td>
 			            <td><?php echo strtoupper($service->main_category); ?></td>
 			            <td><?php echo strtoupper($service->category); ?></td>
+			            <th><?php echo strtoupper($service->sub_category); ?></th>	
 			             <td><?php echo $service->services; ?></td>	
                         <td>
                         	<?php if($service->image!='') { ?>       
 		                   <div class="zoom"><img src="<?php echo base_url() ?><?php echo $service->image; ?>" width="20" height="20" /></div>		                   
 		                    <?php } ?>		                    
-                        <td><?php echo $service->description; ?></td>		
+                        	
 						<td><?php echo $service->terms_conditions; ?></td>		
 						<td><?php echo $service->price; ?></td>						
 			            <td class="text-center"><a href="<?php echo base_url(); ?>admin/services/update/<?php echo $service->sid; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>

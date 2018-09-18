@@ -23,9 +23,15 @@
                 <div class="col-sm-12">
                     <select name="cate_id" class="form-control" id="select_category" required>
                       <option value="">SELECT CATEGORY</option>
-                      <?php foreach ($cate as $key => $value) { ?>
-                        <option value="<?php echo $value->sc_id; ?>"><?php echo $value->category; ?></option>
-                      <?php } ?>
+                    
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-12" for="firstname">Select Sub Category<span class="validationerror">*</span></label>
+                <div class="col-sm-12">
+                    <select name="sub_cate_id" class="form-control" id="select_sub_category" required>
+                      <option value="">SELECT SUB CATEGORY</option>                      
                     </select>
                 </div>
               </div>
@@ -98,3 +104,41 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).ready( function () { 
+ $('#select_main_category').change(function(){
+  var maincate = $('#select_main_category').val();
+  if(maincate != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>admin/services/fetch_category",
+    method:"POST",
+    data:{maincate:maincate},
+    success:function(data)
+    {
+     $('#select_category').html(data);
+     //$('#city').html('<option value="">Select City</option>');
+    }
+   });
+  }
+ });
+  $('#select_category').change(function(){ 
+  var cate_id = $('#select_category').val();
+  if(cate_id != '')
+  { 
+   $.ajax({
+    url:"<?php echo base_url(); ?>admin/services/fetch_sub_category",
+    method:"POST",
+    data:{cate_id:cate_id},
+    success:function(data)
+    {
+     $('#select_sub_category').html(data);
+     //$('#city').html('<option value="">Select City</option>');
+    }
+   });
+  }
+ });
+ 
+});
+</script>

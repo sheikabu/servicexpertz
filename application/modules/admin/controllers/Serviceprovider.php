@@ -36,6 +36,7 @@ public function add(){
 	$data['cate'] = $this->ServicecategoriesModel->getlDetails();
 	$data['cities'] = $this->ServiceproviderModel->getCities();
 	$data['time'] = $this->ServiceproviderModel->getTime();
+	$data['subcate'] = $this->ServiceproviderModel->getSubCategory();
 	$data['services'] = $this->ServicesModel->getlDetails();
     $this->load_view('service_provider/create', $data);	    
 	}
@@ -47,6 +48,9 @@ public function insert() {
 
 		$category = $this->input->post('cate_id');
 		$categories = json_encode($category, true);
+
+		$subcategory = $this->input->post('subcate_id');
+		$subcategories = json_encode($subcategory, true);
 
 		$service_id = $this->input->post('service_id');
 		$services = json_encode($service_id, true);
@@ -71,6 +75,7 @@ public function insert() {
 		'vendor_id' => $this->input->post('vendor_id'),
 		'main_category_id' => $maincate,
 		'category_id' => $categories,
+		'sub_category_id' => $subcategories,
 		'services_id' => $services,
 		'min_cost' => 0,
         'first_name' => $this->input->post('first_name'),
@@ -106,6 +111,7 @@ public function delete(){
      $data['vendors'] = $this->ServiceproviderModel->getAVendors($row->vendor_id);
 	 $data['maincate'] = $this->ServiceproviderModel->getSelectedmaincategories($row->main_category_id);
 	 $data['cate'] = $this->ServiceproviderModel->getSelectedCategories($row->category_id);
+	 $data['subcate'] = $this->ServiceproviderModel->getSelectedSubCategories($row->sub_category_id);
 	 $data['services'] = $this->ServiceproviderModel->getSelectedServices($row->services_id);
 	 $data['cities'] = $this->ServiceproviderModel->getSelectedCities($row->city_id);
 	 $data['time'] = $this->ServiceproviderModel->getSelectedTime($row->ts_id);
@@ -122,6 +128,7 @@ public function update() {
 	 $data['cate'] = $this->ServicecategoriesModel->getlDetails();
 	 $data['cities'] = $this->ServiceproviderModel->getCities();
 	 $data['time'] = $this->ServiceproviderModel->getTime();
+	 $data['subcate'] = $this->ServiceproviderModel->getSubCategory();
 	 $data['services'] = $this->ServicesModel->getlDetails();	
      $data['service_providers'] = $row;
      $this->load_view('admin/service_provider/update', $data);
@@ -134,6 +141,9 @@ public function updated() {
 
 		$category = $this->input->post('cate_id');
 		$categories = json_encode($category, true);
+
+		$subcategory = $this->input->post('subcate_id');
+		$subcategories = json_encode($subcategory, true);
 
 		$service_id = $this->input->post('service_id');
 		$services = json_encode($service_id, true);
@@ -160,6 +170,7 @@ if(!empty($_FILES["userfile"]["name"]))
         'vendor_id' => $this->input->post('vendor_id'),
 		'main_category_id' => $maincate,
 		'category_id' => $categories,
+		'sub_category_id' => $subcategories,
 		'services_id' => $services,
 		'min_cost' => 0,
         'first_name' => $this->input->post('first_name'),

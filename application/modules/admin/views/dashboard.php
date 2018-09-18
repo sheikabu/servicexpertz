@@ -130,3 +130,8 @@
   </div>
 </div>
 
+<script type="text/javascript">
+  setTimeout(function(){
+   window.location.reload(1);
+}, 20000);
+</script>

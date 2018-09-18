@@ -4,15 +4,15 @@
     <div class="col-md-12 col-sm-12">      
       <div class="row">
           <div class="col-md-6 col-md-offset-3 mt-20">
-              <form class="form-horizontal" id="categories_form" action="<?php echo base_url() ?>admin/servicecategories/updated" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" id="categories_form" action="<?php echo base_url() ?>admin/servicesubcategories/updated" method="post" enctype="multipart/form-data">
 			 
                 <div class="form-group">
                 <label class="control-label col-sm-12" for="maincate">Select Main Category<span class="validationerror">*</span></label>
-                <div class="col-sm-12">
-                    <select class="form-control" id="maincate" multiple name="main_category[]" class="demo-default" required placeholder="Select Main Category...">
+                <div class="col-sm-12">                
+                    <select class="form-control" id="maincate"  name="main_category" class="demo-default" required placeholder="Select Main Category...">
                       <option>SELECT MAIN CATEGORY</option>
                       <?php foreach ($maincate as $mckey => $mcvalue) { ?>
-                        <option value="<?php echo $mcvalue->smc_id; ?>" <?php if (in_array($mcvalue->smc_id, $maincate_id)) { ?> selected <?php } ?>><?php echo $mcvalue->main_category_id; ?></option>
+                        <option value="<?php echo $mcvalue->smc_id; ?>" <?php if($mcvalue->smc_id==$service->main_category_id) { ?> selected <?php } ?>><?php echo $mcvalue->main_category; ?></option>
                       <?php } ?>
                     </select>
                 </div>
@@ -21,10 +21,10 @@
                 <div class="form-group">
                 <label class="control-label col-sm-12" for="cate">Select Category<span class="validationerror">*</span></label>
                 <div class="col-sm-12">
-                    <select  multiple name="cate_id[]" class="demo-default"  placeholder="Select Category..." id="category" required>
-                      <option>SELECT CATEGORY</option>
+                    <select   name="cate_id" class="demo-default form-control"  placeholder="Select Category..." id="category1" required>
+                      <option value="">SELECT CATEGORY</option>
                       <?php foreach ($cate as $ckey => $cvalue) { ?>
-                        <option value="<?php echo $cvalue->sc_id; ?>" <?php if(in_array($cvalue->sc_id, $category_id)) { ?> selected <?php } ?>><?php echo $cvalue->category; ?></option>
+                        <option value="<?php echo $cvalue->sc_id; ?>" <?php if($cvalue->sc_id==$service->category_id) { ?> selected <?php } ?>><?php echo $cvalue->category; ?></option>
                       <?php } ?>
                     </select>
                 </div>
@@ -70,3 +70,46 @@
     </div>
   </div>
 </div>
+<script>
+$(document).ready( function () {  
+
+  var maincate = $('#maincate').val();
+  var cate_id = $('#category1').val();
+
+  if(maincate != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>admin/servicesubcategories/fetch_category",
+    method:"POST",
+    data:{maincate:maincate,cate_id:cate_id},
+    success:function(data)
+    {
+     $('#category1').html(data);
+     //$('#city').html('<option value="">Select City</option>');
+    }
+   });
+  }
+
+ $('#maincate').change(function(){
+  var maincate = $('#maincate').val();
+  if(maincate != '')
+  {
+   $.ajax({
+    url:"<?php echo base_url(); ?>admin/servicesubcategories/fetch_category",
+    method:"POST",
+    data:{maincate:maincate},
+    success:function(data)
+    {
+     $('#category1').html(data);
+     //$('#city').html('<option value="">Select City</option>');
+    }
+   });
+  }
+ });
+
+ 
+
+});
+
+
+</script>

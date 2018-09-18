@@ -14,6 +14,9 @@ sortField: 'text'
 $('#category').selectize({
 sortField: 'text'
 });
+$('#subcategory').selectize({
+sortField: 'text'
+});
 $('#services').selectize({
 sortField: 'text'
 });
@@ -33,6 +36,7 @@ $('#user_name').selectize({
 sortField: 'text',
 
 });
+
 </script>
 </body>
 </html>

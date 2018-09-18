@@ -104,6 +104,7 @@
         
         </div>
         </div>
+                <input type="hidden" class="form-control" name="user_id" value="<?php echo $booking[0]->user_id; ?>">
                 <input type="hidden" class="form-control" name="booking_id" value="<?php echo $booking[0]->booking_id; ?>">
                 <div class="form-group">   
                 <div class="col-sm-12"> 

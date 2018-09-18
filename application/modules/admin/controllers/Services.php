@@ -32,6 +32,7 @@ public function list_services() {
 public function add(){
 	$data['maincate'] = $this->ServicesModel->getMainCategories();
 	$data['cate'] = $this->ServicesModel->getCategories();
+  $data['sub_cate'] = $this->ServicesModel->getSubCategories();
 	
     $this->load_view('services/create', $data);	    
 	}
@@ -55,7 +56,8 @@ if(!empty($_FILES["userfile"]["name"]))
 		}			  
 	$service_array = array(
 		    'main_category_id' => $this->input->post('maincate_id'),
-        'category_id' => $this->input->post('cate_id'),		
+        'category_id' => $this->input->post('cate_id'),	
+        'sub_category_id' => $this->input->post('sub_cate_id'), 	
         'services' => $this->input->post('service'),
 		    'description' => $this->input->post('descriptions'),
         'image' => $images,
@@ -85,7 +87,8 @@ public function update() {
  	 $sid = $this->uri->segment(4);
      $row = $this->ServicesModel->getService($sid);
      $data['maincate'] = $this->ServicesModel->getMainCategories();
-	 $data['cate'] = $this->ServicesModel->getCategories();
+	   $data['cate'] = $this->ServicesModel->getCategories();
+     $data['sub_cate'] = $this->ServicesModel->getSubCategories();
      $data['service'] = $row;
      $this->load_view('admin/services/update', $data);
      }
@@ -111,6 +114,7 @@ if(!empty($_FILES["userfile"]["name"]))
 	  $service_array = array(
 		'main_category_id' => $this->input->post('maincate_id'),
         'category_id' => $this->input->post('cate_id'),		
+        'sub_category_id' => $this->input->post('sub_cate_id'),   
         'services' => $this->input->post('service'),
         'updated_at' => 'CURRENT_TIMESTAMP',
         'description' => $this->input->post('descriptions'),
@@ -124,6 +128,23 @@ if(!empty($_FILES["userfile"]["name"]))
      $this->session->set_flashdata('msg', 'updated successfully');
      redirect('admin/services/list_services');			
 	}
-		
+	
+  public function fetch_category() {
+      //$this->input->post('maincate');
+      $maincate = $this->input->post('maincate');
+      $cate_id = $this->input->post('cate_id');
+      echo $this->ServicesModel->fetchCategory($maincate,$cate_id);
+      
+  }
+
+  public function fetch_sub_category() {
+      //$this->input->post('maincate');
+      echo $cate = $this->input->post('cate_id');  
+      echo '<br>';
+      echo $sub_cate_id = $this->input->post('sub_cate_id'); 
+      echo $this->ServicesModel->fetchSubCategory($cate,$sub_cate_id);
+      
+  }
+
 	
 }
