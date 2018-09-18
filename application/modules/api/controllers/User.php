@@ -40,7 +40,10 @@ class User extends MY_Controller {
 			$user['active'] = $res[0]->active;
 			$user['role'] = $res[0]->role;
 			$user['user_image'] = $res[0]->user_image;
+			//sheik
+			$user['phone'] = $res[0]->phone;
 			$result['user_details'] = $user;
+
 		}
 		echo json_encode($result);
 	}
