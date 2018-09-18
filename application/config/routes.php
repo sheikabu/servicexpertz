@@ -70,7 +70,7 @@ $route['api/booking/slot_list'] = 'api/booking/getTimeSlotList';
 $route['api/booking/city_list'] = 'api/booking/getCityList';
 
 $route['api/contact'] = 'api/contact/create';
-$route['api/contact'] = 'api/contact/feedback';
+$route['api/feedback'] = 'api/contact/feedback';
 
 
 $route['default_controller'] = 'welcome';

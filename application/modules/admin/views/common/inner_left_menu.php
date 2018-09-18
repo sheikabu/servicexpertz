@@ -27,7 +27,7 @@
             <?php if($this->session->userdata('role')=='admin') { ?>
             <li><a href="<?php echo base_url(); ?>admin/booknow/book_list"><i class="fa fa-shopping-cart mr-3" aria-hidden="true"></i></i>Book Now</a></li>
             <li><a href="<?php echo base_url(); ?>admin/contact/list_contact"><i class="fa fa-phone mr-3" aria-hidden="true"></i></i>Contact us </a></li>
-            <li><a href="<?php echo base_url(); ?>admin/feedback/list_feedback"><i class="fa fa-phone mr-3" aria-hidden="true"></i></i>Feedback </a></li>
+            <li><a href="<?php echo base_url(); ?>admin/feedback/list_feedback"><i class="fa fa-comment mr-3" aria-hidden="true"></i></i>Feedback </a></li>
             <?php } ?>
         </ul><br>   
 
