@@ -19,12 +19,20 @@ class Common_model extends CI_Model {
 			
 			if($id > 0){
 				$query = $this->db->query("
-										SELECT booking.*, time_slot.* , services.* from booking
+										SELECT booking.*, time_slot.*, users.user_id, users.name, users.email, users.phone, users.active,
+										
+										users.user_image,
+										
+										services.* from booking
+										
+										left join users
+										on booking.user_id = users.user_id
+										
 										left join time_slot
 										on booking.slot_id = time_slot.ts_id							
 										left join services
 										on booking.services_id = services.sid								
-										where booking_id = ".$id."
+										where booking.user_id = ".$id."
 										");
 			}else{
 				$query = $this->db->query("

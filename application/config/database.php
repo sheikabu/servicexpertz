@@ -79,6 +79,7 @@ $db['default'] = array(
 	'username' => 'root',
 	'password' => 'inapp',
 	'database' => 'service_expertz',
+	//'database' => 'servicexpertz',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
