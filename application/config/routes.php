@@ -57,6 +57,9 @@ $route['api/user/image_upload'] = 'api/user/imageUpload';
 
 $route['api/forgot_password'] = 'api/user/forgotPassword';
 $route['api/login'] = 'api/user/login';
+
+$route['api/facebook/login'] = 'api/user/facebookLogin';
+
 $route['api/refresh'] = 'api/user/refresh';
 $route['api/logout'] = 'api/user/logout';
 $route['api/category_list'] = 'api/category/getCategoryList';
