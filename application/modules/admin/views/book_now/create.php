@@ -77,14 +77,13 @@
         <label class="control-label col-sm-12" for="status">Status <span class="validationerror">*</span></label>
         <div class="col-sm-12">    
          <select class="form-control" id="status"   name="status">
-             <option value="pending">Pending</option>
-             <option value="in-progress">In Progress</option>
-             <option value="completed">Completed</option>
-             <option value="on-hold">On Hold</option>
-             <option value="rejected">Rejected</option>
+             <option value="pending" selected>Pending</option>
          </select>      
         
         </div>
+        </div>
+        <div class="form-group">
+        <label class="control-label col-sm-12" for="status"><input type="checkbox" name="sendsms"> Send SMS</label>       
         </div>
         <input type="hidden" name="source" class="form-control"  value="web">
         <div class="form-group">   

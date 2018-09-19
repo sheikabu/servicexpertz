@@ -81,7 +81,7 @@ class Booking extends MY_Controller {
 	    		$name = $userdetail->name; 
 	    		$api_key = '45B9E7678ED7AA';
 				$contacts = $phone;
-				$from = 'SMSDMO'; //SEREXPZ
+				$from = 'SEREXP'; //SEREXPZ
 				$sms_text = urlencode('Hello '.$name.', Thanks for booking our service. have a great day');
 				$routeid=13;
 

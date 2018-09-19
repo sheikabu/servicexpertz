@@ -218,7 +218,7 @@ class User extends MY_Controller {
 	public function sendSMS($phone, $name){
          $api_key = '45B9E7678ED7AA';
          $contacts = $phone;
-         $from = 'SMSDMO'; //SEREXP
+         $from = 'SEREXP'; //SEREXP
          $sms_text = urlencode('Hello '.$name.', Thanks for registering with us. have a great day');
          $routeid=13;
 

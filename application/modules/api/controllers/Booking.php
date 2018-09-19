@@ -35,7 +35,7 @@ class Booking extends MY_Controller {
 				$res_service = $this->common_model->getRecords('services', $servicecondition);
 				$data['price'] =  $res_service[0]->price;			
 				//sheik
-				$usercondition = array('user_id' => $data['user_id']);
+				$usercondition = array('user_id' =>  $authentication['user_id']);
 				$res_user = $this->common_model->getRecords('users', $usercondition);
 				$name = $res_user[0]->name;
 				$phone = $res_user[0]->phone;
@@ -86,22 +86,13 @@ class Booking extends MY_Controller {
 	}
 	
 	public function getBookings(){
-
 		$token = trim($this->input->get_request_header('Authorization'));		
 		$authentication = checkAuthentication($token);
 		if(count($authentication) > 0){
-				$booking_id = null;
-				if($this->input->get('id') > 0){
-					//$condition = array('booking_id' => $this->input->get('id'));
-					
-					$booking_id = $this->input->get('id');
-				}	
-				//$booking = $this->common_model->getRecords('booking', $condition, $limit = null, $offset = null);
-				$booking = $this->common_model->getBookingDetails($booking_id);
+				$booking = $this->common_model->getBookingDetails($authentication['user_id']);
 		}else{
 			$booking =  http_response_code(401);
-			
-			
+	
 			//$response = array('code' => 1002, 'status' => 'failed', 'message' => 'Authentication failed!');
 		}
 		
@@ -112,7 +103,7 @@ class Booking extends MY_Controller {
 	public function sendSMS($phone, $name, $otp) {
         $api_key = '45B9E7678ED7AA';
         $contacts = $phone;
-        $from = 'SMSDMO'; //SEREXP
+        $from = 'SEREXP'; //SEREXP
         $sms_text = urlencode('Hello '.$name.', Thanks for booking with us. Our serive provider contact you shortly.OTP:'.$otp.'');
         $routeid=13;
 

@@ -56,5 +56,11 @@ class BookingNowModel extends CI_Model{
     $results = $query->result();
     return $results;
   }
+
+  public function getUser($uid){  
+    $this->db->where('user_id', $uid);
+    $query = $this->db->get('users');
+    return $query->row();
+  }
 	
 }
