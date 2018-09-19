@@ -35,13 +35,13 @@ class Booking extends MY_Controller {
 				$res_service = $this->common_model->getRecords('services', $servicecondition);
 				$data['price'] =  $res_service[0]->price;			
 				//sheik
-				$usercondition = array('user_id' =>  $authentication['user_id']);
+				$usercondition = array('user_id' => $authentication['user_id']);
 				$res_user = $this->common_model->getRecords('users', $usercondition);
 				$name = $res_user[0]->name;
 				$phone = $res_user[0]->phone;
 				$otp = $this->generateOTP();
 				$data['otp'] = $otp;
-				$sms_status = $this->sendSMS($phone, $name, $otp);
+				$sms_status = $this->sendSMS($phone, $name,$otp);
 				//sheik end
 				$res = $this->common_model->insert('booking', $data);
 				if ($res == 1) {
@@ -104,7 +104,7 @@ class Booking extends MY_Controller {
         $api_key = '45B9E7678ED7AA';
         $contacts = $phone;
         $from = 'SEREXP'; //SEREXP
-        $sms_text = urlencode('Hello '.$name.', Thanks for booking with us. Our serive provider contact you shortly.OTP:'.$otp.'');
+        $sms_text = urlencode('Hello '.$name.', Thank you for booking with us. Our serive provider will contact you shortly. '.PHP_EOL.'Please save your Service OTP:'.$otp.'');
         $routeid=13;
 
         //Submit to server

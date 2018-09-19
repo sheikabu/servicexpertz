@@ -48,10 +48,6 @@ class User extends MY_Controller {
 		echo json_encode($result);
 	}
 	
-	public function facebookLogin(){
-		
-	}
-	
 	public function refresh(){
 		$res = trim($this->input->get_request_header('Authorization'));	
 		$refresh_token = explode(" ",$res);
@@ -219,7 +215,7 @@ class User extends MY_Controller {
          $api_key = '45B9E7678ED7AA';
          $contacts = $phone;
          $from = 'SEREXP'; //SEREXP
-         $sms_text = urlencode('Hello '.$name.', Thanks for registering with us. have a great day');
+         $sms_text = urlencode('Hello '.$name.', Welcome to ServiceXperts. Thank you for successfully registering with us, please login and start booking our services to serve you better.');
          $routeid=13;
 
          //Submit to server

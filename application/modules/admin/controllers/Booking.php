@@ -82,7 +82,7 @@ class Booking extends MY_Controller {
 	    		$api_key = '45B9E7678ED7AA';
 				$contacts = $phone;
 				$from = 'SEREXP'; //SEREXPZ
-				$sms_text = urlencode('Hello '.$name.', Thanks for booking our service. have a great day');
+				$sms_text = urlencode('Hello '.$name.', Thank you for booking through our service app. We are happy to serve you. '.PHP_EOL.'As a valued customer, we request you to share your valuable feedback and  help us serve you better. Have a wonderful day.');
 				$routeid=13;
 
 				//Submit to server

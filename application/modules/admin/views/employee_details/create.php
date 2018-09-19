@@ -7,7 +7,8 @@
       	<div class="container multi-form-container">
   			 	<div class="col-sm-12">
 			     <button onclick="goBack()">Go Back</button>
-			    </div>			  
+			    </div>
+			    <br>			  
 			  <form role="form" id="employee_details_form" action="<?php echo base_url() ?>admin/vendors/employee_details_insert" method="post" enctype="multipart/form-data">
 			   
 			    <div class="row setup-content" id="step-3">
@@ -74,8 +75,7 @@
 					    <input type="hidden" name="vid" value="<?php echo $this->uri->segment(4); ?>">
 					    <div class="row">
 				       		<div class="col-sm-12">
-				       			<button class="btn btn-primary prevBtn btn-lg pull-left mb-10" type="button">Previous</button>
-					          	<button class="btn btn-success btn-lg pull-right mb-10" type="submit" name="submit" value="Submit">Submit</button>
+					          	<button class="btn btn-primary btn-lg pull-right mb-10" type="submit" name="submit" value="Submit">Submit</button>
 					        </div>
 					  	</div>
 					</div>

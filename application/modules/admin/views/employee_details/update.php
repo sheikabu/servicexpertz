@@ -8,6 +8,8 @@
 			 <div class="col-sm-12">
 			     <button onclick="goBack()">Go Back</button>
 			 </div>
+			 <br>
+			 
 			  <form role="form" id="employee_details_form" action="<?php echo base_url() ?>admin/vendors/employee_updated" method="post" enctype="multipart/form-data">			    
 			    
 			    <div class="row setup-content" id="step-3">
@@ -85,7 +87,7 @@
 						
 					    <div class="row">
 				       		<div class="col-sm-12">				       			
-					          	<button class="btn btn-success btn-lg pull-right mb-10" type="submit" name="submit" value="Submit">Submit</button>
+					          	<button class="btn btn-primary btn-lg pull-right mb-10" type="submit" name="submit" value="Submit">Submit</button>
 					        </div>
 					  	</div>
 					</div>

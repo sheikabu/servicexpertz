@@ -1,8 +1,14 @@
 <div class="container-fluid col-md-9 col-sm-9">
 
   <div class="row content">
-    <div class="col-md-12 col-sm-12 mt-4">      
+    <div class="col-md-12 col-sm-12 mt-4">  
+
       <div class="row">
+      <div class="col-sm-12">
+           <button onclick="goBack()">Go Back</button> <br>
+       <br>
+       </div>
+      
           <div class="col-md-6 col-sm-12">
               <form class="form-horizontal"  enctype="multipart/form-data">
                   <div class="form-group">

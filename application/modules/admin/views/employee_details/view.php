@@ -8,7 +8,9 @@
 			 <div class="col-sm-12">
 			     <button onclick="goBack()">Go Back</button>
 
-			    </div>			  	   
+			    </div>		
+			    <br>
+			    <br>	  	   
 			    <div class="row setup-content" id="step-3">
 			      <div class="col-sm-12 col-md-offset-3" >
 			        <div class="col-md-12">

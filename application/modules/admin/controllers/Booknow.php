@@ -43,7 +43,12 @@ class Booknow extends MY_Controller {
      }
 
 	public function create() {
-
+		  $sendsms = $this->input->post('sendsms');
+		  if($sendsms=='') {
+		  	$sms = 'off';
+		  } else {
+		  	$sms = 'on';
+		  }
 		  $booking_array = array(	            					
 				'user_id' => $this->input->post('selected_user'),
 				'services_id' => $this->input->post('selected_service'),
@@ -53,9 +58,9 @@ class Booknow extends MY_Controller {
 				'pincode'=> $this->input->post('pincode'),
 				'status'=> $this->input->post('status'),
 				'source'=> $this->input->post('source'),
-				'sendsms'=> $this->input->post('sendsms'),
+				'sendsms'=> $sms,
 	        );					 
-		 if($this->input->post('sendsms')=='on'){
+		 if($sms=='on'){
 		 		$otp = $this->generateOTP();	
 		 		$booking_array['otp'] = $otp;
 	    		$user_id = $this->input->post('selected_user');
@@ -65,7 +70,7 @@ class Booknow extends MY_Controller {
 	    		$api_key = '45B9E7678ED7AA';
 				$contacts = $phone;
 				$from = 'SEREXP'; //SEREXPZ
-				$sms_text = urlencode('Hello '.$name.', Thanks for booking with us. Our serive provider contact you shortly. Service OTP:'.$otp.'');
+				$sms_text = urlencode('Hello '.$name.', Thank you for booking with us. Our serive provider will contact you shortly. '.PHP_EOL.'Please save your Service OTP:'.$otp.'');
 				$routeid=13;
 
 				//Submit to server
