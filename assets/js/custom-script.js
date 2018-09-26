@@ -237,6 +237,7 @@ $(document).ready( function () {
 
 
  $("#booking_form").validate( {
+  ignore: ':hidden:not([class~=selectized]),:hidden > .selectized, .selectize-control .selectize-input input',
         rules: {
           total_cost:"required",
           gst:"required"
