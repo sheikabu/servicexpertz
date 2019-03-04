@@ -23,8 +23,9 @@
 			          	<th>User Name</th>	
 			          	<th>Service</th>	
 			          	<th>Selected Date</th>
-			          	<th>Selected Time</th>	
-						<th>comments</th>	
+			          	<th>Selected Time</th>
+			          	<th>Pin Code</th>
+						<!--<th>comments</th>-->
 						<th>price</th>	
 			          	<th>Status</th>	
 			          	<th>Update</th>	
@@ -44,7 +45,8 @@
 			        	<td><?php echo $booking->services; ?></td>
 			        	<td><?php echo $booking->selected_date; ?></td>
 			        	<td><?php echo $booking->ts_name; ?></td>
-						<td><?php echo $booking->comments; ?></td>
+			        	<td><?php echo $booking->pincode; ?></td>
+						<!--<td><?php echo $booking->comments; ?></td>-->
 						<td><?php echo $booking->price; ?></td>
 			        	<td><?php echo $booking->status; ?></td>
 			        	<?php if($booking->status=='completed') { ?>
