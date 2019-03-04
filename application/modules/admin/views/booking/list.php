@@ -52,7 +52,7 @@
 			        	<?php if($booking->status=='completed') { ?>
 			        	<td>COMPLETED</td>
 			        	<?php } else { ?>
-			        	<td><a href="<?php echo base_url(); ?>admin/booking/update/<?php echo $booking->booking_id; ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+			        	<td><a href="<?php echo base_url(); ?>admin/booking/update/<?php echo base64_encode($booking->booking_id); ?>"><i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
 			        	<?php } ?>
 
 			        	<?php if($booking->status=='completed') { ?>

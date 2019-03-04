@@ -49,7 +49,7 @@ class Booking extends MY_Controller {
 
  	public function update()
      {	
-     	 $booking_id = $this->uri->segment(4);			 
+         $booking_id = base64_decode($this->uri->segment(4)); 
          $booking = $this->BookingModel->getUpdateDetails($booking_id);          
          $data['service'] = $this->BookingModel->getSelectedService($booking[0]->services_id);   
          $data['time_slot'] = $this->BookingModel->getSelectedTime($booking[0]->slot_id);   
